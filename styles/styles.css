@@ -1,0 +1,1531 @@
+.inter-regular {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .inter-bold {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .inter-regular-italic {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .inter-bold-italic {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+body, main{
+    margin: 0 0;
+    font-family: 'Inter', sans-serif;
+}
+
+a:hover{
+    color: #9186c5;
+}
+
+#wave-graphic{
+    width: 100%;
+}
+
+button, .project-title, .project-nav, .project-title-inactive, .project-nav-active, .project-nav-inactive, .in-depth, .in-depth-active, .in-depth-inactive, .on-the-surface, .on-the-surface-active, .on-the-surface-inactive{
+    letter-spacing: -0.789px;
+}
+
+.project-content-image-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-content-image{
+    width: 80%;
+    height: auto;
+}
+
+.project-content-image-subtitle{
+    font-weight: 900;
+
+}
+
+@media (min-width: 0px) and (max-width: 420px){
+    #wave-graphic{
+        width: 100%;
+        
+    }
+    .links{
+        position: absolute;
+        width: 100%;
+        height: 8vw;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 515%;
+        flex-wrap: wrap;
+    }
+    
+    
+    button{
+        border-width: 0;
+        font-weight: 900;
+        background-color: transparent;
+        font-size: 0.8rem;
+        margin: 0 0;
+        padding: 0.2vh 1.4vw 0.2vh 0;
+        letter-spacing: -0.789px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: #58499b;
+        font-weight: 700;
+    }
+    
+    .button-enabled{
+        color: white;
+    }
+    
+    .button-disabled{
+        color: #AFACFF;    
+    }
+    
+    .project{
+        box-sizing: border-box;
+        padding: 2.5%;
+    }
+    
+    .project-title, .project-title-inactive{
+        font-weight: 700;
+        font-size:  2rem;
+        margin: 2vh 0 0 0;
+    }
+    
+    .project-title-inactive{
+        color: #8e8e8e;
+    }
+    
+    .project-header{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .project-title-div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .vision-discipline-tag, .programming-discipline-tag, .electrical-discipline-tag, .mechanical-discipline-tag, .cad-discipline-tag{
+        font-weight: 900;
+        box-sizing: border-box;
+        background-color: #55ACFE;
+        height: fit-content;
+        padding: 1%;
+        border-radius: 5px;
+        color: white;
+        margin: 2vh 0 0 2vw;
+    }
+    .programming-discipline-tag{
+        
+    }
+    .electrical-discipline-tag{
+        
+    }
+    .mechanical-discipline-tag{
+        
+    }
+    .cad-discipline-tag{
+        
+    }
+    
+    .project-navbar{
+        display: flex;
+        flex-wrap: wrap;
+    
+    }
+    
+    .project-nav{
+        font-size: 0.9rem;
+    }
+    
+    
+    .project-nav-active{
+        font-size: 1rem;
+        color: #1100FF;
+    }
+    
+    .project-nav-inactive{
+        font-size: 0.9rem;
+        color: #bebebe;
+    }
+    
+    .technical-overview-wrapper{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: baseline;
+        
+    }
+
+    .technical-overview-subwrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .technical-overview-subwrapper>p{
+        margin: 0 0;
+        padding: 0 0;
+    }
+    
+    .on-the-surface, .in-depth, .technical-overview-subwrapper>p, .on-the-surface-inactive, .in-depth-inactive, .inactive, .on-the-surface-active, .in-depth-active{
+        font-weight: 900;
+        font-size: 0.7rem;
+        color: 818181;
+        padding: 0.1vw 0.1vw;
+    }
+    
+    .on-the-surface-active{
+        color: #55ACFE;
+    }
+    
+    .on-the-surface-inactive, .in-depth-inactive, .inactive{
+        color: #c9c9c9;
+    }
+    
+    .in-depth-active{
+        color: #370084;
+    }
+    
+    .project-content-item{
+        margin: 3vh 0;
+    }
+    
+    .project-content-item-title{
+        margin: 1vh 0;
+    }
+    
+    .project-content-item-paragraph{
+        margin: 2vh 0;
+    }
+    
+    .project-content-item-list{
+        margin: 1vh 0;
+    }
+    
+    .hidden-project{
+        visibility: hidden;
+        position: absolute;
+    }
+    
+    .project-content{  
+        transition: opacity 1s ease, height 0.5s ease-in-out;
+        overflow: hidden;
+        overflow-y: auto;
+        opacity: 1;
+    }    
+}
+
+@media (min-width: 420px) and (max-width: 553px){
+    #wave-graphic{
+        width: 100%;
+        
+    }
+    .links{
+        position: absolute;
+        width: 100%;
+        height: 8vw;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 515%;
+        flex-wrap: wrap;
+    }
+    
+    
+    button{
+        border-width: 0;
+        font-weight: 900;
+        background-color: transparent;
+        font-size: 0.8rem;
+        margin: 0 0;
+        padding: 0.2vh 1.4vw 0.2vh 0;
+        letter-spacing: -0.789px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: #58499b;
+        font-weight: 700;
+    }
+    
+    .button-enabled{
+        color: white;
+    }
+    
+    .button-disabled{
+        color: #AFACFF;    
+    }
+    
+    .project{
+        box-sizing: border-box;
+        padding: 2.5%;
+    }
+    
+    .project-title, .project-title-inactive{
+        font-weight: 700;
+        font-size:  2rem;
+        margin: 2vh 0 0 0;
+    }
+    
+    .project-title-inactive{
+        color: #8e8e8e;
+    }
+    
+    .project-header{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .project-title-div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .vision-discipline-tag, .programming-discipline-tag, .electrical-discipline-tag, .mechanical-discipline-tag, .cad-discipline-tag{
+        font-weight: 900;
+        box-sizing: border-box;
+        background-color: #55ACFE;
+        height: fit-content;
+        padding: 1%;
+        border-radius: 5px;
+        color: white;
+        margin: 2vh 0 0 2vw;
+    }
+    .programming-discipline-tag{
+        
+    }
+    .electrical-discipline-tag{
+        
+    }
+    .mechanical-discipline-tag{
+        
+    }
+    .cad-discipline-tag{
+        
+    }
+    
+    .project-navbar{
+        display: flex;
+        flex-wrap: wrap;
+    
+    }
+    
+    .project-nav{
+        font-size: 0.9rem;
+    }
+    
+    
+    .project-nav-active{
+        font-size: 1rem;
+        color: #1100FF;
+    }
+    
+    .project-nav-inactive{
+        font-size: 0.9rem;
+        color: #bebebe;
+    }
+    
+    .technical-overview-wrapper{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: baseline;
+        
+    }
+
+    .technical-overview-subwrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .technical-overview-subwrapper>p{
+        margin: 0 0;
+        padding: 0 0;
+    }
+    
+    .on-the-surface, .in-depth, .technical-overview-subwrapper>p, .on-the-surface-inactive, .in-depth-inactive, .inactive, .on-the-surface-active, .in-depth-active{
+        font-weight: 900;
+        font-size: 0.7rem;
+        color: 818181;
+        padding: 0.1vw 0.1vw;
+    }
+    
+    .on-the-surface-active{
+        color: #55ACFE;
+    }
+    
+    .on-the-surface-inactive, .in-depth-inactive, .inactive{
+        color: #c9c9c9;
+    }
+    
+    .in-depth-active{
+        color: #370084;
+    }
+    
+    .project-content-item{
+        margin: 3vh 0;
+    }
+    
+    .project-content-item-title{
+        margin: 1vh 0;
+    }
+    
+    .project-content-item-paragraph{
+        margin: 2vh 0;
+    }
+    
+    .project-content-item-list{
+        margin: 1vh 0;
+    }
+    
+    .hidden-project{
+        visibility: hidden;
+        position: absolute;
+    }
+    
+    .project-content{  
+        transition: opacity 1s ease, height 0.5s ease-in-out;
+        overflow: hidden;
+        overflow-y: auto;
+        opacity: 1;
+    }    
+}
+
+@media (min-width: 553px) and (max-width:769px){
+    #wave-graphic{
+        width: 100%;
+        
+    }
+    .links{
+        position: absolute;
+        width: 100%;
+        height: 8vw;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 515%;
+        flex-wrap: wrap;
+    }
+    
+    
+    button{
+        border-width: 0;
+        font-weight: 900;
+        background-color: transparent;
+        font-size: 0.8rem;
+        margin: 0 0;
+        padding: 0.2vh 1.4vw 0.2vh 0;
+        letter-spacing: -0.789px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: #58499b;
+        font-weight: 700;
+    }
+    
+    .button-enabled{
+        color: white;
+    }
+    
+    .button-disabled{
+        color: #AFACFF;    
+    }
+    
+    .project{
+        box-sizing: border-box;
+        padding: 2.5%;
+    }
+    
+    .project-title, .project-title-inactive{
+        font-weight: 700;
+        font-size: 6vw;
+        margin: 2vh 0 0 0;
+    }
+    
+    .project-title-inactive{
+        color: #8e8e8e;
+    }
+    
+    .project-header{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .project-title-div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .vision-discipline-tag, .programming-discipline-tag, .electrical-discipline-tag, .mechanical-discipline-tag, .cad-discipline-tag{
+        font-weight: 900;
+        box-sizing: border-box;
+        background-color: #55ACFE;
+        height: fit-content;
+        padding: 1%;
+        border-radius: 6px;
+        color: white;
+        margin: 2.1vh 0 0 2vw;
+        font-size: 1.2rem;
+    }
+    .programming-discipline-tag{
+        
+    }
+    .electrical-discipline-tag{
+        
+    }
+    .mechanical-discipline-tag{
+        
+    }
+    .cad-discipline-tag{
+        
+    }
+    
+    .project-navbar{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+
+    .project-nav-active, .project-nav-inactive, .project-nav{
+        font-size: 0.9rem;
+    }
+    
+    .project-nav-active{
+        color: #1100FF;
+        font-size: 1rem;
+    }
+    
+    .project-nav-inactive{
+        color: #bebebe;
+    }
+    
+    .technical-overview-wrapper{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+
+    .technical-overview-subwrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .technical-overview-subwrapper>p{
+        margin: 0 0;
+        padding: 0 0;
+    }
+    
+    .on-the-surface, .in-depth, .technical-overview-subwrapper>p, .on-the-surface-inactive, .in-depth-inactive, .inactive, .on-the-surface-active, .in-depth-active{
+        font-weight: 900;
+        font-size: 0.7rem;
+        color: 818181;
+        padding: 0.1vw 0.1vw;
+    }
+    
+    .on-the-surface-active{
+        color: #55ACFE;
+    }
+    
+    .on-the-surface-inactive, .in-depth-inactive, .inactive{
+        color: #c9c9c9;
+    }
+    
+    .in-depth-active{
+        color: #370084;
+    }
+    
+    .project-content-item{
+        margin: 3vh 0;
+    }
+    
+    .project-content-item-title{
+        margin: 1vh 0;
+        font-size: 1.5rem;
+    }
+    
+    .project-content-item-paragraph{
+        margin: 2vh 0;
+    }
+    
+    .project-content-item-list{
+        margin: 1vh 0;
+    }
+    
+    .hidden-project{
+        visibility: hidden;
+        position: absolute;
+    }
+    
+    .project-content{  
+        transition: opacity 1s ease, height 0.5s ease-in-out;
+        overflow: hidden;
+        overflow-y: auto;
+        opacity: 1;
+    }    
+}
+
+@media (min-width: 769px) and (max-width:1023px){
+    #wave-graphic{
+        width: 100%;
+        
+    }
+    .links{
+        position: absolute;
+        width: 100%;
+        height: 8vw;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 515%;
+        flex-wrap: wrap;
+    }
+    
+    
+    button{
+        border-width: 0;
+        font-weight: 900;
+        background-color: transparent;
+        font-size: 0.8rem;
+        margin: 0 0;
+        padding: 0.2vh 1.4vw 0.2vh 0;
+        letter-spacing: -0.789px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: #58499b;
+        font-weight: 700;
+    }
+    
+    .button-enabled{
+        color: white;
+    }
+    
+    .button-disabled{
+        color: #AFACFF;    
+    }
+    
+    .project{
+        box-sizing: border-box;
+        padding: 2.5%;
+    }
+    
+    .project-title, .project-title-inactive{
+        font-weight: 700;
+        font-size: 6vw;
+        margin: 2vh 0 0 0;
+    }
+    
+    .project-title-inactive{
+        color: #8e8e8e;
+    }
+    
+    .project-header{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .project-title-div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .vision-discipline-tag, .programming-discipline-tag, .electrical-discipline-tag, .mechanical-discipline-tag, .cad-discipline-tag{
+        font-weight: 900;
+        box-sizing: border-box;
+        background-color: #55ACFE;
+        height: fit-content;
+        padding: 1%;
+        border-radius: 7px;
+        color: white;
+        margin: 2.1vh 0 0 2vw;
+        font-size: 3vw;
+    }
+    .programming-discipline-tag{
+        
+    }
+    .electrical-discipline-tag{
+        
+    }
+    .mechanical-discipline-tag{
+        
+    }
+    .cad-discipline-tag{
+        
+    }
+    
+    .project-navbar{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+    
+    .project-nav, .project-nav-active, .project-nav-inactive{
+        font-size: 2vw;
+    }
+    
+    
+    .project-nav-active{
+        font-size: 2.2vw;
+        color: #1100FF;
+    }
+    
+    .project-nav-inactive{
+        color: #bebebe;
+    }
+    
+    .technical-overview-wrapper{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+
+    .technical-overview-subwrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .technical-overview-subwrapper>p{
+        margin: 0 0;
+        padding: 0 0;
+    }
+    
+    .on-the-surface, .in-depth, .technical-overview-subwrapper>p, .on-the-surface-inactive, .in-depth-inactive, .inactive, .on-the-surface-active, .in-depth-active{
+        font-weight: 900;
+        font-size: 1.5vw;
+        color: 818181;
+        padding: 0.1vw 0.1vw;
+    }
+    
+    .on-the-surface-active{
+        color: #55ACFE;
+    }
+    
+    .on-the-surface-inactive, .in-depth-inactive, .inactive{
+        color: #c9c9c9;
+    }
+    
+    .in-depth-active{
+        color: #370084;
+    }
+    
+    .project-content-item{
+        margin: 3vh 0;
+    }
+    
+    .project-content-item-title{
+        margin: 1vh 0;
+        font-size: 2.5vw;
+    }
+    
+    .project-content-item-paragraph, .project-content-item-list, .project-content-image-subtitle{
+        font-size: 2.2vw;
+    }
+    
+    .project-content-item-paragraph{
+        margin: 2vh 0;
+    }
+    
+    .project-content-item-list{
+        margin: 1vh 0;
+    }
+    
+    .project-content-image-subtitle{
+        font-weight: 900;
+        font-style: italic;
+        color: black;
+    }
+
+    .hidden-project{
+        visibility: hidden;
+        position: absolute;
+    }
+    
+    .project-content{  
+        transition: opacity 1s ease, height 0.5s ease-in-out;
+        overflow: hidden;
+        overflow-y: auto;
+        opacity: 1;
+    }    
+}
+
+@media (min-width: 1023px) and (max-width:1600px){
+    #wave-graphic{
+        width: 100%;
+        
+    }
+    .links{
+        position: absolute;
+        width: 100%;
+        height: 8vw;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 515%;
+        flex-wrap: wrap;
+    }
+    
+    
+    button{
+        border-width: 0;
+        font-weight: 900;
+        background-color: transparent;
+        font-size: 0.8rem;
+        margin: 0 0;
+        padding: 0.2vh 1.4vw 0.2vh 0;
+        letter-spacing: -0.789px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: #58499b;
+        font-weight: 700;
+    }
+    
+    .button-enabled{
+        color: white;
+    }
+    
+    .button-disabled{
+        color: #AFACFF;    
+    }
+    
+    .project{
+        box-sizing: border-box;
+        padding: 2.5%;
+    }
+    
+    .project-title, .project-title-inactive{
+        font-weight: 700;
+        font-size: 6vw;
+        margin: 2vh 0 0 0;
+    }
+    
+    .project-title-inactive{
+        color: #8e8e8e;
+    }
+    
+    .project-header{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .project-title-div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .vision-discipline-tag, .programming-discipline-tag, .electrical-discipline-tag, .mechanical-discipline-tag, .cad-discipline-tag{
+        font-weight: 900;
+        box-sizing: border-box;
+        background-color: #55ACFE;
+        height: fit-content;
+        padding: 1%;
+        border-radius: 7px;
+        color: white;
+        margin: 2.1vh 0 0 2vw;
+        font-size: 3vw;
+    }
+    .programming-discipline-tag{
+        
+    }
+    .electrical-discipline-tag{
+        
+    }
+    .mechanical-discipline-tag{
+        
+    }
+    .cad-discipline-tag{
+        
+    }
+    
+    .project-navbar{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+    
+    .project-nav, .project-nav-active, .project-nav-inactive{
+        font-size: 2vw;
+    }
+    
+    .project-nav-active{
+        font-size: 2.2vw;
+        color: #1100FF;
+    }
+    
+    .project-nav-inactive{
+        color: #bebebe;
+    }
+    
+    .technical-overview-wrapper{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+
+    .technical-overview-subwrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .technical-overview-subwrapper>p{
+        margin: 0 0;
+        padding: 0 0;
+    }
+    
+    .on-the-surface, .in-depth, .technical-overview-subwrapper>p, .on-the-surface-inactive, .in-depth-inactive, .inactive, .on-the-surface-active, .in-depth-active{
+        font-weight: 900;
+        font-size: 1.5vw;
+        color: 818181;
+        padding: 0.1vw 0.1vw;
+    }
+    
+    .on-the-surface-active{
+        color: #55ACFE;
+    }
+    
+    .on-the-surface-inactive, .in-depth-inactive, .inactive{
+        color: #c9c9c9;
+    }
+    
+    .in-depth-active{
+        color: #370084;
+    }
+    
+    .project-content-item{
+        margin: 3vh 0;
+    }
+    
+    .project-content-item-title{
+        margin: 1vh 0;
+        font-size: 2.5vw;
+    }
+    
+    .project-content-item-paragraph, .project-content-item-list, .project-content-image-subtitle{
+        font-size: 2.2vw;
+    }
+    
+    .project-content-item-paragraph{
+        margin: 2vh 0;
+    }
+    
+    .project-content-item-list{
+        margin: 1vh 0;
+    }
+    
+    .project-content-image-subtitle{
+        font-weight: 900;
+        font-style: italic;
+        color: rgb(97, 97, 97);
+    }
+
+    .hidden-project{
+        visibility: hidden;
+        position: absolute;
+    }
+    
+    .project-content{  
+        transition: opacity 1s ease, height 0.5s ease-in-out;
+        overflow: hidden;
+        overflow-y: auto;
+        opacity: 1;
+    }    
+}
+@media (min-width: 1600px) and (max-width:2000px){
+    #wave-graphic{
+        width: 100%;
+        
+    }
+    .links{
+        position: absolute;
+        width: 100%;
+        height: 8vw;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 515%;
+        flex-wrap: wrap;
+    }
+    
+    
+    button{
+        border-width: 0;
+        font-weight: 900;
+        background-color: transparent;
+        font-size: 0.8rem;
+        margin: 0 0;
+        padding: 0.2vh 1.4vw 0.2vh 0;
+        letter-spacing: -0.789px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: #58499b;
+        font-weight: 700;
+    }
+    
+    .button-enabled{
+        color: white;
+    }
+    
+    .button-disabled{
+        color: #AFACFF;    
+    }
+    
+    .project{
+        box-sizing: border-box;
+        padding: 2.5%;
+    }
+    
+    .project-title, .project-title-inactive{
+        font-weight: 700;
+        font-size: 5vw;
+        margin: 2vh 0 0 0;
+    }
+    
+    .project-title-inactive{
+        color: #8e8e8e;
+    }
+    
+    .project-header{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .project-title-div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .vision-discipline-tag, .programming-discipline-tag, .electrical-discipline-tag, .mechanical-discipline-tag, .cad-discipline-tag{
+        font-weight: 900;
+        box-sizing: border-box;
+        background-color: #55ACFE;
+        height: fit-content;
+        padding: 1%;
+        border-radius: 7px;
+        color: white;
+        margin: 2.1vh 0 0 2vw;
+        font-size: 2.1vw;
+    }
+    .programming-discipline-tag{
+        
+    }
+    .electrical-discipline-tag{
+        
+    }
+    .mechanical-discipline-tag{
+        
+    }
+    .cad-discipline-tag{
+        
+    }
+    
+    .project-navbar{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+    
+    .project-nav, .project-nav-active, .project-nav-inactive{
+        font-size: 1.5vw;
+    }
+    
+    .project-nav-active{
+        font-size: 2.2vw;
+        color: #1100FF;
+    }
+    
+    .project-nav-inactive{
+        color: #bebebe;
+    }
+    
+    .technical-overview-wrapper{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+
+    .technical-overview-subwrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .technical-overview-subwrapper>p{
+        margin: 0 0;
+        padding: 0 0;
+    }
+    
+    .on-the-surface, .in-depth, .technical-overview-subwrapper>p, .on-the-surface-inactive, .in-depth-inactive, .inactive, .on-the-surface-active, .in-depth-active{
+        font-weight: 900;
+        font-size: 1.1vw;
+        color: 818181;
+        padding: 0.1vw 0.1vw;
+    }
+    
+    .on-the-surface-active{
+        color: #55ACFE;
+    }
+    
+    .on-the-surface-inactive, .in-depth-inactive, .inactive{
+        color: #c9c9c9;
+    }
+    
+    .in-depth-active{
+        color: #370084;
+    }
+    
+    .project-content-item{
+        margin: 3vh 0;
+    }
+    
+    .project-content-item-title{
+        margin: 1vh 0;
+        font-size: 2.5vw;
+    }
+    
+    .project-content-item-paragraph, .project-content-item-list, .project-content-image-subtitle{
+        font-size: 1.2vw;
+    }
+    
+    .project-content-item-paragraph{
+        margin: 2vh 0;
+    }
+    
+    .project-content-item-list{
+        margin: 1vh 0;
+    }
+    
+    .project-content-image-subtitle{
+        font-weight: 900;
+        font-style: italic;
+        color: rgb(97, 97, 97);
+    }
+
+    .hidden-project{
+        visibility: hidden;
+        position: absolute;
+    }
+    
+    .project-content{  
+        transition: opacity 1s ease, height 0.5s ease-in-out;
+        overflow: hidden;
+        overflow-y: auto;
+        opacity: 1;
+    }    
+}
+
+@media (min-width: 2000px) and (max-width:2500px){
+    #wave-graphic{
+        width: 100%;
+        
+    }
+    .links{
+        position: absolute;
+        width: 100%;
+        height: 8vw;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 515%;
+        flex-wrap: wrap;
+    }
+    
+    
+    button{
+        border-width: 0;
+        font-weight: 900;
+        background-color: transparent;
+        font-size: 0.8rem;
+        margin: 0 0;
+        padding: 0.2vh 1.4vw 0.2vh 0;
+        letter-spacing: -0.789px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: #3a2f6e;
+        font-weight: 700;
+    }
+    .button-enabled{
+        color: white;
+    }
+    
+    .button-disabled{
+        color: #AFACFF;    
+    }
+    
+    .project{
+        box-sizing: border-box;
+        padding: 2.5%;
+    }
+    
+    .project-title, .project-title-inactive{
+        font-weight: 700;
+        font-size: 6rem;
+        margin: 2vh 0 0 0;
+    }
+    
+    .project-title-inactive{
+        color: #8e8e8e;
+    }
+    
+    .project-header{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .project-title-div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .vision-discipline-tag, .programming-discipline-tag, .electrical-discipline-tag, .mechanical-discipline-tag, .cad-discipline-tag{
+        font-weight: 900;
+        box-sizing: border-box;
+        background-color: #55ACFE;
+        height: fit-content;
+        padding: 1%;
+        border-radius: 15px;
+        color: white;
+        margin: 2.1vh 0 0 2vw;
+        font-size: 1.6vw;
+    }
+    .programming-discipline-tag{
+        
+    }
+    .electrical-discipline-tag{
+        
+    }
+    .mechanical-discipline-tag{
+        
+    }
+    .cad-discipline-tag{
+        
+    }
+    
+    .project-navbar{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+    
+    .project-nav, .project-nav-active, .project-nav-inactive{
+        font-size: 1.5vw;
+    }
+    
+    .project-nav-active{
+        font-size: 1.6vw;
+        color: #1100FF;
+    }
+    
+    .project-nav-inactive{
+        color: #bebebe;
+    }
+    
+    .technical-overview-wrapper{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+
+    .technical-overview-subwrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .technical-overview-subwrapper>p{
+        margin: 0 0;
+        padding: 0 0;
+    }
+    
+    .on-the-surface, .in-depth, .technical-overview-subwrapper>p, .on-the-surface-inactive, .in-depth-inactive, .inactive, .on-the-surface-active, .in-depth-active{
+        font-weight: 900;
+        font-size: 1vw;
+        color: 818181;
+        padding: 0.1vw 0.1vw;
+    }
+    
+    .on-the-surface-active{
+        color: #55ACFE;
+    }
+    
+    .on-the-surface-inactive, .in-depth-inactive, .inactive{
+        color: #c9c9c9;
+    }
+    
+    .in-depth-active{
+        color: #370084;
+    }
+    
+    .project-content-item{
+        margin: 3vh 0;
+    }
+    
+    .project-content-item-title{
+        margin: 1vh 0;
+        font-size: 2.5vw;
+    }
+    
+    .project-content-item-paragraph, .project-content-item-list, .project-content-image-subtitle{
+        font-size: 1.3vw;
+    }
+    
+    .project-content-item-paragraph{
+        margin: 2vh 0;
+    }
+    
+    .project-content-item-list{
+        margin: 1vh 0;
+    }
+    
+    .project-content-image-subtitle{
+        font-weight: 900;
+        font-style: italic;
+        color: rgb(97, 97, 97);
+    }
+
+    .hidden-project{
+        visibility: hidden;
+        position: absolute;
+    }
+    
+    .project-content{  
+        transition: opacity 1s ease, height 0.5s ease-in-out;
+        overflow: hidden;
+        overflow-y: auto;
+        opacity: 1;
+    }    
+}
+@media (min-width: 2500px){
+    #wave-graphic{
+        width: 100%;
+        
+    }
+    .links{
+        position: absolute;
+        width: 100%;
+        height: 8vw;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 515%;
+        flex-wrap: wrap;
+    }
+    
+    
+    button{
+        border-width: 0;
+        font-weight: 900;
+        background-color: transparent;
+        font-size: 0.8rem;
+        margin: 0 0;
+        padding: 0.2vh 1.4vw 0.2vh 0;
+        letter-spacing: -0.789px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: #58499b;
+        font-weight: 700;
+    }
+    
+    .button-enabled{
+        color: white;
+    }
+    
+    .button-disabled{
+        color: #AFACFF;    
+    }
+    
+    .project{
+        box-sizing: border-box;
+        padding: 2.5%;
+    }
+    
+    .project-title, .project-title-inactive{
+        font-weight: 700;
+        font-size: 7rem;
+        margin: 2vh 0 0 0;
+    }
+    
+    .project-title-inactive{
+        color: #8e8e8e;
+    }
+    
+    .project-header{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .project-title-div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .vision-discipline-tag, .programming-discipline-tag, .electrical-discipline-tag, .mechanical-discipline-tag, .cad-discipline-tag{
+        font-weight: 900;
+        box-sizing: border-box;
+        background-color: #55ACFE;
+        height: fit-content;
+        padding: 1%;
+        border-radius: 15px;
+        color: white;
+        margin: 2.1vh 0 0 2vw;
+        font-size: 1.6vw;
+    }
+    .programming-discipline-tag{
+        
+    }
+    .electrical-discipline-tag{
+        
+    }
+    .mechanical-discipline-tag{
+        
+    }
+    .cad-discipline-tag{
+        
+    }
+    
+    .project-navbar{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+    
+    .project-nav, .project-nav-active, .project-nav-inactive{
+        font-size: 1.5vw;
+    }
+    
+    .project-nav-active{
+        font-size: 1.6vw;
+        color: #1100FF;
+    }
+    
+    .project-nav-inactive{
+        color: #bebebe;
+    }
+    
+    .technical-overview-wrapper{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+
+    .technical-overview-subwrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .technical-overview-subwrapper>p{
+        margin: 0 0;
+        padding: 0 0;
+    }
+    
+    .on-the-surface, .in-depth, .technical-overview-subwrapper>p, .on-the-surface-inactive, .in-depth-inactive, .inactive, .on-the-surface-active, .in-depth-active{
+        font-weight: 900;
+        font-size: 1.8rem;
+        color: 818181;
+        padding: 0.1vw 0.1vw;
+    }
+    
+    .on-the-surface-active{
+        color: #55ACFE;
+    }
+    
+    .on-the-surface-inactive, .in-depth-inactive, .inactive{
+        color: #c9c9c9;
+    }
+    
+    .in-depth-active{
+        color: #370084;
+    }
+    
+    .project-content-item{
+        margin: 3vh 0;
+    }
+    
+    .project-content-item-title{
+        margin: 1vh 0;
+        font-size: 2vw;
+    }
+    
+    .project-content-item-paragraph, .project-content-item-list, .project-content-image-subtitle{
+        font-size: 1.1vw;
+    }
+    
+    .project-content-item-paragraph{
+        margin: 2vh 0;
+    }
+    
+    .project-content-item-list{
+        margin: 1vh 0;
+    }
+    
+    .project-content-image-subtitle{
+        font-weight: 900;
+        font-style: italic;
+        color: black;
+    }
+
+    .hidden-project{
+        visibility: hidden;
+        position: absolute;
+    }
+    
+    .project-content{  
+        transition: opacity 1s ease, height 0.5s ease-in-out;
+        overflow: hidden;
+        overflow-y: auto;
+        opacity: 1;
+    }    
+}
