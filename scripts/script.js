@@ -257,7 +257,7 @@ const projects = [
           Iteration I using waypoints and A*
         </p>  
         <div class="project-content-image-div">
-          <img class="project-content-image" src="../styles/static/waypoints.png"/>
+          <img class="project-content-image" src="./styles/static/waypoints.png"/>
         </div>
         <p class="project-content-item-paragraph">
           <strong>Path Planning Iteration II</strong>
@@ -276,7 +276,7 @@ const projects = [
           Iteration II using control points and a Bézier Curve
         </p>  
          <div class="project-content-image-div">
-          <img class="project-content-image" src="../styles/static/bezier1.png"/>
+          <img class="project-content-image" src="./styles/static/bezier1.png"/>
         </div>
         <p class="project-content-item-paragraph">
           <strong>Path-Planning Iteration III</strong>
@@ -291,7 +291,7 @@ const projects = [
           Iteration III using  a Bézier Curve Spline
         </p>  
         <div class="project-content-image-div">
-          <img class="project-content-image" src="../styles/static/bezierSpline.png"/>
+          <img class="project-content-image" src="./styles/static/bezierSpline.png"/>
         </div>
         <p class="project-content-item-paragraph">
           <strong>Path-Planning Iteration IV</strong>
@@ -303,7 +303,7 @@ const projects = [
           Iteration IV using a time map instead of A*
         </p>  
          <div class="project-content-image-div">
-          <img class="project-content-image" src="../styles/static/timemap_transparent.png"/>
+          <img class="project-content-image" src="./styles/static/timemap_transparent.png"/>
         </div>
         `,
       }
@@ -376,7 +376,7 @@ const projects = [
             </p>
             <div class="project-content-image-div">
               <img
-                src="../styles/static/auto-labeler-time-saved.png"
+                src="./styles/static/auto-labeler-time-saved.png"
                 alt=""
                 class="project-content-image"
               />
@@ -445,7 +445,7 @@ const projects = [
             </ul>
             <div class="project-content-image-div">
               <img
-                src="../styles/static/auto-labeler-diagram.png"
+                src="./styles/static/auto-labeler-diagram.png"
                 alt=""
                 class="project-content-image"
               />
@@ -487,7 +487,7 @@ const projects = [
                 <td colspan="2">
                   <div class="project-content-image-div">
                     <img
-                      src="../styles/static/auto-labeler-skip-unique-frames.png"
+                      src="./styles/static/auto-labeler-skip-unique-frames.png"
                       alt=""
                       class="project-content-table-image"
                     />
@@ -520,7 +520,7 @@ const projects = [
                 <td colspan="2">
                   <div class="project-content-image-div">
                     <img
-                      src="../styles/static/auto-labeler-segment.png"
+                      src="./styles/static/auto-labeler-segment.png"
                       alt=""
                       class="project-content-image"
                     />
@@ -550,7 +550,7 @@ const projects = [
                 <td colspan="2">
                   <div class="project-content-image-div">
                     <img
-                      src="../styles/static/auto-labeler-bottleneck.png"
+                      src="./styles/static/auto-labeler-bottleneck.png"
                       alt=""
                       class="project-content-image"
                     />
@@ -581,7 +581,7 @@ const projects = [
                 <td colspan="2">
                   <div class="project-content-image-div">
                     <img
-                      src="../styles/static/auto-labeler-bottleneck-2.png"
+                      src="./styles/static/auto-labeler-bottleneck-2.png"
                       alt=""
                       class="project-content-image"
                     />
@@ -602,7 +602,7 @@ const projects = [
             <p class="project-content-image-subtitle">Figma Design</p>
             <div class="project-content-image-div">
               <img
-                src="../styles/static/auto-labeler-figma-design.png"
+                src="./styles/static/auto-labeler-figma-design.png"
                 alt=""
                 class="project-content-image"
               />
@@ -656,11 +656,11 @@ const projects = [
             </p>
             <p class="project-content-image-subtitle">Our time usage per time allotted with the robot in one session</p>
             <div class="project-content-image-div">
-              <img src="../styles/static/xdash-time-alloted.png" alt="" class="project-content-image"/>
+              <img src="./styles/static/xdash-time-alloted.png" alt="" class="project-content-image"/>
             </div>
             <p class="project-content-image-subtitle">Old Workflow vs New Workflow with <a href="#xDash">XDASH</a></p>
             <div class="project-content-image-div">
-              <img src="../styles/static/xdash-time-saved.png" alt="" class="project-content-image"/>
+              <img src="./styles/static/xdash-time-saved.png" alt="" class="project-content-image"/>
             </div>`,
           projectIdeationAndPlanning: `
             <h3 class="project-content-item-title">Project Planning and Ideation</h3>
@@ -681,13 +681,13 @@ const projects = [
               </p>
             <p class="project-content-image-subtitle">XDash inspiration (Webmin)
             </p>
-            <div class="project-content-image-div"><img src="../styles/static/xdash-webmin.png" class="project-content-image" alt=""></div>
+            <div class="project-content-image-div"><img src="./styles/static/xdash-webmin.png" class="project-content-image" alt=""></div>
             <p class="project-content-item-paragraph"><strong>BUILD</strong>
             </p>
           <p class="project-content-item-paragraph">The developer built the application from the ground up, laying a base foundation and layout from which they could expand it at an exponential rate. The developer's philosophy was that building modular frameworks to use later in the development process was well worth the slog of the initial slow development process. The exponential growth in the speed of the building process was attributed to being able to use the custom templates to speed through most of the process of adding a new feature.
             </p>
             <div class="project-content-image-div">
-              <img src="../styles/static/xdash-progressive-refinement.png" class="project-content-image" alt="">
+              <img src="./styles/static/xdash-progressive-refinement.png" class="project-content-image" alt="">
             </div>
             <p class="project-content-item-paragraph">Although the intent was to build a quick and dirty model that would be tested and improved, the developer recognized that it was imperative to ensure that testing the model on the robot wouldn’t have any negative repercussions on or have any adverse interactions with the existing hardware and software or consume resources in any meaningful capacity. For this reason, the build process took up a relatively large amount of the time spent on the project.
 
@@ -744,7 +744,7 @@ const projects = [
               In the 2024 season, the Vision team cranked up their usage of AI models for various things. A major problem with this spike in AI usage is that there was an insane amount of data that was being produced, constantly crashing our robot and even disabling it on the field. After the season, we took the time to scour our systems with a profiler, and it showed us immediately, on the top of the list, that the FRC Network Tables we’d relied on were the cause. The default FRC Network Tables, the Tables used by every team, output only 10,000 updates a second while we required an output of at least 200,000 updates a second. This was a major issue; without proper handling of large amounts of data, the idea of automating on-field tasks is nothing but a pipe dream. We needed a new version of Network Tables, one that could handle anything we threw at it.
             </p>
             <div class="project-content-image-div">
-              <img src="../styles/static/frc-vs-req.png" alt="" class="project-content-image"/>
+              <img src="./styles/static/frc-vs-req.png" alt="" class="project-content-image"/>
             </div>
             `,
           projectIdeationAndPlanning: `<h3 class="project-content-item-title">Project Planning and Ideation</h3>
@@ -753,7 +753,7 @@ const projects = [
             </p>`,
           projectTimeline: `<h3 class="project-content-item-title">Project Timeline</h3>
             <div class="project-content-image-div">
-              <img src="../styles/static/xtables-full-table.png" alt="" class="project-content-image"/>
+              <img src="./styles/static/xtables-full-table.png" alt="" class="project-content-image"/>
             </div>
             <p class="project-content-item-paragraph">
               <strong>XTables Iteration I</strong>
@@ -765,7 +765,7 @@ const projects = [
               <a href="#XTables">XTables</a> V1 comparison chart
             </p>
             <div class="project-content-image-div">
-              <img src="../styles/static/frc-vs-it1.png" alt="" class="project-content-image"/>
+              <img src="./styles/static/frc-vs-it1.png" alt="" class="project-content-image"/>
             </div> 
             <p class="project-content-item-paragraph">
               <strong>XTables Iteration II</strong>
@@ -777,7 +777,7 @@ const projects = [
               <a href="#XTables">XTables</a> V2 comparison chart
             </p>
             <div class="project-content-image-div">
-              <img src="../styles/static/it1-vs-it2.png" alt="" class="project-content-image"/>
+              <img src="./styles/static/it1-vs-it2.png" alt="" class="project-content-image"/>
             </div> 
 
             <p class="project-content-item-paragraph">
@@ -790,7 +790,7 @@ const projects = [
               <a href="#XTables">XTables</a> V3 comparison chart
             </p>
             <div class="project-content-image-div">
-              <img src="../styles/static/it2-vs-it3.png" alt="" class="project-content-image"/>
+              <img src="./styles/static/it2-vs-it3.png" alt="" class="project-content-image"/>
             </div> 
 
             <p class="project-content-item-paragraph">
@@ -803,7 +803,7 @@ const projects = [
               <a href="#XTables">XTables</a> V4 comparison chart
             </p>
             <div class="project-content-image-div">
-              <img src="../styles/static/it3-vs-it4.png" alt="" class="project-content-image"/>
+              <img src="./styles/static/it3-vs-it4.png" alt="" class="project-content-image"/>
             </div> `,
       }
     },
@@ -852,7 +852,7 @@ const projects = [
           problemIdentification: `
             <h3 class="project-content-item-title">Our Problem</h3>
             <div class="project-content-image-div">
-              <img src="../styles/static/reef-tracker-setup.png" alt="" class="project-content-image"/>
+              <img src="./styles/static/reef-tracker-setup.png" alt="" class="project-content-image"/>
             </div>
             <p class="project-content-item-paragraph">
               At the beginning of the year, the team established multiple season goals to help automate various driver processes, one of them being Reef-related automation. During matches, it can be especially hard for the driver to see whether opposite-facing reef spaces are occupied. With a reef tracker in place, the driver can plan the course of the match with absolute certainty. 
@@ -881,7 +881,7 @@ const projects = [
               The UML Diagram made by our developer to design the Reef Class
             </p>
             <div class="project-content-image-div">
-              <img src="../styles/static/reef-tracker-uml.png" alt="" class="project-content-image"/>
+              <img src="./styles/static/reef-tracker-uml.png" alt="" class="project-content-image"/>
             </div>
             <p class="project-content-item-paragraph">
               <strong>Mapping Absolute position</strong>
@@ -890,7 +890,7 @@ const projects = [
               To map absolute position, the developer began by using what they knew, the six April Tags on each side of the reef. Knowing there are six fixed-position reef branches with a known distance from the April Tags, we could discern the position of the reef branches if we knew the positions of the April Tags. 
             </p>
             <div class="project-content-image-div">
-              <img src="../styles/static/reef-tracker-split.png" alt="" class="project-content-image"/>
+              <img src="./styles/static/reef-tracker-split.png" alt="" class="project-content-image"/>
             </div>
             <p class="project-content-item-paragraph">
               The developer came up with two main methods to figure out whether a reef branch was occupied.
@@ -1434,25 +1434,25 @@ window.onload = function () {
 
   function updateImage() {
       if (window.innerWidth >= 2500) {
-          img.src = '../styles/static/2500px-wave-graphic.png'; // Desktop image
+          img.src = './styles/static/2500px-wave-graphic.png'; // Desktop image
       } 
       else if (window.innerWidth >= 2000) {
-          img.src = '../styles/static/2000px-wave-graphic.png'; // Tablet image
+          img.src = './styles/static/2000px-wave-graphic.png'; // Tablet image
       } 
       else if (window.innerWidth >= 1600) {
-          img.src = '../styles/static/1600px-wave-graphic.png'; // Tablet image
+          img.src = './styles/static/1600px-wave-graphic.png'; // Tablet image
       } 
       else if (window.innerWidth >= 1023) {
-          img.src = '../styles/static/1023px-wave-graphic.png'; // Tablet image
+          img.src = './styles/static/1023px-wave-graphic.png'; // Tablet image
       } 
       else if (window.innerWidth >= 768) {
-          img.src = '../styles/static/768px-wave-graphic.png'; // Tablet image
+          img.src = './styles/static/768px-wave-graphic.png'; // Tablet image
       } 
       else if (window.innerWidth >= 553) {
-          img.src = '../styles/static/553px-wave-graphic.png'; // Tablet image
+          img.src = './styles/static/553px-wave-graphic.png'; // Tablet image
       } 
       else{
-          img.src = '../styles/static/wave-graphic.png'; // Tablet image
+          img.src = './styles/static/wave-graphic.png'; // Tablet image
       } 
   }
 
