@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XBOT in Reefscape</title>
-    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
     <main>
@@ -17,125 +17,8 @@
             <button class="button-disabled">CAD</button>
           </div>-->
       </section>
-      <section class="content">
-        <section class="project">
-          <div class="project-header">
-            <h2 class="project-title">PROBABILITY MAP</h2>
-            <div class="project-navbar">
-              <button class="project-nav">PROJECT OVERVIEW</button>
-              <button class="project-nav">ENGINEERING PROCESS</button>
-              <div class="technical-overview-wrapper">
-                <button class="project-nav">TECHNICAL OVERVIEW</button>
-                <button class="on-the-surface">ON THE SURFACE</button>
-                <p>|</p>
-                <button class="in-depth">IN DEPTH</button>
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <!-- <h3 class="project-content-item-title">Our Problem</h3>
-            <p class="project-content-item-paragraph">
-              We need large datasets to train the machine learning models we use
-              in our ML-based vision systems. <strong>Large datasets</strong>.
-              This process is very laborious; in any set of images extracted
-              from a video, there are only so many that are actually useful.
-            </p>
-            <h3 class="project-content-item-title">Our Solution</h3>
-            <p class="project-content-item-paragraph">
-              Getting rid of this useless data is the core functionality of the
-              <a href="">Auto-Labler</a>. Through a four-stage process, we find
-              the useful frames in videos <strong>through an AI Model</strong>,
-              prevent overfitting our model with a pipeline that filters out
-              non-unique images, dynamically protect our yield from
-              underfitting, and extract the cleaned images.
-            </p>
-            <h3 class="project-content-item-title">Our Solution's Impact</h3>
-            <p class="project-content-item-paragraph">
-              The Auto-Labeler allows us to dramatically<strong>
-                increase</strong
-              >
-              our labelers’ <strong>quality of life</strong>,
-              <strong>data output</strong>, and
-              <strong>model training speed</strong>. The resultant robust model
-              is the prerequisite to our advanced
-              <a href="probability-map">Probabilistic Object Detection Map</a>,
-              which lies at the heart of all our vision systems.
-            </p> -->
-            
-            
-
-            <div class="project-content-image-div">
-              <img src="../styles/static/reef-tracker-setup.png" alt="" class="project-content-image"/>
-            </div>
-            <h3 class="project-content-item-title">Our Problem</h3>
-            <p class="project-content-item-paragraph">
-              At the beginning of the year, the team established multiple season goals to help automate various driver processes, one of them being Reef-related automation. During matches, it can be especially hard for the driver to see whether opposite-facing reef spaces are occupied. With a reef tracker in place, the driver can plan the course of the match with absolute certainty. 
-            </p>
-            <p class="project-content-item-paragraph">
-              In such a fast-paced game, there will inevitably be multiple occasions when the desired reef space becomes occupied as the robot is heading towards it, requiring a quick change of course impacted by human reaction time. For these reasons, we decided it was imperative to develop a system that allowed us to automatically score on the reef, both in and out of cases where our driver might have trouble.
-            </p>
-            
-            <h3 class="project-content-item-title">Project Planning and Ideation</h3>
-            <p class="project-content-item-paragraph">
-              To achieve our goals, the developer broke up the problem into subproblems to be completed in subsequent order:
-            </p>
-            <ul class="project-content-item-list">
-              <li><strong>Architecture:</strong> <i>decide how the reef is interpreted by code</i></li>
-              <li><strong>Mapping Absolute Position:</strong> <i>dynamically find the reef’s position in space</i></li>
-              <li><strong>State Tracking:</strong> <i>know which reef positions are open</i> </li>
-              <li><strong>Queueing:</strong> <i>know the optimal order to target reef spaces in</i></li>
-            </ul>
-
-            <h3 class="project-content-item-title">Project Timeline</h3>
-            <p class="project-content-item-paragraph">
-              <strong>Architecture</strong>
-            </p>
-            <p class="project-content-item-paragraph">
-              Our developer first started by creating our own reef object through a reef class. To do this, the developer first planned the applicable data fields and methods through a UML diagram. The reef class included setter and getter methods, AprilTag and branch IDs, and branch states.
-            </p>
-            <p class="project-content-image-subtitle">
-              The UML Diagram made by our developer to design the Reef Class
-            </p>
-            <div class="project-content-image-div">
-              <img src="../styles/static/reef-tracker-uml.png" alt="" class="project-content-image"/>
-            </div>
-            <p class="project-content-item-paragraph">
-              <strong>Mapping Absolute position</strong>
-            </p>
-            <p class="project-content-item-paragraph">
-              To map absolute position, the developer began by using what they knew, the six April Tags on each side of the reef. Knowing there are six fixed-position reef branches with a known distance from the April Tags, we could discern the position of the reef branches if we knew the positions of the April Tags. 
-            </p>
-            <div class="project-content-image-div">
-              <img src="../styles/static/reef-tracker-split.png" alt="" class="project-content-image"/>
-            </div>
-            <p class="project-content-item-paragraph">
-              The developer came up with two main methods to figure out whether a reef branch was occupied.
-            </div>
-            
-            <ol class="project-content-item-list">
-              <li><strong>Use a machine learning model</strong> trained on coral and the reef to figure out whether corals exist on any branch.</li>
-              <li><strong>Use color detection</strong> to discern between the purple reef and the white coral to see if a branch is occupied.</li>              
-            </ol>
-            <p class="project-content-item-paragraph">
-              The developer opted for the second option for a number of reasons: running a machine-learning model is extremely GPU and CPU-heavy. The machines available to run it, Orange Pis or Orins, <i>could</i> handle the task but it was too slow and not worth it. Another issue with the approach is that coral detection is notoriously difficult as its white color and glare from its round shape make for a nightmare for visual detection.
-            </p>
-            <p class="project-content-item-paragraph">
-              To move forward with the second option, the developer created a histogram that would calculate the number of purple pixels in an image and weigh them against a white, determining whether a branch was occupied or not. This fulfilled the same purpose as the ML model but without the demand on the GPU and CPU or image recognition struggles.
-            </p>
-            <p class="project-content-item-paragraph">
-              <strong>Mapping Absolute position</strong>
-            </p>
-            <p class="project-content-item-paragraph">
-              With an established reef class, a calculated absolute position, and a reliable reef state tracker, the developer tackled queueing to determine the order to approach alternative branches in the event of a change in course. The developer created a priority system to handle this and also displayed this priority to the driver to ensure understanding between robot logic and human reasoning. 
-            </p>
-            <p class="project-content-item-paragraph">
-              With queueing implemented, every time the driver attempts to score the robot will score, whether it be on the initially desired branch or not, and with a reaction time in the tens of milliseconds. 
-            </p>
-            </div>
-          </div>
-        </section>
-      </section>
+      <section class="content"></section>
     </main>
   </body>
-  <script src="../scripts/script.js"></script>
+  <script src="./scripts/script.js"></script>
 </html>
