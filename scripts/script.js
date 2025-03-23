@@ -5,6 +5,7 @@ const shortHand = {
   "Electrical":"ELECTR."
 }
 const projects = [
+  //Probability Map
     {
       projectName: "Probability Map",
       
@@ -175,6 +176,7 @@ const projects = [
         projectTimeline: ``,
       }
     },
+  //Path Planning
     {
       projectName: "Path planning",
       
@@ -183,9 +185,24 @@ const projects = [
       discipline: 'Vision',
 
       projectOverview: {
-          ourProblem: ``,
-          ourSolution: ``,
-          ourSolutionsImpact: ``,
+          ourProblem: `
+          <h3 class="project-content-item-title">Our Problem</h3>
+          <p class="project-content-item-paragraph">
+            With such an emphasis on fast cycles, the name of the game this year is efficiency and speed. If our cycles aren’t fast enough, we won’t be able to compete against this year’s best. On the software side of things, we can decrease our cycle time by making sure our movement is optimized.
+          </p>
+          `,
+          ourSolution: `
+          <h3 class="project-content-item-title">Our Problem</h3>
+          <p class="project-content-item-paragraph">
+            We created our own implementation of Path Planning, using Bezier Splines to balance the efficiency of Bezier curves with the local control of waypoints. We avoid or head towards areas outlined by our <a href="#probability-map">Probability Map</a> and create the most efficient and velocity-consistent path.
+          </p>
+          `,
+          ourSolutionsImpact: `
+          <h3 class="project-content-item-title">Our Problem</h3>
+          <p class="project-content-item-paragraph">
+            We are able to plan efficient and dynamic autos that resist external changes, obstacles, and interruptions to our path; reduce our teleop cycle time; and react to enemy defense faster than humanly possible. Our <a href="#path-planning">Path Planning</a> stands out compared to the competition because our implementation of it is so specific, robust, and specialized.
+          </p>
+          `,
       },
 
       surfaceTechnicalOverview: {
@@ -291,6 +308,7 @@ const projects = [
         `,
       }
     },
+  //Auto-Labeler
     {
       projectName: "Auto Labeler",
       
@@ -299,9 +317,34 @@ const projects = [
       discipline: 'Vision',
 
       projectOverview: {
-          ourProblem: ``,
-          ourSolution: ``,
-          ourSolutionsImpact: ``,
+          ourProblem: `<h3 class="project-content-item-title">Our Problem</h3>
+            <p class="project-content-item-paragraph">
+              We need large datasets to train the machine learning models we use
+              in our ML-based vision systems. <strong>Large datasets</strong>.
+              This process is very laborious; in any set of images extracted
+              from a video, there are only so many that are actually useful.
+            </p>`,
+          ourSolution: `<h3 class="project-content-item-title">Our Solution</h3>
+            <p class="project-content-item-paragraph">
+              Getting rid of this useless data is the core functionality of the
+              <a href="#auto-labeler">Auto-Labler</a>. Through a four-stage process, we find
+              the useful frames in videos <strong>through an AI Model</strong>,
+              prevent overfitting our model with a pipeline that filters out
+              non-unique images, dynamically protect our yield from
+              underfitting, and extract the cleaned images.
+            </p>`,
+          ourSolutionsImpact: `<h3 class="project-content-item-title">Our Solution's Impact</h3>
+            <p class="project-content-item-paragraph">
+              The Auto-Labeler allows us to dramatically<strong>
+                increase</strong
+              >
+              our labelers’ <strong>quality of life</strong>,
+              <strong>data output</strong>, and
+              <strong>model training speed</strong>. The resultant robust model
+              is the prerequisite to our advanced
+              <a href="#probability-map">Probabilistic Object Detection Map</a>,
+              which lies at the heart of all our vision systems.
+            </p>`,
       },
 
       surfaceTechnicalOverview: {
@@ -317,22 +360,281 @@ const projects = [
           inDepthMap: ``,    
       },
       engineeringProcess: {
-          problemIdentification: ``,
-          projectIdeationAndPlanning: ``,
-          projectTimeline: ``,
+          problemIdentification: `<h3 class="project-content-item-title">Our Problem</h3>
+            <p class="project-content-item-paragraph">
+              Large datasets are needed to train the machine learning models for
+              visual pose estimation, autonomous movement, and accurate
+              high-speed data collection. These data sets can range from tens of
+              thousands to millions of items. The labor-intensive process of
+              creating these data sets requires many human labelers to go
+              through large image sets by hand and put bounding boxes around
+              objects of interest. However, over half of the retrieved images
+              contain no useful data, making manual labeling inefficient. To
+              lighten the load on our team, we needed to find a way to automate
+              the process of removing low-quality or otherwise useless images
+              from the image sets our labelers work on.
+            </p>
+            <div class="project-content-image-div">
+              <img
+                src="../styles/static/auto-labeler-time-saved.png"
+                alt=""
+                class="project-content-image"
+              />
+            </div>`,
+          projectIdeationAndPlanning: `<h3 class="project-content-item-title">
+              Project Ideation and Planning
+            </h3>
+            <p class="project-content-item-paragraph">
+              The Auto-Labeler is a four-stage process that uses an AI model to
+              filter out the useful frames in videos. The first stage of the
+              Auto-Labeler is the AI model, which is trained to recognize the
+              objects of interest in the images. The second stage is a pipeline
+              that filters out non-unique images, preventing overfitting of the
+              model. The third stage dynamically protects the yield from
+              underfitting, ensuring that the model is robust. The final stage
+              extracts the cleaned images, which are then used to train the
+              machine learning models.The vision sub-team started off the season
+              with a long meeting, discussing this season’s goals and discerning
+              milestones to achieve them. There, our problem was identified and
+              marked to be worked on. We established a goal to develop a tool to
+              streamline our labelers’ workflows. The settled-on solution
+              process started with an initial quality dataset, running an object
+              detection model on that dataset, running QA tests on the results,
+              putting the assured data in the model, and repeating this until we
+              achieved model robustness. From QA testing, we remove up to 10-20%
+              error from detections made by the model. We assigned a team of two
+              students and a mentor to tackle this problem, and they worked out
+              a solution and tentative project timeline. This team discussed
+              prospective technologies they could use to solve the problem, and
+              possible bottlenecks. Each team member was assigned one of three
+              roles: Script Developer (SD), Middleware Developer (MID), and
+              UI-UX Developer (UXD).
+            </p>`,
+          projectTimeline: `<h3 class="project-content-item-title">Project Timeline</h3>
+            <p class="project-content-item-paragraph">
+              After the planning process was complete, the SD approached the
+              problem by identifying key challenges and objectives in four
+              steps.
+            </p>
+            <ul class="project-content-item-list">
+              <li>
+                <strong>SLICE</strong>:
+                <i>
+                  How do we run a video through a model and create a list of
+                  valid images our labelers can use?
+                </i>
+              </li>
+              <li>
+                <strong>SEGMENT</strong>:
+                <i>
+                  How do we ensure robust image collection and avoid yield
+                  drawbacks due to false negatives?
+                </i>
+              </li>
+              <li>
+                <strong>EXTRACT</strong>:
+                <i>
+                  How do we retrieve the validated images into a format our
+                  labelers can then work with?
+                </i>
+              </li>
+              <li>
+                <strong>CHECK</strong>:
+                <i>How can we QA test the image data we received?</i>
+              </li>
+            </ul>
+            <div class="project-content-image-div">
+              <img
+                src="../styles/static/auto-labeler-diagram.png"
+                alt=""
+                class="project-content-image"
+              />
+            </div>
+            <p class="project-content-item-paragraph">
+              Upon identifying the key goals, the SD created four different
+              scripts to fulfill them. After the SD had the scripts functional,
+              they were uploaded to the SD’s branch in the GitHub repository.
+              Although the scripts were uploaded to the repository, they were
+              continuously evaluated, improved on, and iterated on by the SD.
+              When changes were complete, the SD would push their code to their
+              branch and communicate with the MID and UXD about how those
+              changes could affect their work.
+            </p>
+            <p class="project-content-item-paragraph">
+              As in every project, bottlenecks are inevitable in the development
+              process, and the SD had to solve them creatively.
+            </p>
+            <table>
+              <tr>
+                <th colspan="2">BOTTLENECK 1: FRAME SIMILARITY (SLICE)</th>
+              </tr>
+              <tr>
+                <td>
+                  After initially running the scripts, there were too many valid
+                  images pulled from a video that it would be massively
+                  inefficient and ineffective to label them all
+                </td>
+                <td>
+                  The SD implemented a similarity system. This system would
+                  quantify a found and validated image’s similarity to the
+                  previously collected images. If an image was detected as too
+                  similar to data that was already collected, it was discarded.
+                  This improved the diversity of the images we fed to our model
+                  and decreased the amount of work our labelers had to do.
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="project-content-image-div">
+                    <img
+                      src="../styles/static/auto-labeler-skip-unique-frames.png"
+                      alt=""
+                      class="project-content-table-image"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th colspan="2">
+                  BOTTLENECK 2: SLIDING WINDOW PROBLEM (SEGMENT)
+                </th>
+              </tr>
+
+              <tr>
+                <td>
+                  When multiple objects are being detected at once (ex. Coral,
+                  Algae, and Robots) it can be hard for the machine to run the
+                  script with one pass but costs too much time to run through
+                  the data multiple times.
+                </td>
+                <td>
+                  The SD implemented multiple “sliding windows” that run in
+                  parallel through multiprocessing, avoiding performance issues
+                  while saving the time necessary for the script to run. Each
+                  sliding window would be in charge of one object type (Coral,
+                  Algae, Robot, etc.) and run concurrently with its sister
+                  windows.
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="project-content-image-div">
+                    <img
+                      src="../styles/static/auto-labeler-segment.png"
+                      alt=""
+                      class="project-content-image"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th colspan="2">BOTTLENECK 3: PERFORMANCE ISSUES (SEGMENT)</th>
+              </tr>
+
+              <tr>
+                <td>
+                  Defining a clear start and stop point for valid image
+                  sequences is challenging, as human intuition often differs
+                  from code logic.
+                </td>
+                <td>
+                  The SD established three parameters, gap, buffer, and merge,
+                  were added. This would allow the user to choose how big their
+                  “sliding window” (where the range of data will start and stop)
+                  will be. With the correct combination of parameter values, a
+                  user can optimize the data they receive through the script,
+                  and thus the yield of good data as a whole.
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="project-content-image-div">
+                    <img
+                      src="../styles/static/auto-labeler-bottleneck.png"
+                      alt=""
+                      class="project-content-image"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th colspan="2">
+                  BOTTLENECK 4: MULTIPLE OCCURRENCES OF AN OBJECT (SEGMENT)
+                </th>
+              </tr>
+
+              <tr>
+                <td>
+                  In one frame it’s quite possible, and common, for there to be
+                  multiple occurrences of an object of interest (ex. 2 Notes, 3
+                  Corals, etc.). This causes a hitch in the code where it may
+                  not know how to process that data.
+                </td>
+                <td>
+                  Instead of counting each object individually, the system flags
+                  the frame as useful based on the presence of at least one
+                  object of interest, reducing computational overhead and
+                  unnecessary (for our use case) data collection.
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="project-content-image-div">
+                    <img
+                      src="../styles/static/auto-labeler-bottleneck-2.png"
+                      alt=""
+                      class="project-content-image"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <p class="project-content-item-paragraph">
+              The UXD designed the application on Figma. They created a user
+              persona, filled out a Pains and Gains worksheet, and created a
+              wireframe on Figma, which was later turned into a full design.
+              They then exported a screenshot of the Figma design to an image
+              editor and noted how different elements of the Figma design could
+              be implemented with HTML elements. This process included marking
+              out a grid, establishing groups of elements, and marking down
+              unfamiliar element types for research.
+            </p>
+            <p class="project-content-image-subtitle">Figma Design</p>
+            <div class="project-content-image-div">
+              <img
+                src="../styles/static/auto-labeler-figma-design.png"
+                alt=""
+                class="project-content-image"
+              />
+            </div>`,
       }
     },
+  //XDash
     {
       projectName: "XDash",
       
-      projectID: 'xDash',
+      projectID: 'XDash',
 
       discipline: 'Vision',
 
       projectOverview: {
-          ourProblem: ``,
-          ourSolution: ``,
-          ourSolutionsImpact: ``,
+          ourProblem: `
+          <h3 class="project-content-item-title">Our Problem</h3>
+          <p class="project-content-item-paragraph">
+            In the 2024 season, the Vision Subteam was full of lofty ideas but unable to deliver code fast enough or reliably. With multiple subteams passing around the robot, time was extremely valuable. Our development speed was critically capped by how fast we could physically push code.
+          </p>
+          `,
+          ourSolution: `
+          <h3 class="project-content-item-title">Our Solution</h3>
+          <p class="project-content-item-paragraph">
+            By centralizing our deployment interface and monitoring system, we can push code to all vision machines simultaneously in one click when it used to take hours. By creating a user-friendly user interface, <a href="#XDash">XDash</a> is more accessible to novice programmers.
+          </p>`,
+          ourSolutionsImpact: `
+          <h3 class="project-content-item-title">Our Solution's Impact</h3>
+          <p class="project-content-item-paragraph">
+            <a href="#XDash">XDash</a> dramatically shifted our time allocation from deployment to actual testing. By entirely moving the time sink of deploying code, we can test and iterate on our systems at a speed magnitudes higher than in previous seasons. An added benefit of <a href="#XDash">XDash</a> is that it helps make quick and precise changes to the robot machines in the pit between matches and monitors all the robot diagnostics for faster problem identification.
+
+          </p>`,
       },
 
       surfaceTechnicalOverview: {
@@ -348,22 +650,80 @@ const projects = [
           inDepthMap: ``,    
       },
       engineeringProcess: {
-          problemIdentification: ``,
-          projectIdeationAndPlanning: ``,
-          projectTimeline: ``,
+          problemIdentification: `<h3 class="project-content-item-title">Our Problem</h3>
+            <p class="project-content-item-paragraph">In the 2024 season, the Vision Subteam was full of ideas and lofty ambitions but wasn’t able to deliver code fast enough or reliably. At the end of the season, the team met and discussed reasons why this occurred, and one of the prominent ideas was that our workflow was incredibly hindered by our inability to deploy (and therefore test) our code changes. In the 2024 season,if the team wanted to push a single change, we would have to go into each of the six onboard vision machines and manually push changes. Time spent with the competition robot is a precious resource; the small amount of time was spent deploying code more than testing it. This massive hindrance made every step of the development process excruciatingly slow, and we needed to find a way to automate this process.
+
+            </p>
+            <p class="project-content-image-subtitle">Our time usage per time allotted with the robot in one session</p>
+            <div class="project-content-image-div">
+              <img src="../styles/static/xdash-time-alloted.png" alt="" class="project-content-image"/>
+            </div>
+            <p class="project-content-image-subtitle">Old Workflow vs New Workflow with <a href="#xDash">XDASH</a></p>
+            <div class="project-content-image-div">
+              <img src="../styles/static/xdash-time-saved.png" alt="" class="project-content-image"/>
+            </div>`,
+          projectIdeationAndPlanning: `
+            <h3 class="project-content-item-title">Project Planning and Ideation</h3>
+            <p class="project-content-item-paragraph">After our goal was established, a developer from our team assigned themself to the project. The developer preferred the Progressive Refinement workflow and accordingly worked towards getting a suboptimal but fully functional model working. The developer identified key aspects that were imperative to be implemented.
+            </p>
+            <ul class="project-content-item-list">
+              <li>Minimize the length of time needed to push code to the machine.</li>
+              <li>push code on all machines at once, decreasing the length of time needed by a factor of the number of machines used.</li>
+              <li>a friendly design that can be used by both novice and experienced programmers.              </li>
+            </ul>
+            <p class="project-content-item-paragraph">The developer then approached the project as a big task, in contrast to the sequential, step-by-step process other developers are familiar with. 
+            </p>`,
+          projectTimeline: `
+            <h3 class="project-content-item-title">Project Timeline</h3>
+            <p class="project-content-item-paragraph"><strong>RESEARCH</strong>
+              </p>
+            <p class="project-content-item-paragraph">The developer did extensive research to find similar projects other programmers have done before, brainstorm ideas and possible avenues to approach specific problems and find inspiration for the friendly User Interface. The developer took heavy inspiration from a commercial device management system that managed servers and hundreds of computers at once, and using their flow as a tentative template, added and subtracted features to optimize it for the team’s specific use case.
+              </p>
+            <p class="project-content-image-subtitle">XDash inspiration (Webmin)
+            </p>
+            <div class="project-content-image-div"><img src="../styles/static/xdash-webmin.png" class="project-content-image" alt=""></div>
+            <p class="project-content-item-paragraph"><strong>BUILD</strong>
+            </p>
+          <p class="project-content-item-paragraph">The developer built the application from the ground up, laying a base foundation and layout from which they could expand it at an exponential rate. The developer's philosophy was that building modular frameworks to use later in the development process was well worth the slog of the initial slow development process. The exponential growth in the speed of the building process was attributed to being able to use the custom templates to speed through most of the process of adding a new feature.
+            </p>
+            <div class="project-content-image-div">
+              <img src="../styles/static/xdash-progressive-refinement.png" class="project-content-image" alt="">
+            </div>
+            <p class="project-content-item-paragraph">Although the intent was to build a quick and dirty model that would be tested and improved, the developer recognized that it was imperative to ensure that testing the model on the robot wouldn’t have any negative repercussions on or have any adverse interactions with the existing hardware and software or consume resources in any meaningful capacity. For this reason, the build process took up a relatively large amount of the time spent on the project.
+
+            <p class="project-content-item-paragraph">The user interface was done with the goal of making it as friendly to its user as possible. To do this, the developer used many different libraries, namely Tailwind CSS and custom templates from previous projects to design it. The design included a button that worked in conjunction with backend scripts to update code on all the machines at once, turning hours of work into seconds.
+            </p>
+            <p class="project-content-item-paragraph"><strong>BUILD</strong>
+            </p>
+            <p class="project-content-item-paragraph">After the build process was complete, the developer moved on to the testing process. Because of the suboptimal (but safe) nature of the initial build, the model was slow and didn’t meet all of the requirements and goals of the project. The developer worked forwards from the systems created at the beginning of the build process and went back and forth making optimization changes to the system and testing the change’s effectiveness through testing. This second pass through the project was done in pursuit of piece-by-piece perfection, and when moving on from a revised process it was almost never returned to. As a result, after testing was complete it was shipped immediately.
+            </p>`,
       }
     },
+  //XTables
     {
       projectName: "XTables",
       
-      projectID: 'xTables',
+      projectID: 'XTables',
 
       discipline: 'Vision',
 
       projectOverview: {
-          ourProblem: ``,
-          ourSolution: ``,
-          ourSolutionsImpact: ``,
+          ourProblem: `
+          <h3 class="project-content-item-title">Our Problem</h3>
+          <p class="project-content-item-paragraph">
+            In the 2024 season, we cranked up our usage of AI models for the various systems we were trying to implement. A major problem that came with this was the <i>insane</i> amount of data that was being produced, constantly crashing our robot and even disabling it on the field. The default FRC Network Tables which we had been using for cross-machine communication had a throughput of 10,000 updates/second, which was far too slow for our needs.
+          </p>
+          `,
+          ourSolution: `
+          <h3 class="project-content-item-title">Our Solution</h3>
+          <p class="project-content-item-paragraph">
+           Through iterations 1-3 of XTables, we optimized, rewrote, and reapproached FRC Network Tables techniques, and in iteration 4, we <strong>changed the language entirely</strong>.
+          </p>`,
+          ourSolutionsImpact: `
+          <h3 class="project-content-item-title">Our Solution's Impact</h3>
+          <p class="project-content-item-paragraph">
+           By iterating over the original FRC Network Tables, we optimized it so much that it <strong>far</strong> exceeded our base throughput requirement. This allows us the resources to try new, innovative, and crazy things related to AI and computer vision in robotics that haven’t been done before. 
+          </p>`,
       },
 
       surfaceTechnicalOverview: {
@@ -379,11 +739,75 @@ const projects = [
           inDepthMap: ``,    
       },
       engineeringProcess: {
-          problemIdentification: ``,
-          projectIdeationAndPlanning: ``,
-          projectTimeline: ``,
+          problemIdentification: `<h3 class="project-content-item-title">Our Problem</h3>
+            <p class="project-content-item-paragraph">
+              In the 2024 season, the Vision team cranked up their usage of AI models for various things. A major problem with this spike in AI usage is that there was an insane amount of data that was being produced, constantly crashing our robot and even disabling it on the field. After the season, we took the time to scour our systems with a profiler, and it showed us immediately, on the top of the list, that the FRC Network Tables we’d relied on were the cause. The default FRC Network Tables, the Tables used by every team, output only 10,000 updates a second while we required an output of at least 200,000 updates a second. This was a major issue; without proper handling of large amounts of data, the idea of automating on-field tasks is nothing but a pipe dream. We needed a new version of Network Tables, one that could handle anything we threw at it.
+            </p>
+            <div class="project-content-image-div">
+              <img src="../styles/static/frc-vs-req.png" alt="" class="project-content-image"/>
+            </div>
+            `,
+          projectIdeationAndPlanning: `<h3 class="project-content-item-title">Project Planning and Ideation</h3>
+            <p class="project-content-item-paragraph">
+              The developer who scoured the code showed immense interest in improving it, so they were assigned to the project. The developer dissected the FRC Network Tables, figuring out how it approached the task and discerning where it became sluggish—where they could improve it.  
+            </p>`,
+          projectTimeline: `<h3 class="project-content-item-title">Project Timeline</h3>
+            <div class="project-content-image-div">
+              <img src="../styles/static/xtables-full-table.png" alt="" class="project-content-image"/>
+            </div>
+            <p class="project-content-item-paragraph">
+              <strong>XTables Iteration I</strong>
+            </p>
+            <p class="project-content-item-paragraph">
+              After doing so the developer built the first working iteration of <strong>XTables</strong>, which had outputted <strong>100,000 updates a second, 10 times more than FRC’s version</strong> but still half of what was needed. The developer created this first iteration as a result of the scrutiny at which they looked at the FRC Network Tables. They wrapped around the same techniques used by FRC but improved on, restructured, or rebuilt them to make them faster and more efficient. 
+            </p>
+            <p class="project-content-image-subtitle">
+              <a href="#XTables">XTables</a> V1 comparison chart
+            </p>
+            <div class="project-content-image-div">
+              <img src="../styles/static/frc-vs-it1.png" alt="" class="project-content-image"/>
+            </div> 
+            <p class="project-content-item-paragraph">
+              <strong>XTables Iteration II</strong>
+            </p>
+            <p class="project-content-item-paragraph">
+              Repeating the process done in iteration one to improve on the FRC Network Tables, the developer optimized the wrapped techniques to further improve its efficiency. The resulting second iteration pushed <strong>200,000 updates a second, 20 times more than FRC’s version</strong>, from these optimizations, achieving the goal and supporting what we were currently throwing at it. At this point, the developer had to make a decision: <i>was further optimization necessary if we already reached our goal? Is it sustainable to stop here, or should I continue spending time on this in case we need even more support in the next season? </i>
+            </p>
+            <p class="project-content-image-subtitle">
+              <a href="#XTables">XTables</a> V2 comparison chart
+            </p>
+            <div class="project-content-image-div">
+              <img src="../styles/static/it1-vs-it2.png" alt="" class="project-content-image"/>
+            </div> 
+
+            <p class="project-content-item-paragraph">
+              <strong>XTables Iteration III</strong>
+            </p>
+            <p class="project-content-item-paragraph">
+              The developer made the wise decision to keep iterating over the project, this time using a profiler to examine the path of information, and was able to see where the speed dipped. The developer hyper-focused in these areas and evened out the program until the information traveled at a near-constant speed throughout. From these changes, the developer was able to achieve <strong>400,000 updates a second, 40 times more than FRC’s version</strong>, and enough to be more than proud of. However, despite the achievement, the developer still believed they could make a drastic change and achieve drastic results given one more iteration.
+            </p>
+            <p class="project-content-image-subtitle">
+              <a href="#XTables">XTables</a> V3 comparison chart
+            </p>
+            <div class="project-content-image-div">
+              <img src="../styles/static/it2-vs-it3.png" alt="" class="project-content-image"/>
+            </div> 
+
+            <p class="project-content-item-paragraph">
+              <strong>XTables Iteration IV (Final)</strong>
+            </p>
+            <p class="project-content-item-paragraph">
+              The developer realized that the third iteration’s code had eliminated every possible source of sluggishness; the problem wasn’t the code, it was the language. Every iteration had improved on the FRC’s original Network Tables, which were written in Java. Java being a high-level programming language had a lot of things done for the developer behind the scenes, and these uncontrollable behind-the-scenes actions had a now visible impact on performance. The developer rewrote the code in JNI, a Java native interface that used C, the fastest current language, behind the scenes. The developer began to research and found that Google used Protobufs, and figured they could rewrite the data transfer method in a similar fashion, barely changed since iteration one. It was rewritten in C and now used extremely byte-efficient optimization, squishing data into unreadable, but almost instantly transferred data. From the resulting revamp, <a href="#XTables">XTables</a> was able to produce astonishingly <strong>3,300,000 updates a second, over 300x more than FRC’s Network Tables.</strong>
+            </p>
+            <p class="project-content-image-subtitle">
+              <a href="#XTables">XTables</a> V4 comparison chart
+            </p>
+            <div class="project-content-image-div">
+              <img src="../styles/static/it3-vs-it4.png" alt="" class="project-content-image"/>
+            </div> `,
       }
     },
+  //Reef Tracker
     {
       projectName: "Reef Tracker",
       
@@ -392,9 +816,24 @@ const projects = [
       discipline: 'Vision',
 
       projectOverview: {
-          ourProblem: ``,
-          ourSolution: ``,
-          ourSolutionsImpact: ``,
+          ourProblem: `
+          <h3 class="project-content-item-title">Our Problem</h3>
+          <p class="project-content-item-paragraph">
+            At the beginning of the year, the team established multiple season goals to help automate various driver processes, one of them being <strong>Reef-related automation</strong>. During matches, it can be especially hard for the driver to see whether opposite-facing reef spaces are occupied. 
+          </p>
+          `,
+          ourSolution: `
+          <h3 class="project-content-item-title">Our Solution</h3>
+          <p class="project-content-item-paragraph">
+            With a color-based histogram approach, we are able to determine when a reef space is open or closed. We can create a probability (similar to but less robust than our <a href="#probability-map">Probalistic Field Map</a>) that a reef space is open.
+          </p>
+          `,
+          ourSolutionsImpact: `
+          <h3 class="project-content-item-title">Our Solution's Impact</h3>
+          <p class="project-content-item-paragraph">
+            With our Reef Tracker in place, we are able to use the reef state information to make a queue of the ideal reef scoring orders, reduce our cycle time, and handle decision-making faster than a human can.
+          </p>
+          `,
       },
 
       surfaceTechnicalOverview: {
@@ -410,11 +849,75 @@ const projects = [
           inDepthMap: ``,    
       },
       engineeringProcess: {
-          problemIdentification: ``,
-          projectIdeationAndPlanning: ``,
-          projectTimeline: ``,
+          problemIdentification: `
+            <h3 class="project-content-item-title">Our Problem</h3>
+            <div class="project-content-image-div">
+              <img src="../styles/static/reef-tracker-setup.png" alt="" class="project-content-image"/>
+            </div>
+            <p class="project-content-item-paragraph">
+              At the beginning of the year, the team established multiple season goals to help automate various driver processes, one of them being Reef-related automation. During matches, it can be especially hard for the driver to see whether opposite-facing reef spaces are occupied. With a reef tracker in place, the driver can plan the course of the match with absolute certainty. 
+            </p>
+            <p class="project-content-item-paragraph">
+              In such a fast-paced game, there will inevitably be multiple occasions when the desired reef space becomes occupied as the robot is heading towards it, requiring a quick change of course impacted by human reaction time. For these reasons, we decided it was imperative to develop a system that allowed us to automatically score on the reef, both in and out of cases where our driver might have trouble.
+            </p>`,
+          projectIdeationAndPlanning: `<h3 class="project-content-item-title">Project Planning and Ideation</h3>
+            <p class="project-content-item-paragraph">
+              To achieve our goals, the developer broke up the problem into subproblems to be completed in subsequent order:
+            </p>
+            <ul class="project-content-item-list">
+              <li><strong>Architecture:</strong> <i>decide how the reef is interpreted by code</i></li>
+              <li><strong>Mapping Absolute Position:</strong> <i>dynamically find the reef’s position in space</i></li>
+              <li><strong>State Tracking:</strong> <i>know which reef positions are open</i> </li>
+              <li><strong>Queueing:</strong> <i>know the optimal order to target reef spaces in</i></li>
+            </ul>`,
+          projectTimeline: `<h3 class="project-content-item-title">Project Timeline</h3>
+            <p class="project-content-item-paragraph">
+              <strong>Architecture</strong>
+            </p>
+            <p class="project-content-item-paragraph">
+              Our developer first started by creating our own reef object through a reef class. To do this, the developer first planned the applicable data fields and methods through a UML diagram. The reef class included setter and getter methods, AprilTag and branch IDs, and branch states.
+            </p>
+            <p class="project-content-image-subtitle">
+              The UML Diagram made by our developer to design the Reef Class
+            </p>
+            <div class="project-content-image-div">
+              <img src="../styles/static/reef-tracker-uml.png" alt="" class="project-content-image"/>
+            </div>
+            <p class="project-content-item-paragraph">
+              <strong>Mapping Absolute position</strong>
+            </p>
+            <p class="project-content-item-paragraph">
+              To map absolute position, the developer began by using what they knew, the six April Tags on each side of the reef. Knowing there are six fixed-position reef branches with a known distance from the April Tags, we could discern the position of the reef branches if we knew the positions of the April Tags. 
+            </p>
+            <div class="project-content-image-div">
+              <img src="../styles/static/reef-tracker-split.png" alt="" class="project-content-image"/>
+            </div>
+            <p class="project-content-item-paragraph">
+              The developer came up with two main methods to figure out whether a reef branch was occupied.
+            </div>
+            
+            <ol class="project-content-item-list">
+              <li><strong>Use a machine learning model</strong> trained on coral and the reef to figure out whether corals exist on any branch.</li>
+              <li><strong>Use color detection</strong> to discern between the purple reef and the white coral to see if a branch is occupied.</li>              
+            </ol>
+            <p class="project-content-item-paragraph">
+              The developer opted for the second option for a number of reasons: running a machine-learning model is extremely GPU and CPU-heavy. The machines available to run it, Orange Pis or Orins, <i>could</i> handle the task but it was too slow and not worth it. Another issue with the approach is that coral detection is notoriously difficult as its white color and glare from its round shape make for a nightmare for visual detection.
+            </p>
+            <p class="project-content-item-paragraph">
+              To move forward with the second option, the developer created a histogram that would calculate the number of purple pixels in an image and weigh them against a white, determining whether a branch was occupied or not. This fulfilled the same purpose as the ML model but without the demand on the GPU and CPU or image recognition struggles.
+            </p>
+            <p class="project-content-item-paragraph">
+              <strong>Mapping Absolute position</strong>
+            </p>
+            <p class="project-content-item-paragraph">
+              With an established reef class, a calculated absolute position, and a reliable reef state tracker, the developer tackled queueing to determine the order to approach alternative branches in the event of a change in course. The developer created a priority system to handle this and also displayed this priority to the driver to ensure understanding between robot logic and human reasoning. 
+            </p>
+            <p class="project-content-item-paragraph">
+              With queueing implemented, every time the driver attempts to score the robot will score, whether it be on the initially desired branch or not, and with a reaction time in the tens of milliseconds. 
+            </p>`,
       }
     },
+  //Creeper
     {
       projectName: "Creeper",
       
@@ -423,9 +926,24 @@ const projects = [
       discipline: 'Vision',
 
       projectOverview: {
-          ourProblem: ``,
-          ourSolution: ``,
-          ourSolutionsImpact: ``,
+          ourProblem: `
+          <h3 class="project-content-item-title">Our Problem</h3>
+          <p class="project-content-item-paragraph">
+            When we get too close to the reef, the April Tag that we use to align our robot starts to become too big in our camera frame. To not lose alignment, we had to implement a way to creep up to the correct location, even if April Tag localization becomes inviable.
+          </p>
+          `,
+          ourSolution: `
+          <h3 class="project-content-item-title">Our Problem</h3>
+          <p class="project-content-item-paragraph">
+            Without detecting the full April Tag, we use its edges to align ourselves in the middle, guaranteeing that we don’t go off course.
+          </p>
+          `,
+          ourSolutionsImpact: `
+          <h3 class="project-content-item-title">Our Problem</h3>
+          <p class="project-content-item-paragraph">
+            We can use Creeper in conjunction with Path Planning to make efficient movements that don’t require us to extend our cycle times by relying solely on April Tag localization.
+          </p>
+          `,
       },
 
       surfaceTechnicalOverview: {

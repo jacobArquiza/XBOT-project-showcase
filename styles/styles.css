@@ -47,13 +47,33 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
 }
 
 .project-content-image{
-    width: 80%;
+    width: 95%;
+    height: auto;
+}
+
+.project-content-table-image{
+    width: 95%;
     height: auto;
 }
 
 .project-content-image-subtitle{
     font-weight: 900;
+    font-style: italic;
+    color: rgb(141, 141, 141);
+}
 
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td{
+    border: 1px solid black;
+    padding: 2%;
+    text-align: left;
+}
+th{
+    color: #1c4587;
+    text-align: center;
 }
 
 @media (min-width: 0px) and (max-width: 420px){
@@ -100,12 +120,12 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     
     .project{
         box-sizing: border-box;
-        padding: 2.5%;
+        padding: 2%;
     }
     
     .project-title, .project-title-inactive{
         font-weight: 700;
-        font-size:  2rem;
+        font-size: 7.9vw;
         margin: 2vh 0 0 0;
     }
     
@@ -153,18 +173,17 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     
     }
     
-    .project-nav{
-        font-size: 0.9rem;
+    .project-nav, .project-nav-inactive{
+        font-size: 3.6vw;
     }
     
     
     .project-nav-active{
-        font-size: 1rem;
+        font-size: 3.9vw;
         color: #1100FF;
     }
     
     .project-nav-inactive{
-        font-size: 0.9rem;
         color: #bebebe;
     }
     
@@ -189,7 +208,7 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     
     .on-the-surface, .in-depth, .technical-overview-subwrapper>p, .on-the-surface-inactive, .in-depth-inactive, .inactive, .on-the-surface-active, .in-depth-active{
         font-weight: 900;
-        font-size: 0.7rem;
+        font-size: 2.5vw;
         color: 818181;
         padding: 0.1vw 0.1vw;
     }
@@ -279,12 +298,12 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     
     .project{
         box-sizing: border-box;
-        padding: 2.5%;
+        padding: 2%;
     }
     
     .project-title, .project-title-inactive{
         font-weight: 700;
-        font-size:  2rem;
+        font-size:  7.9vw;
         margin: 2vh 0 0 0;
     }
     
@@ -458,7 +477,7 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     
     .project{
         box-sizing: border-box;
-        padding: 2.5%;
+        padding: 2%;
     }
     
     .project-title, .project-title-inactive{
@@ -636,7 +655,7 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     
     .project{
         box-sizing: border-box;
-        padding: 2.5%;
+        padding: 2%;
     }
     
     .project-title, .project-title-inactive{
@@ -825,12 +844,12 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     
     .project{
         box-sizing: border-box;
-        padding: 2.5%;
+        padding: 2%;
     }
     
     .project-title, .project-title-inactive{
         font-weight: 700;
-        font-size: 6vw;
+        font-size: 5vw;
         margin: 2vh 0 0 0;
     }
     
@@ -855,10 +874,10 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
         background-color: #55ACFE;
         height: fit-content;
         padding: 1%;
-        border-radius: 7px;
+        border-radius: 8px;
         color: white;
         margin: 2.1vh 0 0 2vw;
-        font-size: 3vw;
+        font-size: 2.5vw;
     }
     .programming-discipline-tag{
         
@@ -880,11 +899,11 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     }
     
     .project-nav, .project-nav-active, .project-nav-inactive{
-        font-size: 2vw;
+        font-size: 1.5vw;
     }
     
     .project-nav-active{
-        font-size: 2.2vw;
+        font-size: 1.7vw;
         color: #1100FF;
     }
     
@@ -912,7 +931,7 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     
     .on-the-surface, .in-depth, .technical-overview-subwrapper>p, .on-the-surface-inactive, .in-depth-inactive, .inactive, .on-the-surface-active, .in-depth-active{
         font-weight: 900;
-        font-size: 1.5vw;
+        font-size: 1vw;
         color: 818181;
         padding: 0.1vw 0.1vw;
     }
@@ -939,7 +958,7 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     }
     
     .project-content-item-paragraph, .project-content-item-list, .project-content-image-subtitle{
-        font-size: 2.2vw;
+        font-size: 1vw;
     }
     
     .project-content-item-paragraph{
@@ -1012,7 +1031,7 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     
     .project{
         box-sizing: border-box;
-        padding: 2.5%;
+        padding: 2%;
     }
     
     .project-title, .project-title-inactive{
@@ -1199,7 +1218,7 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     
     .project{
         box-sizing: border-box;
-        padding: 2.5%;
+        padding: 2%;
     }
     
     .project-title, .project-title-inactive{
@@ -1386,7 +1405,7 @@ button, .project-title, .project-nav, .project-title-inactive, .project-nav-acti
     
     .project{
         box-sizing: border-box;
-        padding: 2.5%;
+        padding: 2%;
     }
     
     .project-title, .project-title-inactive{
