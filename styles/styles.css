@@ -251,6 +251,7 @@ th{
         overflow: hidden;
         overflow-y: auto;
         opacity: 1;
+        border-bottom: 2px solid rgb(191 191 191 /37%)
     }    
 }
 
@@ -430,6 +431,7 @@ th{
         overflow: hidden;
         overflow-y: auto;
         opacity: 1;
+        border-bottom: 2px solid rgb(191 191 191 /37%)
     }    
 }
 
@@ -608,6 +610,7 @@ th{
         overflow: hidden;
         overflow-y: auto;
         opacity: 1;
+        border-bottom: 2px solid rgb(191 191 191 /37%)
     }    
 }
 
@@ -797,6 +800,7 @@ th{
         overflow: hidden;
         overflow-y: auto;
         opacity: 1;
+        border-bottom: 2px solid rgb(191 191 191 /37%)
     }    
 }
 
@@ -985,6 +989,7 @@ th{
         overflow: hidden;
         overflow-y: auto;
         opacity: 1;
+        border-bottom: 2px solid rgb(191 191 191 /37%)
     }    
 }
 @media (min-width: 1600px) and (max-width:2000px){
@@ -1172,6 +1177,7 @@ th{
         overflow: hidden;
         overflow-y: auto;
         opacity: 1;
+        border-bottom: 2px solid rgb(191 191 191 /37%)
     }    
 }
 
@@ -1359,6 +1365,7 @@ th{
         overflow: hidden;
         overflow-y: auto;
         opacity: 1;
+        border-bottom: 2px solid rgb(191 191 191 /37%)
     }    
 }
 @media (min-width: 2500px){
@@ -1546,5 +1553,6 @@ th{
         overflow: hidden;
         overflow-y: auto;
         opacity: 1;
+        border-bottom: 2px solid rgb(191 191 191 /37%)
     }    
 }
