@@ -192,13 +192,13 @@ const projects = [
           </p>
           `,
           ourSolution: `
-          <h3 class="project-content-item-title">Our Problem</h3>
+          <h3 class="project-content-item-title">Our Solution</h3>
           <p class="project-content-item-paragraph">
             We created our own implementation of Path Planning, using Bezier Splines to balance the efficiency of Bezier curves with the local control of waypoints. We avoid or head towards areas outlined by our <a href="#probability-map">Probability Map</a> and create the most efficient and velocity-consistent path.
           </p>
           `,
           ourSolutionsImpact: `
-          <h3 class="project-content-item-title">Our Problem</h3>
+          <h3 class="project-content-item-title">Our Solution's Impact</h3>
           <p class="project-content-item-paragraph">
             We are able to plan efficient and dynamic autos that resist external changes, obstacles, and interruptions to our path; reduce our teleop cycle time; and react to enemy defense faster than humanly possible. Our <a href="#path-planning">Path Planning</a> stands out compared to the competition because our implementation of it is so specific, robust, and specialized.
           </p>
@@ -933,13 +933,13 @@ const projects = [
           </p>
           `,
           ourSolution: `
-          <h3 class="project-content-item-title">Our Problem</h3>
+          <h3 class="project-content-item-title">Our Solution</h3>
           <p class="project-content-item-paragraph">
             Without detecting the full April Tag, we use its edges to align ourselves in the middle, guaranteeing that we don’t go off course.
           </p>
           `,
           ourSolutionsImpact: `
-          <h3 class="project-content-item-title">Our Problem</h3>
+          <h3 class="project-content-item-title">Our Solution's Impact</h3>
           <p class="project-content-item-paragraph">
             We can use Creeper in conjunction with Path Planning to make efficient movements that don’t require us to extend our cycle times by relying solely on April Tag localization.
           </p>
