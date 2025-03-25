@@ -1,0 +1,15 @@
+Want to Add:
+    - Finish content on all projects
+    - Rework the active/inactive status classes on the project navs so they are more dynamic [3/24/25]
+    - Adjust sizing mechanism so it adjusts for images that are loaded (remove scroll bar compensation [3/24/25]
+    - Add dropdown animation on the project titles [3/24/25]
+    - Adjust the resizing features (maybe look into upgrading from media queries?) [3/24/25]
+    - Clean up styles.css by removing common styles from their media queries
+    - Compensate for android dark mode [3/24/25]
+    - Redo the wave graphics on the hero [3/24/25]
+    - Add tags I can put on like ML, AI, DATA SCIENCE, WEB DEV, etc. [3/24/25]
+    - Make a navbar for different disciplines [3/24/25]
+    - Add other project disciplines [3/24/25]
+
+Update log: 
+    - 
