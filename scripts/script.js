@@ -1430,34 +1430,34 @@ function setDefaultPageLayout(){
 }
 
 window.onload = function () {
-  const img = document.getElementById('wave-graphic');
+  const wageGraphic = document.getElementById('wave-graphic');
 
   function updateImage() {
       if (window.innerWidth >= 2500) {
-          img.src = './styles/static/2500px-wave-graphic.png'; // Desktop image
+          wageGraphic.src = './styles/static/2500px-wave-graphic.png'; // Desktop image
       } 
       else if (window.innerWidth >= 2000) {
-          img.src = './styles/static/2000px-wave-graphic.png'; // Tablet image
+          wageGraphic.src = './styles/static/2000px-wave-graphic.png'; // Tablet image
       } 
       else if (window.innerWidth >= 1600) {
-          img.src = './styles/static/1600px-wave-graphic.png'; // Tablet image
+          wageGraphic.src = './styles/static/1600px-wave-graphic.png'; // Tablet image
       } 
       else if (window.innerWidth >= 1023) {
-          img.src = './styles/static/1023px-wave-graphic.png'; // Tablet image
+          wageGraphic.src = './styles/static/1023px-wave-graphic.png'; // Tablet image
       } 
       else if (window.innerWidth >= 768) {
-          img.src = './styles/static/768px-wave-graphic.png'; // Tablet image
+          wageGraphic.src = './styles/static/768px-wave-graphic.png'; // Tablet image
       } 
       else if (window.innerWidth >= 553) {
-          img.src = './styles/static/553px-wave-graphic.png'; // Tablet image
+          wageGraphic.src = './styles/static/553px-wave-graphic.png'; // Tablet image
       } 
       else{
-          img.src = './styles/static/wave-graphic.png'; // Tablet image
+          wageGraphic.src = './styles/static/wave-graphic.png'; // Tablet image
       } 
   }
 
-  updateImage(); // Set initially
-  window.addEventListener('resize', updateImage); // Update on resize
+  updateImage();
+  window.addEventListener('resize', updateImage);
 };
 
 setDefaultPageLayout();
