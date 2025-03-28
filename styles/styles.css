@@ -137,6 +137,10 @@ a{
     padding: 2%;
 }
 
+.project-title, .project-title-inactive{
+    transition: opacity 1s ease, height 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
 .project-title-inactive{
     color: #8e8e8e;
 }
@@ -181,7 +185,19 @@ a{
 .project-navbar{
     display: flex;
     flex-wrap: wrap;
+
+    transition: opacity 1s ease, height 0.5s ease-in-out;
+    overflow: hidden;
+    opacity: 1;
 }
+
+.project-content{  
+    transition: opacity 1s ease, height 0.5s ease-in-out;
+    overflow: hidden;
+    opacity: 1;
+    border-bottom: 2px solid rgb(191 191 191 /37%)
+}
+
 
 @media (min-width: 0px) and (max-width: 420px){
     .project-title, .project-title-inactive{
@@ -262,15 +278,7 @@ a{
     .hidden-project{
         visibility: hidden;
         position: absolute;
-    }
-    
-    .project-content{  
-        transition: opacity 1s ease, height 0.5s ease-in-out;
-        overflow: hidden;
-        overflow-y: auto;
-        opacity: 1;
-        border-bottom: 2px solid rgb(191 191 191 /37%)
-    }    
+    }   
 }
 
 @media (min-width: 420px) and (max-width: 553px){
@@ -355,15 +363,7 @@ a{
     .hidden-project{
         visibility: hidden;
         position: absolute;
-    }
-    
-    .project-content{  
-        transition: opacity 1s ease, height 0.5s ease-in-out;
-        overflow: hidden;
-        overflow-y: auto;
-        opacity: 1;
-        border-bottom: 2px solid rgb(191 191 191 /37%)
-    }    
+    }   
 }
 
 @media (min-width: 553px) and (max-width:769px){
@@ -451,15 +451,7 @@ a{
     .hidden-project{
         visibility: hidden;
         position: absolute;
-    }
-    
-    .project-content{  
-        transition: opacity 1s ease, height 0.5s ease-in-out;
-        overflow: hidden;
-        overflow-y: auto;
-        opacity: 1;
-        border-bottom: 2px solid rgb(191 191 191 /37%)
-    }    
+    }   
 }
 
 @media (min-width: 769px) and (max-width:1023px){
@@ -558,15 +550,7 @@ a{
     .hidden-project{
         visibility: hidden;
         position: absolute;
-    }
-    
-    .project-content{  
-        transition: opacity 1s ease, height 0.5s ease-in-out;
-        overflow: hidden;
-        overflow-y: auto;
-        opacity: 1;
-        border-bottom: 2px solid rgb(191 191 191 /37%)
-    }    
+    }   
 }
 
 @media (min-width: 1023px) and (max-width:1600px){
@@ -664,15 +648,7 @@ a{
     .hidden-project{
         visibility: hidden;
         position: absolute;
-    }
-    
-    .project-content{  
-        transition: opacity 1s ease, height 0.5s ease-in-out;
-        overflow: hidden;
-        overflow-y: auto;
-        opacity: 1;
-        border-bottom: 2px solid rgb(191 191 191 /37%)
-    }    
+    }   
 }
 @media (min-width: 1600px) and (max-width:2000px){
     .project-title, .project-title-inactive{
@@ -769,15 +745,7 @@ a{
     .hidden-project{
         visibility: hidden;
         position: absolute;
-    }
-    
-    .project-content{  
-        transition: opacity 1s ease, height 0.5s ease-in-out;
-        overflow: hidden;
-        overflow-y: auto;
-        opacity: 1;
-        border-bottom: 2px solid rgb(191 191 191 /37%)
-    }    
+    }   
 }
 
 @media (min-width: 2000px) and (max-width:2500px){
@@ -880,15 +848,7 @@ a{
     .hidden-project{
         visibility: hidden;
         position: absolute;
-    }
-    
-    .project-content{  
-        transition: opacity 1s ease, height 0.5s ease-in-out;
-        overflow: hidden;
-        overflow-y: auto;
-        opacity: 1;
-        border-bottom: 2px solid rgb(191 191 191 /37%)
-    }    
+    }   
 }
 @media (min-width: 2500px){
     .project-title, .project-title-inactive{
@@ -985,13 +945,5 @@ a{
     .hidden-project{
         visibility: hidden;
         position: absolute;
-    }
-    
-    .project-content{  
-        transition: opacity 1s ease, height 0.5s ease-in-out;
-        overflow: hidden;
-        overflow-y: auto;
-        opacity: 1;
-        border-bottom: 2px solid rgb(191 191 191 /37%)
-    }    
+    }   
 }

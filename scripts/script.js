@@ -977,7 +977,6 @@ function getProjectByID(id){
 function openProjectById(id){
   project = getProjectByID(id)
   projectTitle = document.querySelector(`#${id}`).querySelector('.project-title-inactive')
-  console.log(projectTitle)
   displayProjectNav(projectTitle)
 }
 
@@ -993,28 +992,59 @@ function displayItems(section){
   projectContent.style.height = 0
   projectContent.style.opacity = 0
 
-  projectContent.style.height = getTempDivHeight(section);
+  getTempDivHeight(section, function(height){
+    projectContent.style.height = height
+  });
   Object.keys(section).forEach(function(item){
     projectContent.innerHTML+= section[item];
   })
   projectContent.style.opacity = 1
 }
 
-function getTempDivHeight(section){
+function getTempDivHeight(section, callback){
   hiddenProjectContent = document.querySelector('.hidden-project-content')
-  console.log(hiddenProjectContent);
   hiddenProjectContent.classList.remove('hidden-project-content')
 
   Object.keys(section).forEach(function(item){
     hiddenProjectContent.innerHTML+= section[item];
   })
 
-  height = hiddenProjectContent.clientHeight;
+  const images = hiddenProjectContent.querySelectorAll('img');
+  let loadedImages = 0;
 
-  hiddenProjectContent.innerHTML = ''
+  function calculateHeight() {
+    const height = hiddenProjectContent.clientHeight;
+    hiddenProjectContent.innerHTML = '';
+    hiddenProjectContent.classList.add('hidden-project-content');
+    callback(height + 'px');
+  }
 
-  hiddenProjectContent.classList.add('hidden-project-content')
-  console.log(height)
+  if (images.length === 0) {
+    calculateHeight();
+  } else {
+    images.forEach((image) => {
+      if (image.complete) {
+        loadedImages++;
+      } else {
+        image.addEventListener('load', () => {
+          loadedImages++;
+          if (loadedImages === images.length) {
+            calculateHeight();
+          }
+        });
+      }
+    });
+
+    // Edge case: If all images were already loaded
+    if (loadedImages === images.length) {
+      calculateHeight();
+    }
+  }
+}
+
+function getTempNavbarHeight(){
+  hiddenProjectNav = document.querySelector('.hidden-project-navbar')
+  height = hiddenProjectNav.clientHeight;
   return (height + 'px');
 }
 
@@ -1209,7 +1239,9 @@ function displayTechnicalOverviewFromSubnav(subnavButton, type){
         replaceClassesWith(onTheSurface, ['on-the-surface-active'], ['on-the-surface'])
       }
       inDepth.classList.add('in-depth-active')
-      getTempDivHeight(project.inDepthTechnicalOverview)
+      getTempDivHeight(project.inDepthTechnicalOverview, function(height){
+        projectContent.style.height = height
+      })
       displayItems(project.inDepthTechnicalOverview)
     }
   }
@@ -1262,9 +1294,10 @@ function displayEngineeringProcess(engineeringProcessButton){
 function displayProjectNav(title){
   projectHeader = findParentElementOfClass(title, 'project-header')
   navbar = projectHeader.querySelector('.project-navbar')
-  navs = navbar.querySelectorAll('button');
+  navs = navbar.querySelectorAll('.project-nav, .project-nav-inactive, .project-nav-active');
   
   technicalOverviewWrapper = navbar.querySelector('.technical-overview-wrapper')
+  
   subNavs = technicalOverviewWrapper.querySelectorAll('.on-the-surface, .on-the-surface-inactive, .on-the-surface-active, p, .in-depth, .in-depth-inactive, .in-depth-active')
 
 
@@ -1290,48 +1323,61 @@ function displayProjectNav(title){
       //If a project nav is not inactive, make it inactive
       replaceClassesWith(title, ['project-title'], ['project-title-inactive'])
 
-      navs.forEach(function(nav){
-        ifContainsReplaceClassesWith([nav], ['project-nav-active', 'project-nav'], ['project-nav-inactive'])
-      })
-    
-      subNavs.forEach(function(subnav){
-        if(subnav.classList.contains('on-the-surface') || subnav.classList.contains('on-the-surface-active')){
-          ifContainsReplaceClassesWith([subnav], ['on-the-surface', 'on-the-surface-active'], ['on-the-surface-inactive'])
-        }
-        else if(subnav.classList.contains('in-depth') || subnav.classList.contains('in-depth-active')){
-          ifContainsReplaceClassesWith([subnav], ['in-depth', 'in-depth-active'], ['in-depth-inactive'])
-        }
-        else if(subnav.classList[0] == null){
-          subnav.classList.add('inactive');
-        }
-      })
+      navbar.style.height = 0
+      navbar.style.opacity = 0
+
+      setTimeout(() => {
+        navs.forEach(function(nav){
+          ifContainsReplaceClassesWith([nav], ['project-nav-active', 'project-nav'], ['project-nav-inactive'])
+        })
+
+        subNavs.forEach(function(subnav){
+          if(subnav.classList.contains('on-the-surface') || subnav.classList.contains('on-the-surface-active')){
+            ifContainsReplaceClassesWith([subnav], ['on-the-surface', 'on-the-surface-active'], ['on-the-surface-inactive'])
+          }
+          else if(subnav.classList.contains('in-depth') || subnav.classList.contains('in-depth-active')){
+            ifContainsReplaceClassesWith([subnav], ['in-depth', 'in-depth-active'], ['in-depth-inactive'])
+          }
+          else if(subnav.classList[0] == null){
+            subnav.classList.add('inactive');
+          }
+        })
+      }, 500);
     }, 500);
   }
   else{
     //ACTIVE
     project = findParentElementOfClass(title, 'project')
 
+    navbar.style.height = getTempNavbarHeight();
+    navbar.style.opacity = 1
+
+
+    technicalOverviewButton = navbar.querySelector('.technical-overview-wrapper').querySelector('.technical-overview-btn')
+    console.log(technicalOverviewButton)
+
     navs.forEach(function(nav){
+      console.log(nav)
       if(nav.classList.contains('project-nav-inactive')){
-        nav.classList.remove('project-nav-inactive')
-        nav.classList.add('project-nav')
+        replaceClassesWith(nav, ['project-nav-inactive'], ['project-nav'])
+
+        subNavs.forEach(function(subnav){
+          if(subnav.classList.contains('on-the-surface-inactive')){
+            subnav.classList.remove('on-the-surface-inactive')
+            subnav.classList.add('on-the-surface')
+          }
+          if(subnav.classList.contains('in-depth-inactive')){
+            subnav.classList.remove('in-depth-inactive')
+            subnav.classList.add('in-depth')
+          }
+          if(subnav.classList.contains('inactive')){
+            subnav.classList.remove('inactive')
+          }
+          });
+
+          displayProjectOverview(navbar.querySelector('.project-overview-btn'));
       }
     })
-  
-    subNavs.forEach(function(subnav){
-      if(subnav.classList.contains('on-the-surface-inactive')){
-        subnav.classList.remove('on-the-surface-inactive')
-        subnav.classList.add('on-the-surface')
-      }
-      if(subnav.classList.contains('in-depth-inactive')){
-        subnav.classList.remove('in-depth-inactive')
-        subnav.classList.add('in-depth')
-      }
-      if(subnav.classList.contains('inactive')){
-        subnav.classList.remove('inactive')
-      }
-      });
-      displayProjectOverview(project.querySelector('.project-overview-btn'));
     }
 }
 
@@ -1373,7 +1419,7 @@ function setDefaultPageLayout(){
                   VISION
                 </div>
               </div>
-              <div class="project-navbar">
+              <div class="hidden-project-navbar project-navbar">
                 <button class="project-nav-inactive project-overview-btn">PROJECT OVERVIEW</button>
                 <button class="project-nav-inactive engineering-process-btn">ENGINEERING PROCESS</button>
                 <div class="technical-overview-wrapper">
@@ -1393,6 +1439,12 @@ function setDefaultPageLayout(){
       if(!projectContent.classList.contains('hidden-project-content')){
         projectContent.style.height = 0
         projectContent.style.opacity = 0  
+      }
+  });
+    document.querySelectorAll('.project-navbar').forEach(function(navbar){
+      if(!navbar.classList.contains('hidden-project-navbar')){
+        navbar.style.height = 0
+        navbar.style.opacity = 0  
       }
   });
 
