@@ -4,6 +4,23 @@ const shortHand = {
   "Programming":"PROGRM.",
   "Electrical":"ELECTR."
 }
+
+const abbreviations = {
+  'MACHINE LEARNING':'ML' ,
+  'ARTIFICIAL INTELLIGENCE':'AI' ,
+  'COMPUTER VISION':'CV' ,
+  'UNIQUE APPROACH':'UNIQUE' ,
+  'MATH':'MATH'
+}
+
+const opposite = {
+  'MACHINE LEARNING':'ML' ,
+  'ARTIFICIAL INTELLIGENCE':'AI' ,
+  'COMPUTER VISION':'CV' ,
+  'UNIQUE APPROACH':'UNIQUE' ,
+  'MATH':'MATH'
+}
+
 const projects = [
   //Probability Map
     {
@@ -12,6 +29,22 @@ const projects = [
       projectID: 'probability-map',
 
       discipline: 'Vision',
+
+      interestTags: {
+        'ml':'Machine Learning',
+        'ai':'Artificial Intelligence',
+        'computer-vision':'Computer Vision',
+        'unique-approach':'Unique Approach',
+        'math':'Math'
+      },
+
+      abbreviatedInterestTags:{
+        'ml-abbrv':'ML',
+        'ai-abbrv':'AI',
+        'computer-vision-abbrv':'CV',
+        'unique-approach-abbrv':'Unique Approach',
+        'math-abbrv':'Math'
+      },
 
       projectOverview: {
           ourProblem: `
@@ -815,6 +848,20 @@ const projects = [
 
       discipline: 'Vision',
 
+      demo:{
+        demo1: `
+        <p class="project-content-image-subtitle">
+          Reef Tracker Demo from driver station
+        </p>
+        <div class="project-content-image-div" style="margin: 2vh;">
+          <video controls>
+            <source src="styles/static/reef-tracker-demo.mp4" type="video/mp4">
+            Your browser does not support the demo.
+          </video>
+        </div>
+        `
+      },
+
       projectOverview: {
           ourProblem: `
           <h3 class="project-content-item-title">Our Problem</h3>
@@ -925,6 +972,20 @@ const projects = [
 
       discipline: 'Vision',
 
+      demo: {
+        demo1:`
+        <p class="project-content-image-subtitle">
+          Edge-to-Edge Alignment Approach
+        </p>
+        <div class="project-content-image-div" style="margin: 2vh;">
+          <video controls>
+            <source src="styles/static/creeper-demo.mp4" type="video/mp4">
+            Your browser does not support the demo.
+          </video>
+        </div>
+        `
+      },
+
       projectOverview: {
           ourProblem: `
           <h3 class="project-content-item-title">Our Problem</h3>
@@ -970,6 +1031,27 @@ content.innerHTML = ''
 
 //Helper functions---------------------------------------------------------------------------------------
 
+function changeToAbbreviation(string){
+  if(Object.keys(abbreviations).includes(string)){
+    console.log(string)
+    console.log(abbreviations[string])
+    return abbreviations[string];
+  }
+  else{
+    return string;
+  }
+}
+function changeFromAbbreviation(string){
+  if(Object.keys(abbreviations).includes(string)){
+    console.log(string)
+    console.log(abbreviations[string])
+    return abbreviations[string];
+  }
+  else{
+    return string;
+  }
+}
+
 function getProjectByID(id){
   return projects.find(project => project.projectID === id);
 }
@@ -989,38 +1071,50 @@ function findParentElementOfClass(buttonOrigin, Class){
 }
 
 function displayItems(section){
-  projectContent.style.height = 0
-  projectContent.style.opacity = 0
+  if(section == null){
+    console.log("Error: Section does not exist.")
+    projectContent.style.height = 0
+    projectContent.style.opacity = 0
+  }
+  else{
+    projectContent.style.height = 0
+    projectContent.style.opacity = 0
 
-  getTempDivHeight(section, function(height){
-    projectContent.style.height = height
-  });
-  Object.keys(section).forEach(function(item){
-    projectContent.innerHTML+= section[item];
-  })
-  projectContent.style.opacity = 1
+    getTempDivHeight(section, function(height){
+      projectContent.style.height = height
+    });
+
+    Object.keys(section).forEach(function(item){
+      projectContent.innerHTML+= section[item];
+    })
+    projectContent.style.opacity = 1
+  }
 }
 
-function getTempDivHeight(section, callback){
-  hiddenProjectContent = document.querySelector('.hidden-project-content')
-  hiddenProjectContent.classList.remove('hidden-project-content')
+function getTempDivHeight(section, callback) {
+  const hiddenProjectContent = document.querySelector('.hidden-project-content');
+  hiddenProjectContent.classList.remove('hidden-project-content');
 
-  Object.keys(section).forEach(function(item){
-    hiddenProjectContent.innerHTML+= section[item];
-  })
+  // Adding content to the hidden div
+  Object.keys(section).forEach(function (item) {
+    hiddenProjectContent.innerHTML += section[item];
+  });
 
   const images = hiddenProjectContent.querySelectorAll('img');
+  const videos = hiddenProjectContent.querySelectorAll('video');
   let loadedImages = 0;
+  let loadedVideos = 0;
 
   function calculateHeight() {
     const height = hiddenProjectContent.clientHeight;
-    hiddenProjectContent.innerHTML = '';
+    hiddenProjectContent.innerHTML = ''; // Clear the content
     hiddenProjectContent.classList.add('hidden-project-content');
     callback(height + 'px');
   }
 
+  // Handle images loading
   if (images.length === 0) {
-    calculateHeight();
+    loadedImages = images.length;
   } else {
     images.forEach((image) => {
       if (image.complete) {
@@ -1028,19 +1122,40 @@ function getTempDivHeight(section, callback){
       } else {
         image.addEventListener('load', () => {
           loadedImages++;
-          if (loadedImages === images.length) {
+          if (loadedImages === images.length && loadedVideos === videos.length) {
             calculateHeight();
           }
         });
       }
     });
+  }
 
-    // Edge case: If all images were already loaded
-    if (loadedImages === images.length) {
-      calculateHeight();
-    }
+  // Handle videos loading
+  if (videos.length === 0) {
+    loadedVideos = videos.length;
+  } else {
+    videos.forEach((video) => {
+      // If video is already ready (metadata loaded), we consider it loaded
+      if (video.readyState >= 3) { 
+        loadedVideos++;
+      } else {
+        video.addEventListener('loadeddata', () => {
+          loadedVideos++;
+          // Calculate height when all images and videos are loaded
+          if (loadedVideos === videos.length && loadedImages === images.length) {
+            calculateHeight();
+          }
+        });
+      }
+    });
+  }
+
+  // Edge case: If all images and videos were already loaded before the function ran
+  if (loadedImages === images.length && loadedVideos === videos.length) {
+    calculateHeight();
   }
 }
+
 
 function getTempNavbarHeight(){
   hiddenProjectNav = document.querySelector('.hidden-project-navbar')
@@ -1095,14 +1210,20 @@ function displayProjectOverview(projectOverviewButton){
   projectContent.innerHTML = ''
 
   engineeringProcessButton = projectOverviewButton.parentNode.querySelector('.engineering-process-btn')
-  technicalOverviewButton= projectOverviewButton.parentNode.querySelector('.technical-overview-btn')
 
-  technicalOverviewWrapper = projectOverviewButton.parentNode.querySelector('.technical-overview-wrapper')
+  projectNavbarBottomRow = projectOverviewButton.parentNode.querySelector('.project-navbar-bottom-row')
+  technicalOverviewWrapper = projectNavbarBottomRow.querySelector('.technical-overview-wrapper')
   
+  technicalOverviewButton= projectNavbarBottomRow.querySelector('.technical-overview-btn')
+
+
   onTheSurface = technicalOverviewWrapper.querySelector('.on-the-surface, .on-the-surface-inactive, .on-the-surface-active')
   inDepth = technicalOverviewWrapper.querySelector('.in-depth, .in-depth-inactive, .in-depth-active')
 
   technicalButtons = [onTheSurface, inDepth]
+
+  demoButton = projectDiv.querySelector('.demo-btn')
+  console.log(demoButton)
 
 
   //Make projectOverviewButton appear active
@@ -1111,7 +1232,7 @@ function displayProjectOverview(projectOverviewButton){
   }
   
   //Disable active styling on engineeringProcessButton and technicalOverviewButton
-  ifContainsReplaceClassesWith([engineeringProcessButton, technicalOverviewButton], ['project-nav-active'], ['project-nav'])
+  ifContainsReplaceClassesWith([engineeringProcessButton, technicalOverviewButton, demoButton], ['project-nav-active'], ['project-nav'])
   
   
   //Disable active styling on subnavs
@@ -1123,6 +1244,8 @@ function displayProjectOverview(projectOverviewButton){
       replaceClassesWith(button, ['in-depth-active'], ['in-depth'])    
     }
   });
+
+
 
   displayItems(project.projectOverview);
 }
@@ -1146,11 +1269,15 @@ function displayTechnicalOverview(technicalOverviewButton, type){
   projectContent =  projectDiv.querySelector('.project-content')
   projectContent.innerHTML = ''
   
-  projectOverviewButton = technicalOverviewButton.parentNode.parentNode.querySelector('.project-overview-btn')
-  engineeringProcessButton = technicalOverviewButton.parentNode.parentNode.querySelector('.engineering-process-btn')
+  projectOverviewButton = technicalOverviewButton.parentNode.parentNode.parentNode.querySelector('.project-overview-btn')
+  engineeringProcessButton = technicalOverviewButton.parentNode.parentNode.parentNode.querySelector('.engineering-process-btn')
   
   onTheSurface = technicalOverviewButton.parentNode.querySelector('.on-the-surface')
   inDepth = technicalOverviewButton.parentNode.querySelector('.in-depth')
+
+  demoButton = projectDiv.querySelector('.demo-btn')
+  console.log(demoButton)
+
 
   //If technicalOverviewButton isn't active, make it active
   if(!technicalOverviewButton.classList.contains('project-nav-active')){
@@ -1158,7 +1285,7 @@ function displayTechnicalOverview(technicalOverviewButton, type){
   }
 
   //Revert engineeringProcessButton and projectOverviewButton 
-  ifContainsReplaceClassesWith([engineeringProcessButton, projectOverviewButton], ['project-nav-active'], ['project-nav'])
+  ifContainsReplaceClassesWith([engineeringProcessButton, projectOverviewButton, demoButton], ['project-nav-active'], ['project-nav'])
 
   //If one of the subnavs are inactive
     //If activating onTheSurface, revert inDepth and activate onTheSurface
@@ -1206,12 +1333,15 @@ function displayTechnicalOverviewFromSubnav(subnavButton, type){
   projectContent =  projectDiv.querySelector('.project-content')
   projectContent.innerHTML = ''
   
-  projectOverviewButton = subnavButton.parentNode.parentNode.parentNode.querySelector('.project-overview-btn')
-  engineeringProcessButton = subnavButton.parentNode.parentNode.parentNode.querySelector('.engineering-process-btn')
-  technicalOverviewButton = subnavButton.parentNode.parentNode.querySelector('.technical-overview-btn')
+  projectOverviewButton = subnavButton.parentNode.parentNode.parentNode.parentNode.querySelector('.project-overview-btn')
+  engineeringProcessButton = subnavButton.parentNode.parentNode.parentNode.parentNode.querySelector('.engineering-process-btn')
+  technicalOverviewButton = subnavButton.parentNode.parentNode.parentNode.querySelector('.technical-overview-btn')
 
   onTheSurface = subnavButton.parentNode.querySelector('.on-the-surface, .on-the-surface-active, .on-the-surface-inactive')
   inDepth = subnavButton.parentNode.querySelector('.in-depth, .in-depth-active, .in-depth-inactive')
+
+  demoButton = projectDiv.querySelector('.demo-btn')
+  console.log(demoButton)
 
 
   //If technicalOverviewButton is inactive make it active
@@ -1220,7 +1350,7 @@ function displayTechnicalOverviewFromSubnav(subnavButton, type){
   }
   
   //If engineeringProcessButton and projectOverviewButton are active, then revert them
-  ifContainsReplaceClassesWith([engineeringProcessButton, projectOverviewButton], ['project-nav-active'], ['project-nav'])
+  ifContainsReplaceClassesWith([engineeringProcessButton, projectOverviewButton, demoButton], ['project-nav-active'], ['project-nav'])
 
   //If either onTheSurface and inDepth are active
     //If you're activating onTheSurface, revert inDepth and activate onTheSurface
@@ -1262,14 +1392,19 @@ function displayEngineeringProcess(engineeringProcessButton){
   projectContent.innerHTML = ''
   
   projectOverviewButton = engineeringProcessButton.parentNode.querySelector('.project-overview-btn')
-  technicalOverviewButton = engineeringProcessButton.parentNode.querySelector('.technical-overview-btn')
 
-  technicalOverviewWrapper = projectOverviewButton.parentNode.querySelector('.technical-overview-wrapper')
+  projectNavbarBottomRow = engineeringProcessButton.parentNode.querySelector('.project-navbar-bottom-row')
+  technicalOverviewWrapper = projectNavbarBottomRow.querySelector('.technical-overview-wrapper')
   
+  technicalOverviewButton = projectNavbarBottomRow.querySelector('.technical-overview-btn')
+
   onTheSurface = technicalOverviewWrapper.querySelector('.on-the-surface, .on-the-surface-active, .on-the-surface-inactve')
   inDepth = technicalOverviewWrapper.querySelector('.in-depth, .in-depth-active, .in-depth-inactve')
 
   technicalButtons = [onTheSurface, inDepth]
+
+  demoButton = projectDiv.querySelector('.demo-btn')
+  console.log(demoButton)
 
   //If engineeringProcessButton is not active, activate it
   if(!engineeringProcessButton.classList.contains('project-nav-active')){
@@ -1277,7 +1412,7 @@ function displayEngineeringProcess(engineeringProcessButton){
   }
 
   //If projectOverviewButton or technicalOverviewButton are active, rever them
-  ifContainsReplaceClassesWith([projectOverviewButton, technicalOverviewButton], ['project-nav-active'], ['project-nav'])
+  ifContainsReplaceClassesWith([projectOverviewButton, technicalOverviewButton, demoButton], ['project-nav-active'], ['project-nav'])
 
   //Deactivate the subanvs
   technicalButtons.forEach(function(button){
@@ -1291,10 +1426,61 @@ function displayEngineeringProcess(engineeringProcessButton){
   displayItems(project.engineeringProcess)
 }
 
+function displayDemo(demoButton){
+  //If the project isn't in focus, make it in focus and then continue
+  if(demoButton.classList.contains('project-nav-inactive')){
+    projectTitle = (findParentElementOfClass(demoButton, 'project-header').querySelector('.project-title-inactive'))
+    displayProjectNav(projectTitle);
+  }
+
+  //If its already active, quit
+  if(demoButton.classList.contains('project-nav-active')){
+    return
+  }
+
+  projectDiv = findParentElementOfClass(demoButton, 'project')
+  id = projectDiv.id
+  project = getProjectByID(id)
+
+  projectContent =  projectDiv.querySelector('.project-content')
+  projectContent.innerHTML = ''
+  
+  projectOverviewButton = demoButton.parentNode.parentNode.querySelector('.project-overview-btn')
+  engineeringProcessButton = demoButton.parentNode.parentNode.querySelector('.engineering-process-btn')
+  
+  technicalOverviewWrapper = demoButton.parentNode.querySelector('.technical-overview-wrapper')
+  onTheSurface = technicalOverviewWrapper.querySelector('.on-the-surface, .on-the-surface-inactive, .on-the-surface-active')
+  inDepth = technicalOverviewWrapper.querySelector('.in-depth, .in-depth-inactive, .in-depth-active')
+
+  technicalButtons = [onTheSurface, inDepth]
+
+  technicalButtons.forEach((button) => console.log(button))
+
+  //If demoButton isn't active, make it active
+  if(!demoButton.classList.contains('project-nav-active')){
+    replaceClassesWith(demoButton, ['project-nav'], ['project-nav-active'])
+  }
+
+  //Revert engineeringProcessButton and projectOverviewButton 
+  ifContainsReplaceClassesWith([engineeringProcessButton, projectOverviewButton, technicalOverviewButton], ['project-nav-active'], ['project-nav'])
+
+  technicalButtons.forEach(function(button){    
+    if(button.classList.contains('on-the-surface-active')){
+      replaceClassesWith(button, ['on-the-surface-active'], ['on-the-surface'])    
+    }
+    if(button.classList.contains('in-depth-active')){
+      replaceClassesWith(button, ['in-depth-active'], ['in-depth'])    
+    }
+  });
+  
+  displayItems(project.demo)
+}
+
 function displayProjectNav(title){
   projectHeader = findParentElementOfClass(title, 'project-header')
   navbar = projectHeader.querySelector('.project-navbar')
   navs = navbar.querySelectorAll('.project-nav, .project-nav-inactive, .project-nav-active');
+  tag = projectHeader.querySelector('.discipline-tag')
   
   technicalOverviewWrapper = navbar.querySelector('.technical-overview-wrapper')
   
@@ -1343,6 +1529,15 @@ function displayProjectNav(title){
           }
         })
       }, 500);
+      tag.classList.add('discipline-tag-inactive')
+      setTimeout(() => {
+        tag.style.fontSize = ''
+        tag.style.borderRadius = ''
+        
+        /*interestTagDiv = projectHeader.querySelector('.interest-tag-div')
+        
+        interestTagDiv.style.marginTop = ''*/
+      }, 250);
     }, 500);
   }
   else{
@@ -1354,10 +1549,8 @@ function displayProjectNav(title){
 
 
     technicalOverviewButton = navbar.querySelector('.technical-overview-wrapper').querySelector('.technical-overview-btn')
-    console.log(technicalOverviewButton)
 
     navs.forEach(function(nav){
-      console.log(nav)
       if(nav.classList.contains('project-nav-inactive')){
         replaceClassesWith(nav, ['project-nav-inactive'], ['project-nav'])
 
@@ -1374,11 +1567,21 @@ function displayProjectNav(title){
             subnav.classList.remove('inactive')
           }
           });
-
-          displayProjectOverview(navbar.querySelector('.project-overview-btn'));
+         
       }
     })
-    }
+    tag.classList.remove('discipline-tag-inactive')
+    tagFontSize = (getComputedStyle(tag).fontSize).replace("px", "")
+    tag.style.fontSize = tagFontSize * 1.2 + 'px'
+
+    
+    /*interestTagDiv = projectHeader.querySelector('.interest-tag-div')
+    
+    interestTagDiv.style.marginTop = '3vh'*/
+
+
+    displayProjectOverview(navbar.querySelector('.project-overview-btn'));
+  }
 }
 
 function setDefaultPageLayout(){
@@ -1389,26 +1592,37 @@ function setDefaultPageLayout(){
             <div class="project-header">
               <div class="project-title-div">
                 <h2 class="project-title-inactive">${project.projectName.toUpperCase()}</h2>
-                <div class="${project.discipline.toLowerCase()}-discipline-tag">
+                <div class="${project.discipline.toLowerCase()}-discipline-tag discipline-tag discipline-tag-inactive">
                 ${discipline in shortHand ? shortHand[discipline] : discipline.toUpperCase()}
                 </div>
+              </div>
+              <div class="interest-tag-div">
+
               </div>
               <div class="project-navbar">
                 <button class="project-nav-inactive project-overview-btn">PROJECT OVERVIEW</button>
                 <button class="project-nav-inactive engineering-process-btn">ENGINEERING PROCESS</button>
-                <div class="technical-overview-wrapper">
-                  <button class="project-nav-inactive technical-overview-btn">TECHNICAL OVERVIEW</button>
-                   <div class="technical-overview-subwrapper">
-                    <button class="on-the-surface-inactive">ON THE SURFACE</button>
-                    <p>|</p>
-                    <button class="in-depth-inactive">IN DEPTH</button>
+                <div class="project-navbar-bottom-row">
+                  <div class="technical-overview-wrapper">
+                    <button class="project-nav-inactive technical-overview-btn">TECHNICAL OVERVIEW</button>
+                    <div class="technical-overview-subwrapper">
+                      <button class="on-the-surface-inactive">ON THE SURFACE</button>
+                      <p>|</p>
+                      <button class="in-depth-inactive">IN DEPTH</button>
+                    </div>
                   </div>
+                  <button class="project-nav-inactive demo-btn">DEMO</button>
                 </div>
               </div>
             </div>
             <div class="project-content" id="${project.projectID}-content"><div/>
           </section>
         `
+        /*interestTagDiv = document.querySelector(`#${project.projectID}`).querySelector('.interest-tag-div')
+
+        for(let key in project.interestTags){
+          interestTagDiv.innerHTML += `<div class="interest-tag interest-tag-inactive ${key}">${project.interestTags[key].toUpperCase( )}</</div>`
+        }*/
     });
      content.innerHTML += `
      <section class="project hidden-project">
@@ -1420,7 +1634,7 @@ function setDefaultPageLayout(){
                 </div>
               </div>
               <div class="hidden-project-navbar project-navbar">
-                <button class="project-nav-inactive project-overview-btn">PROJECT OVERVIEW</button>
+                <button class="project-nav-active project-overview-btn">PROJECT OVERVIEW</button>
                 <button class="project-nav-inactive engineering-process-btn">ENGINEERING PROCESS</button>
                 <div class="technical-overview-wrapper">
                   <button class="project-nav-inactive technical-overview-btn">TECHNICAL OVERVIEW</button>
@@ -1463,6 +1677,11 @@ function setDefaultPageLayout(){
           displayEngineeringProcess(this);
       });
   });
+    document.querySelectorAll('.demo-btn').forEach(function(button){
+      button.addEventListener('click', function() {
+          displayDemo(this);
+      });
+  });
     document.querySelectorAll('.on-the-surface-inactive').forEach(function(button){
       button.addEventListener('click', function() {
         displayTechnicalOverviewFromSubnav(this, 'onTheSurface');
@@ -1479,32 +1698,36 @@ function setDefaultPageLayout(){
         displayProjectNav(this);
       });
   });
+    document.querySelectorAll('.discipline-tag-inactive').forEach(button => {
+      button.addEventListener('click', function() {
+        displayProjectNav(this.parentNode.querySelector('.project-title-inactive'));
+      });
+  });
 }
 
 window.onload = function () {
-  const wageGraphic = document.getElementById('wave-graphic');
 
   function updateImage() {
       if (window.innerWidth >= 2500) {
-          wageGraphic.src = './styles/static/2500px-wave-graphic.png'; // Desktop image
+
       } 
       else if (window.innerWidth >= 2000) {
-          wageGraphic.src = './styles/static/2000px-wave-graphic.png'; // Tablet image
+
       } 
       else if (window.innerWidth >= 1600) {
-          wageGraphic.src = './styles/static/1600px-wave-graphic.png'; // Tablet image
+
       } 
       else if (window.innerWidth >= 1023) {
-          wageGraphic.src = './styles/static/1023px-wave-graphic.png'; // Tablet image
+
       } 
       else if (window.innerWidth >= 768) {
-          wageGraphic.src = './styles/static/768px-wave-graphic.png'; // Tablet image
+
       } 
       else if (window.innerWidth >= 553) {
-          wageGraphic.src = './styles/static/553px-wave-graphic.png'; // Tablet image
+
       } 
       else{
-          wageGraphic.src = './styles/static/wave-graphic.png'; // Tablet image
+
       } 
   }
 
