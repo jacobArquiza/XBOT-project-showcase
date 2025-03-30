@@ -24,7 +24,7 @@
     font-style: italic;
   }
 
-  @keyframes slideRight {
+@keyframes slideRight {
     from {
       transform: translateX(-100vw);
     }
@@ -119,7 +119,6 @@ footer{
 
 .title-wrapper{
     display: flex;
-    align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
@@ -127,9 +126,9 @@ footer{
 
 .team488-wrapper {
 	position: relative;
-    left: 50%;
-    width: 100%;
+    width: 50%;
     height: 100%;
+    transform: translateX(50%);
 }
 
 .team488-wrapper h3{
@@ -157,6 +156,7 @@ footer{
 	position: absolute;
 	transform: translate(-50%, -4vw);
 	font-family: "Poppins", sans-serif;
+    white-space: nowrap;
 }
 
 .team488-wrapper h2:nth-child(1) {
@@ -430,8 +430,91 @@ video{
 
 }
 
+@media (min-width: 0px) and (max-width:768px){
+    a:hover{
+        color: #3a2f6e;
+    }
+    .button-enabled:hover,.button-disabled:hover, .project-title-div:hover{
+        filter:brightness(1)
+    }
+}
 
 @media (min-width: 0px) and (max-width: 420px){
+    .wave-wrapper {
+        width: 300vw;
+    }
+    
+    .fg-wave-1, .fg-wave-2, .mfg-wave-1, .mfg-wave-2, .mbg-wave-1, .mbg-wave-2, .bg-wave-1, .bg-wave-2, .algae {
+        width: 300vw; 
+        animation: slideRight0-420 10s linear infinite; 
+    }
+    .fg-wave-1, .fg-wave-2{
+        animation: slideRight0-420 10s linear infinite; 
+    }
+    
+    .mfg-wave-1, .mfg-wave-2{
+        animation: slideRight0-420 15s linear infinite; 
+    }
+    
+    .algae{
+        animation: slideAndBob0-420 15s linear infinite; 
+    }
+    
+    .mbg-wave-1, .mbg-wave-2{
+        animation: slideRight0-420 20s linear infinite; 
+    }
+    
+    .bg-wave-1, .bg-wave-2{
+        animation: slideRight0-420 30s linear infinite; 
+    }
+    
+    @keyframes slideRight0-420 {
+        from {
+            transform: translateX(-300vw);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes slideAndBob0-420 {
+        0% {
+            transform: translate(-300vw, 0);
+            opacity: 0;
+        }
+        12.5% {
+            transform: translate(-262.5vw, -3vh);
+            opacity: 0;
+        }
+        25% {
+            transform: translate(-225vw, 0);
+            opacity: 1;
+        }
+        37.5% {
+            transform: translate(-187.5vw, -3vh);
+            opacity: 1;
+        }
+        50% {
+            transform: translate(-150vw, 0);
+            opacity: 1;
+        }
+        62.5% {
+            transform: translate(-112.5vw, -3vh);
+            opacity: 1;
+        }
+        75% {
+            transform: translate(-75vw, 0);
+            opacity: 1;
+        }
+        87.5% {
+            transform: translate(-37.5vw, -3vh);
+            opacity: 0;
+        }
+        100% {
+            transform: translate(0vw, 0);
+            opacity: 0;
+        }
+    }
     .project-title, .project-title-inactive{
         font-size: 7.9vw;
     }
@@ -561,6 +644,82 @@ video{
 }
 
 @media (min-width: 420px) and (max-width: 553px){
+    .wave-wrapper {
+        width: 300vw;
+    }
+    
+    .fg-wave-1, .fg-wave-2, .mfg-wave-1, .mfg-wave-2, .mbg-wave-1, .mbg-wave-2, .bg-wave-1, .bg-wave-2, .algae {
+        width: 300vw; 
+        animation: slideRight420-553 10s linear infinite; 
+    }
+    .fg-wave-1, .fg-wave-2{
+        animation: slideRight420-553 10s linear infinite; 
+    }
+    
+    .mfg-wave-1, .mfg-wave-2{
+        animation: slideRight420-553 15s linear infinite; 
+    }
+    
+    .algae{
+        animation: slideAndBob420-553 15s linear infinite; 
+    }
+    
+    .mbg-wave-1, .mbg-wave-2{
+        animation: slideRight420-553 20s linear infinite; 
+    }
+    
+    .bg-wave-1, .bg-wave-2{
+        animation: slideRight420-553 30s linear infinite; 
+    }
+    
+    @keyframes slideRight420-553 {
+        from {
+            transform: translateX(-300vw);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes slideAndBob420-553 {
+        0% {
+            transform: translate(-300vw, 0);
+            opacity: 0;
+        }
+        12.5% {
+            transform: translate(-262.5vw, -3vh);
+            opacity: 0;
+        }
+        25% {
+            transform: translate(-225vw, 0);
+            opacity: 1;
+        }
+        37.5% {
+            transform: translate(-187.5vw, -3vh);
+            opacity: 1;
+        }
+        50% {
+            transform: translate(-150vw, 0);
+            opacity: 1;
+        }
+        62.5% {
+            transform: translate(-112.5vw, -3vh);
+            opacity: 1;
+        }
+        75% {
+            transform: translate(-75vw, 0);
+            opacity: 1;
+        }
+        87.5% {
+            transform: translate(-37.5vw, -3vh);
+            opacity: 0;
+        }
+        100% {
+            transform: translate(0vw, 0);
+            opacity: 0;
+        }
+    }
+
     .project-title, .project-title-inactive{
         font-size:  7.9vw;
     }
@@ -665,6 +824,73 @@ video{
 }
 
 @media (min-width: 553px) and (max-width:769px){
+    .wave-wrapper {
+        width: 150vw;
+    }
+    
+    .fg-wave-1, .fg-wave-2, .mfg-wave-1, .mfg-wave-2, .mbg-wave-1, .mbg-wave-2, .bg-wave-1, .bg-wave-2, .algae {
+        width: 150vw; 
+        animation: slideRight553-769 10s linear infinite; 
+    }
+    .fg-wave-1, .fg-wave-2{
+        animation: slideRight553-769 10s linear infinite; 
+    }
+    
+    .mfg-wave-1, .mfg-wave-2{
+        animation: slideRight553-769 15s linear infinite; 
+    }
+    
+    .algae{
+        animation: slideAndBob553-769 15s linear infinite; 
+    }
+    
+    .mbg-wave-1, .mbg-wave-2{
+        animation: slideRight553-769 20s linear infinite; 
+    }
+    
+    .bg-wave-1, .bg-wave-2{
+        animation: slideRight553-769 30s linear infinite; 
+    }
+    
+    @keyframes slideRight553-769 {
+        from {
+            transform: translateX(-150vw);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes slideAndBob553-769 {
+        0% {
+            transform: translate(-150vw, 0);
+        }
+        12.5% {
+            transform: translate(-131.25vw, -3vh);
+        }
+        25% {
+            transform: translate(-112.5vw, 0);
+        }
+        37.5% {
+            transform: translate(-93.75vw, -3vh);
+        }
+        50% {
+            transform: translate(-75vw, 0);
+        }
+        62.5% {
+            transform: translate(-56.25vw, -3vh);
+        }
+        75% {
+            transform: translate(-37.5vw, 0);
+        }
+        87.5% {
+            transform: translate(-18.75vw, -3vh);
+        }
+        100% {
+            transform: translate(0vw, 0);
+        }
+    }
+    
     .project-title, .project-title-inactive{
         font-size: 6vw;
     }
@@ -778,6 +1004,72 @@ video{
 }
 
 @media (min-width: 769px) and (max-width:1023px){
+    .wave-wrapper {
+        width: 150vw;
+    }
+    
+    .fg-wave-1, .fg-wave-2, .mfg-wave-1, .mfg-wave-2, .mbg-wave-1, .mbg-wave-2, .bg-wave-1, .bg-wave-2, .algae {
+        width: 150vw; 
+        animation: slideRight769-1023 10s linear infinite; 
+    }
+    .fg-wave-1, .fg-wave-2{
+        animation: slideRight769-1023 10s linear infinite; 
+    }
+    
+    .mfg-wave-1, .mfg-wave-2{
+        animation: slideRight769-1023 15s linear infinite; 
+    }
+    
+    .algae{
+        animation: slideAndBob769-1023 15s linear infinite; 
+    }
+    
+    .mbg-wave-1, .mbg-wave-2{
+        animation: slideRight769-1023 20s linear infinite; 
+    }
+    
+    .bg-wave-1, .bg-wave-2{
+        animation: slideRight769-1023 30s linear infinite; 
+    }
+    
+    @keyframes slideRight769-1023 {
+        from {
+            transform: translateX(-150vw);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes slideAndBob769-1023 {
+        0% {
+            transform: translate(-150vw, 0);
+        }
+        12.5% {
+            transform: translate(-131.25vw, -3vh);
+        }
+        25% {
+            transform: translate(-112.5vw, 0);
+        }
+        37.5% {
+            transform: translate(-93.75vw, -3vh);
+        }
+        50% {
+            transform: translate(-75vw, 0);
+        }
+        62.5% {
+            transform: translate(-56.25vw, -3vh);
+        }
+        75% {
+            transform: translate(-37.5vw, 0);
+        }
+        87.5% {
+            transform: translate(-18.75vw, -3vh);
+        }
+        100% {
+            transform: translate(0vw, 0);
+        }
+    }
     .project-title, .project-title-inactive{
         font-size: 6vw;
     }
