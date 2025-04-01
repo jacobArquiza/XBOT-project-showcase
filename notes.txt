@@ -1,9 +1,9 @@
 Want to Add:
-    - Finish content on all projects    
+    - Finish content on all projects (2/2)  
+    - Add pictures when applicable  
     - Adjust the resizing features (maybe look into upgrading from media queries?) [3/24/25]
     - Clean up styles.css by removing common styles from their media queries [3/24/25] 2/2
     - Compensate for android dark mode [3/24/25]
-    - Add tags I can put on like ML, AI, DATA SCIENCE, WEB DEV, etc. [3/29/25] (Finish)
     - Add other project disciplines [3/24/25]
     - Add an easier way to inject project content fo reusability over the years [3/24/25]
 
@@ -16,6 +16,11 @@ Update log:
     - Add tags I can put on like ML, AI, DATA SCIENCE, WEB DEV, etc. [3/29/25] (Explored)
     - Redo the wave graphics on the hero [3/29/25]
     - Make a navbar for different disciplines [3/29/25]
+    - Add tags I can put on like ML, AI, DATA SCIENCE, WEB DEV, etc. [4/1/25] (FINISHED!)
+    - Finish content on all projects (1/2)  
+    - Lots of general cleanup, can't keep track!
+
+
 
 
 
