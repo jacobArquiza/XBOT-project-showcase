@@ -26,10 +26,10 @@
 
 @keyframes slideRight {
     from {
-      margin-left:-100vw;
+      transform: translateX(-100vw);
     }
     to {
-      margin-left: 0vw;
+      transform: translateX(0);
     }
   }
 
@@ -124,7 +124,6 @@ footer{
     height: 75vh;
     width: 100vw;
     position: relative;
-    overflow-x: hidden;
 }
 
 .title-wrapper{
@@ -541,10 +540,10 @@ video{
     
     @keyframes slideRight0-420 {
         from {
-            margin-left:-100vw;
+            transform: translateX(-300vw);
         }
         to {
-            margin-left: 0vw;
+            transform: translateX(0);
         }
     }
     
@@ -752,10 +751,10 @@ video{
     
     @keyframes slideRight420-553 {
         from {
-            margin-left:-100vw;
+            transform: translateX(-300vw);
         }
         to {
-            margin-left: 0vw;
+            transform: translateX(0);
         }
     }
     
@@ -942,10 +941,10 @@ video{
     
     @keyframes slideRight553-769 {
         from {
-            margin-left:-150vw;
+            transform: translateX(-150vw);
         }
         to {
-            margin-left: 0vw;
+            transform: translateX(0);
         }
     }
     
@@ -1125,10 +1124,10 @@ video{
     
     @keyframes slideRight769-1023 {
         from {
-            margin-left:-150vw;
+            transform: translateX(-150vw);
         }
         to {
-            margin-left: 0vw;
+            transform: translateX(0);
         }
     }
     
