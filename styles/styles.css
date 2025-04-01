@@ -98,6 +98,15 @@ body, main{
     font-family: 'Inter', sans-serif;
 }
 
+nav{
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    background-color: #1c4587;
+    height: 5vh;
+    width: 100%;
+}
+
 footer{
     text-align: left;
     background-color: rgb(4, 4, 56);
@@ -122,13 +131,14 @@ footer{
     justify-content: center;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
 }
 
 .team488-wrapper {
 	position: relative;
-    width: 50%;
+    left: 50%;
+    width: 100%;
     height: 100%;
-    transform: translateX(50%);
 }
 
 .team488-wrapper h3{
@@ -156,7 +166,6 @@ footer{
 	position: absolute;
 	transform: translate(-50%, -4vw);
 	font-family: "Poppins", sans-serif;
-    white-space: nowrap;
 }
 
 .team488-wrapper h2:nth-child(1) {
@@ -262,6 +271,7 @@ th{
 }
 
 .links{
+    position: sticky;
     width: 100vw;
     display: flex;
     flex-direction: row;
@@ -287,6 +297,23 @@ a{
     font-weight: 700;
 }
 
+#menu-btn{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    aspect-ratio: 10 / 8;
+    background-color: #1c4587;
+    border-radius: 10px;
+    z-index: 10;
+    transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+#menu-btn:hover{
+    width: 110;
+    background-color: #345b99;
+}
+
 .button-enabled,.button-disabled{
     font-weight: 900;
     font-size: 1.5vw;
@@ -309,7 +336,7 @@ a{
     padding: 2%;
 }
 
-.project-title, .project-title-inactive{
+.project-title, .project-title-inactive, .content{
     transition: opacity 1s ease, height 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
@@ -391,14 +418,23 @@ a{
 }
 .interest-tag-div{
     display: flex;
-    transition: margin-top 0.5s ease;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    clip-path: inset(0 100% 0 0); 
+    max-height: 0;
+    transition: max-height 0.5s ease-in-out, clip-path 0.5s ease-in-out;
+}
+
+.interest-tag-div.active {
+    clip-path: inset(0 0 0 0); 
+    max-height: 200px;
 }
 
 .interest-tag{
-    border-radius: 20px;
+    border-radius: 7px;
     padding: 0.5vh 1vw;
     margin: 0.5vh 1vw 0.5vw 0;
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     font-weight: 900;
     color: white;
 }
@@ -418,10 +454,37 @@ a{
 .math{
     background-color: #119427;
 }
+.physics{
+    background-color: #81097b;
+}
+.autonomous{
+    background-color: #ff7300;
+}
+.networking{
+    background-color: #00aec5;
+}
+.uiux{
+    background-color: #f16785;
+}
+.efficiency-booster{
+    background-color: #00c020;
+}
+.color-detection{
+    background-color: #00db54;
+}
 
 .project-navbar-bottom-row{
     display:flex;
     align-items: baseline;
+}
+
+.hidden-content{
+
+}
+
+.under-construction{
+    width: 60%;
+    height: auto;
 }
 
 video{
@@ -440,6 +503,13 @@ video{
 }
 
 @media (min-width: 0px) and (max-width: 420px){
+    .interest-tag{
+        border-radius: 9px;
+        font-size: 0.5rem;
+    }
+    .button-enabled,.button-disabled{
+        font-size: 3vw;
+    }
     .wave-wrapper {
         width: 300vw;
     }
@@ -644,6 +714,13 @@ video{
 }
 
 @media (min-width: 420px) and (max-width: 553px){
+    .interest-tag{
+        border-radius: 9px;
+        font-size: 0.6rem;
+    }
+    .button-enabled,.button-disabled{
+        font-size: 3vw;
+    }
     .wave-wrapper {
         width: 300vw;
     }
@@ -823,7 +900,17 @@ video{
     }
 }
 
+@media (min-width: 553px){
+    .interest-tag{
+        border-radius: 15px;
+        font-size: 0.8rem;
+    }
+}
 @media (min-width: 553px) and (max-width:769px){
+
+    .button-enabled,.button-disabled{
+        font-size: 3vw;
+    }
     .wave-wrapper {
         width: 150vw;
     }
@@ -1004,6 +1091,9 @@ video{
 }
 
 @media (min-width: 769px) and (max-width:1023px){
+    .button-enabled,.button-disabled{
+        font-size: 2.5vw;
+    }
     .wave-wrapper {
         width: 150vw;
     }
@@ -1181,6 +1271,13 @@ video{
 }
 
 @media (min-width: 1023px) and (max-width:1600px){
+    .under-construction{
+        width: 40%;
+        height: auto;
+    }
+    .button-enabled,.button-disabled{
+        font-size: 2vw;
+    }
     .project-title, .project-title-inactive{
         font-size: 5vw;
     }
@@ -1294,6 +1391,13 @@ video{
     }
 }
 @media (min-width: 1600px) and (max-width:2000px){
+    .under-construction{
+        width: 35%;
+        height: auto;
+    }
+    .button-enabled,.button-disabled{
+        font-size: 2vw;
+    }
     .project-title, .project-title-inactive{
         font-size: 5vw;
     }
@@ -1408,6 +1512,13 @@ video{
 }
 
 @media (min-width: 2000px) and (max-width:2500px){
+    .under-construction{
+        width: 30%;
+        height: auto;
+    }
+    .button-enabled,.button-disabled{
+        font-size: 1.5vw;
+    }
     a{
         text-decoration: none;
         color: #3a2f6e;
@@ -1523,6 +1634,10 @@ video{
     }
 }
 @media (min-width: 2500px){
+    .under-construction{
+        width: 30%;
+        height: auto;
+    }
     .project-title, .project-title-inactive{
         font-size: 7rem;
     }

@@ -1,60 +1,37 @@
 const content = document.querySelector('.content')
 const shortHand = {
-  "Mechanical":"MECH.",
-  "Programming":"PROGRM.",
-  "Electrical":"ELECTR."
+  "Mechanical": "MECH.",
+  "Programming": "PROGRM.",
+  "Electrical": "ELECTR."
 }
 
-const abbreviations = {
-  'MACHINE LEARNING':'ML' ,
-  'ARTIFICIAL INTELLIGENCE':'AI' ,
-  'COMPUTER VISION':'CV' ,
-  'UNIQUE APPROACH':'UNIQUE' ,
-  'MATH':'MATH'
-}
-
-const opposite = {
-  'MACHINE LEARNING':'ML' ,
-  'ARTIFICIAL INTELLIGENCE':'AI' ,
-  'COMPUTER VISION':'CV' ,
-  'UNIQUE APPROACH':'UNIQUE' ,
-  'MATH':'MATH'
-}
 
 const projects = [
   //Probability Map
-    {
-      projectName: "Probability Map",
-      
-      projectID: 'probability-map',
+  {
+    projectName: "Probability Map",
 
-      discipline: 'Vision',
+    projectID: 'probability-map',
 
-      interestTags: {
-        'ml':'Machine Learning',
-        'ai':'Artificial Intelligence',
-        'computer-vision':'Computer Vision',
-        'unique-approach':'Unique Approach',
-        'math':'Math'
-      },
+    discipline: 'Vision',
 
-      abbreviatedInterestTags:{
-        'ml-abbrv':'ML',
-        'ai-abbrv':'AI',
-        'computer-vision-abbrv':'CV',
-        'unique-approach-abbrv':'Unique Approach',
-        'math-abbrv':'Math'
-      },
+    interestTags: {
+      'ml': 'Machine Learning',
+      'ai': 'Artificial Intelligence',
+      'computer-vision': 'Computer Vision',
+      'unique-approach': 'Unique Approach',
+      'math': 'Math'
+    },
 
-      projectOverview: {
-          ourProblem: `
+    projectOverview: {
+      ourProblem: `
             <h3 class="project-content-item-title">Our Problem</h3>
           <p class="project-content-item-paragraph">
           In the chaotic environments of FRC competitions, it’s hard to
           accurately measure where things are on the field. There’s
           uncertainty in the data we get from every camera and sensor.
         </p>`,
-          ourSolution: `
+      ourSolution: `
             <h3 class="project-content-item-title">Our Solution</h3>
           <p class="project-content-item-paragraph">
             We take <strong>50 captures a second</strong> through each of our
@@ -69,7 +46,7 @@ const projects = [
             <li>How long it’s been since we’ve seen the object</li>
             <li>How the object has been moving</li>
           </ul>`,
-          ourSolutionsImpact: `
+      ourSolutionsImpact: `
             <h3 class="project-content-item-title">Our Solution's Impact</h3>
           <p class="project-content-item-paragraph">
             This elegant solution allows us to:
@@ -91,17 +68,17 @@ const projects = [
               Reef State Tracker</a
             >, integral parts of our gameplay.
           </p>`,
-      },
+    },
 
-      surfaceTechnicalOverview: {
-          onTheSurfaceCapture: `
+    surfaceTechnicalOverview: {
+      onTheSurfaceCapture: `
             <h3 class="project-content-item-title">Capture</h3>
           <p class="project-content-item-paragraph">
               On the robot, we have 3 color cameras that continuously detect
               capture the field. These cameras run 50 detections a second
               each.
-            </p>`,    
-          onTheSurfaceDetect: `
+            </p>`,
+      onTheSurfaceDetect: `
             <h3 class="project-content-item-title">Detect</h3>
           <p class="project-content-item-paragraph">
               We run the captures through a Machine Learning model on an
@@ -117,8 +94,8 @@ const projects = [
               <li>How long we detect the object</li>
               <li>How long it’s been since we’ve seen the object</li>
               <li>How the object has been moving</li>
-            </ul>`,    
-          onTheSurfaceAssignProbability: `
+            </ul>`,
+      onTheSurfaceAssignProbability: `
             <h3 class="project-content-item-title">Assign Probability</h3>
           <p class="project-content-item-paragraph">
               We assign the probability of an object’s position based on 4
@@ -143,7 +120,7 @@ const projects = [
               “remember” where objects are and also “know” that it might not
               still be there.
             </p>`,
-          onTheSurfaceMap: `
+      onTheSurfaceMap: `
             <h3 class="project-content-item-title">Map</h3>
           <p class="project-content-item-paragraph">
               When we are uncertain (the graph of probability of an object is
@@ -154,16 +131,16 @@ const projects = [
               side of them, reflecting their tendency to drive forward but
               also move sideways. Objects and robots in this way allow us to
               later dodge them [see <a href="#path-planning">Path Planning</a>].
-            </p>`,    
-      },
-      inDepthTechnicalOverview : {
-          inDepthCapture: `
+            </p>`,
+    },
+    inDepthTechnicalOverview: {
+      inDepthCapture: `
             <h3 class="project-content-item-title">Capture</h3>
             <p class="project-content-item-paragraph">
               On the robot, we have <strong>3 Arducam OV9782s</strong> that continuously detect capture the field at a rate of 20 ms per detection.
             </p>
-          `,    
-          inDepthDetect: ` 
+          `,
+      inDepthDetect: ` 
             <h3 class="project-content-item-title">Assign Probability</h3>
             <p class="project-content-item-paragraph">
               We run the captures through a Machine Learning model on an Orange Pi connected to the camera. We use our in-house model, that was trained on a vast data set of images [see <a href="#auto-labeler">Auto Labeler</a>]. This data comes from a unique set of 30,000 images that have been augmented in different ways to imitate unideal field conditions, totaling 150,000 images. This model is trained to detect year-agnostic objects like Robots, and year-specific objects like Algae, Coral, and even the state of Reef Spaces [see <a href="#reef-tracker">Reef Tracker</a>]. 
@@ -171,8 +148,8 @@ const projects = [
             <p class="project-content-item-paragraph">
               Because we understand the exact size (or general size, in the case of robots) of the objects we detect, by how large they appear in the camera we can derive their distance. Using our knowledge of the camera-intrinsic-properties, we can map those detections to a central point of probability on our 3D, probabilistic map of the field.
             </p>
-          `,    
-          inDepthAssignProbability: `
+          `,
+      inDepthAssignProbability: `
             <h3 class="project-content-item-title">Detect</h3>
             <p class="project-content-item-paragraph">
               We assign the probability of an object’s position based on <strong>4 factors</strong>:
@@ -196,68 +173,102 @@ const projects = [
               Over time, as we don’t see the object, its probability naturally decays until we see it again. This allows our robot to “remember” where objects are and also “know” that it might not still be there.
             </p>
           `,
-          inDepthMap: `
+      inDepthMap: `
             <h3 class="project-content-item-title">Map</h3>
             <p class="project-content-item-paragraph">
               When we are uncertain (the graph of probability of an object is low) that an object is where we assume it to be, a cloud of where that object could be is plotted on the map. This is especially important when detecting robots. Through a robots probability on our map, we naturally generate a velocity vector that points in the likely direction of movement within the near future. Acknowledging that swerve-drive robots can easily move side to side, we push out the robots probable future location horizontally. This later allows us to dodge them accurately and automatically [see <a href="#path-planning">Path Planning</a>].
             </p>
-          `,    
-      },
-      engineeringProcess: {
-        problemIdentification: ``,
-        projectIdeationAndPlanning: ``,
-        projectTimeline: ``,
-      }
+          `,
     },
+    engineeringProcess: {
+      problemIdentification: ``,
+      projectIdeationAndPlanning: ``,
+      projectTimeline: ``,
+    }
+  },
   //Path Planning
-    {
-      projectName: "Path planning",
-      
-      projectID: 'path-planning',
+  {
+    projectName: "Path planning",
 
-      discipline: 'Vision',
+    projectID: 'path-planning',
 
-      projectOverview: {
-          ourProblem: `
+    discipline: 'Vision',
+
+    interestTags: {
+      'autonomous': 'Autonomous',
+      'physics': 'Physics',
+      'unique-approach': 'Unique Approach',
+      'math': 'Math',
+    },
+
+    projectOverview: {
+      ourProblem: `
           <h3 class="project-content-item-title">Our Problem</h3>
           <p class="project-content-item-paragraph">
             With such an emphasis on fast cycles, the name of the game this year is efficiency and speed. If our cycles aren’t fast enough, we won’t be able to compete against this year’s best. On the software side of things, we can decrease our cycle time by making sure our movement is optimized.
           </p>
           `,
-          ourSolution: `
+      ourSolution: `
           <h3 class="project-content-item-title">Our Solution</h3>
           <p class="project-content-item-paragraph">
             We created our own implementation of Path Planning, using Bezier Splines to balance the efficiency of Bezier curves with the local control of waypoints. We avoid or head towards areas outlined by our <a href="#probability-map">Probability Map</a> and create the most efficient and velocity-consistent path.
           </p>
           `,
-          ourSolutionsImpact: `
+      ourSolutionsImpact: `
           <h3 class="project-content-item-title">Our Solution's Impact</h3>
           <p class="project-content-item-paragraph">
             We are able to plan efficient and dynamic autos that resist external changes, obstacles, and interruptions to our path; reduce our teleop cycle time; and react to enemy defense faster than humanly possible. Our <a href="#path-planning">Path Planning</a> stands out compared to the competition because our implementation of it is so specific, robust, and specialized.
           </p>
           `,
-      },
+    },
 
-      surfaceTechnicalOverview: {
-          onTheSurfaceCapture: ``,    
-          onTheSurfaceDetect: ``,    
-          onTheSurfaceAssignProbability: ``,
-          onTheSurfaceMap: ``,    
-      },
-      inDepthTechnicalOverview : {
-          inDepthCapture: ``,    
-          inDepthDetect: ``,    
-          inDepthAssignProbability: ``,
-          inDepthMap: ``,    
-      },
-      engineeringProcess: {
-        problemIdentification: `
+    surfaceTechnicalOverview: {
+      onTheSurfaceRequestingAPath: `
+           <h3 class="project-content-item-title">Requesting A Path</h3>
+            <p class="project-content-item-paragraph">
+              Through <a href="#XTables">XTable’s</a> efficient protobuf request, the <a href="#path-planning">Path Planner</a> is initiated. We give it a starting position, a goal, and the safe distance, or tolerance, parameter which tells the curve how tight it should dodge obstacles.
+            </p>  
+            `,
+      onTheSurfacePlanABasicPath: `
+          <h3 class="project-content-item-title">Plan A Basic Path (Waypoints)</h3>
+            <p class="project-content-item-paragraph">
+              <strong>We use a time mask</strong> over a map of the field to find the most time efficient route to the goal from the starting position. This basic path uses straight lines to find the fastest (but not most efficient) path from A to B.  We <strong>find the inflection points</strong>, the points where we change direction, by finding the second derivative of those straight lines. We then <strong>deflate those inflection points</strong>, collapsing groups of many inflection points into an average single point that makes processing more efficient. This is analogous to your GPS telling you “Drive straight for one mile” instead of “Drive straight for one inch… Drive straight for one inch… etc.”.
+            </p>  
+          `,
+      onTheSurfacePlanAnAdvancedPath: `
+          <h3 class="project-content-item-title">Plan an Advanced Path (Beziér Curve)</h3>
+            <p class="project-content-item-paragraph">
+              We <strong>generate a Beziér curve</strong> from our basic path that uses all the inflection points as control points. After a curve is generated, we check is the path is safe or not. If the path is not safe, <strong>it inflates all the points outward</strong> to avoid hitting the object it would’ve hit. This is run over and over again, and if it becomes clear that a Beziér curve is impossible, we fall back on our basic path between those two control points and <strong>create a Beziér spline</strong> (a series of Beziér curves). This allows us to <strong>always</strong> generate a path, even if it’s impossible through Beziér curves alone.
+            </p>  
+          `,
+      onTheSurfacePlottingPathInPhysicalSpace: `
+           <h3 class="project-content-item-title">Plotting Path in Physical Space</h3>
+            <p class="project-content-item-paragraph">
+              We take the final path we generate and translate it onto our map, going from inches per pixel to physical meters. 
+            </p>  
+          `,
+      onTheSurfaceFollowPath: `
+          <h3 class="project-content-item-title">Follow Path</h3>
+            <p class="project-content-item-paragraph">
+              To follow our path, we create a ghost representing the position the robot should be in next if following the path correctly. <strong>This is superior </strong>to simply turning our path into drive commands like “Drive forward, turn, etc…” because even if our robot gets knocked off course, it will follow the next ghost in the path,<strong> ensuring we always stay en route</strong>. Because you lose speed when you turn, we save turning for last, “snapping” our robot into position at the very end, preserving our momentum and speed as much as possible.
+            </p>  
+          `
+    },
+    inDepthTechnicalOverview: {
+      inDepthRequestingAPath: ``,
+      inDepthPlanABasicPath: ``,
+      inDepthPlanAnAdvancedPath: ``,
+      inDepthPlottingPathInPhysicalSpace: ``,
+      inDepthFollowPath: ``
+    },
+    engineeringProcess: {
+      problemIdentification: `
         <h3 class="project-content-item-title">Problem Identification</h3>
         <p class="project-content-item-paragraph">
           This season, we decided it was important to be able to go dynamically and intelligently from point A to point B, most crucially during auto. Going in a straight line won’t cut it; we need the ability to go from point A to point B without crashing into anything in between. We need to have the ability to intelligently plan a route around obstacles to get to our destination, without any human input, at speed.
         </p>  
           `,
-        projectIdeationAndPlanning: `
+      projectIdeationAndPlanning: `
         <h3 class="project-content-item-title">Project Ideation and Planning</h3>
         <p class="project-content-item-paragraph">
           To achieve this goal, the Vision team members on the task had to closely collaborate with other sub-teams, especially during the planning process. In meetings with students from other disciplines, we identified key subtasks to accomplish.
@@ -271,7 +282,7 @@ const projects = [
           To establish a path, our developers researched different pathfinding algorithms. To ensure constant velocity, our developer researched different physics theories and methods and how they applied to our use case and robotics in general. To minimize latency our developers planned a timeline and schedule with room for iteration.
         </p>
         `,
-        projectTimeline: `
+      projectTimeline: `
         <h3 class="project-content-item-title">Project Timeline</h3>
         <p class="project-content-item-paragraph">
           <strong>Path-planning iteration I</strong>
@@ -339,25 +350,33 @@ const projects = [
           <img class="project-content-image" src="./styles/static/timemap_transparent.png"/>
         </div>
         `,
-      }
-    },
+    }
+  },
   //Auto-Labeler
-    {
-      projectName: "Auto Labeler",
-      
-      projectID: 'auto-labeler',
+  {
+    projectName: "Auto Labeler",
 
-      discipline: 'Vision',
+    projectID: 'auto-labeler',
 
-      projectOverview: {
-          ourProblem: `<h3 class="project-content-item-title">Our Problem</h3>
+    discipline: 'Vision',
+
+    interestTags: {
+      'ml': 'Machine Learning',
+      'ai': 'Artificial Intelligence',
+      'efficiency-booster': 'Efficiency Booster',
+      'math': 'Math',
+      'uiux': 'UI/UX',
+    },
+
+    projectOverview: {
+      ourProblem: `<h3 class="project-content-item-title">Our Problem</h3>
             <p class="project-content-item-paragraph">
               We need large datasets to train the machine learning models we use
               in our ML-based vision systems. <strong>Large datasets</strong>.
               This process is very laborious; in any set of images extracted
               from a video, there are only so many that are actually useful.
             </p>`,
-          ourSolution: `<h3 class="project-content-item-title">Our Solution</h3>
+      ourSolution: `<h3 class="project-content-item-title">Our Solution</h3>
             <p class="project-content-item-paragraph">
               Getting rid of this useless data is the core functionality of the
               <a href="#auto-labeler">Auto-Labler</a>. Through a four-stage process, we find
@@ -366,7 +385,7 @@ const projects = [
               non-unique images, dynamically protect our yield from
               underfitting, and extract the cleaned images.
             </p>`,
-          ourSolutionsImpact: `<h3 class="project-content-item-title">Our Solution's Impact</h3>
+      ourSolutionsImpact: `<h3 class="project-content-item-title">Our Solution's Impact</h3>
             <p class="project-content-item-paragraph">
               The Auto-Labeler allows us to dramatically<strong>
                 increase</strong
@@ -378,22 +397,42 @@ const projects = [
               <a href="#probability-map">Probabilistic Object Detection Map</a>,
               which lies at the heart of all our vision systems.
             </p>`,
-      },
+    },
 
-      surfaceTechnicalOverview: {
-          onTheSurfaceCapture: ``,    
-          onTheSurfaceDetect: ``,    
-          onTheSurfaceAssignProbability: ``,
-          onTheSurfaceMap: ``,    
-      },
-      inDepthTechnicalOverview : {
-          inDepthCapture: ``,    
-          inDepthDetect: ``,    
-          inDepthAssignProbability: ``,
-          inDepthMap: ``,    
-      },
-      engineeringProcess: {
-          problemIdentification: `<h3 class="project-content-item-title">Our Problem</h3>
+    surfaceTechnicalOverview: {
+      onTheSurfaceSlice: `
+        <h3 class="project-content-item-title" id="slice">Slice</h3>
+            <p class="project-content-item-paragraph">
+              The <a href="#auto-labeler">Auto-Labeler</a> intakes videos from robot-recorded matches, livestream VODs, and manual and modified recordings. It <strong>runs an ML model</strong> trained on<strong> Coral, Algae, and Robots</strong> to detect whether these objects of interest exist in the frame. If they do, <strong>their similarity to other collected images is checked</strong>. If they register as too similar, they are thrown to prevent overfitting our model to the training data. Every unique frame with objects of interest has their frame number logged and passed into <a href="#segment">Segment</a>. 
+            </p>  
+        `,
+      onTheSurfaceSegment: `
+        <h3 class="project-content-item-title" id="segment">Segment</h3>
+            <p class="project-content-item-paragraph">
+              Segment takes our individual frame numbers and turns them into ranges. By implementing <strong>gap, buffer, and merge parameters</strong>, we <strong>protect our yield</strong> by reasoning that the frames adjacent to the ones we detect are also valuable.
+            </p>  
+        `,
+      onTheSurfaceExtract: `
+         <h3 class="project-content-item-title" id="extract">Extract</h3>
+            <p class="project-content-item-paragraph">
+              Extract takes the range of frame numbers we collect and <strong>extracts their actual frames</strong> from the source video, putting them into a folder. The folder contains the frames from the video,<strong> cleaned of unusable or undesirable data</strong>.
+            </p>  
+        `,
+      onTheSurfaceCheck: `
+         <h3 class="project-content-item-title" id="check">Check</h3>
+            <p class="project-content-item-paragraph">
+              We give this folder to human labelers who accurately label the images and pass them into the training set for the initial model. <strong>The model will continuously grow in accuracy</strong> over time as it continues to clean the data that it trains on.
+            </p>  
+        `,
+    },
+    inDepthTechnicalOverview: {
+      inDepthSlice: ``,
+      inDepthSegment: ``,
+      inDepthExtract: ``,
+      inDepthCheck: ``,
+    },
+    engineeringProcess: {
+      problemIdentification: `<h3 class="project-content-item-title">Our Problem</h3>
             <p class="project-content-item-paragraph">
               Large datasets are needed to train the machine learning models for
               visual pose estimation, autonomous movement, and accurate
@@ -414,7 +453,7 @@ const projects = [
                 class="project-content-image"
               />
             </div>`,
-          projectIdeationAndPlanning: `<h3 class="project-content-item-title">
+      projectIdeationAndPlanning: `<h3 class="project-content-item-title">
               Project Ideation and Planning
             </h3>
             <p class="project-content-item-paragraph">
@@ -443,7 +482,7 @@ const projects = [
               roles: Script Developer (SD), Middleware Developer (MID), and
               UI-UX Developer (UXD).
             </p>`,
-          projectTimeline: `<h3 class="project-content-item-title">Project Timeline</h3>
+      projectTimeline: `<h3 class="project-content-item-title">Project Timeline</h3>
             <p class="project-content-item-paragraph">
               After the planning process was complete, the SD approached the
               problem by identifying key challenges and objectives in four
@@ -640,50 +679,83 @@ const projects = [
                 class="project-content-image"
               />
             </div>`,
-      }
-    },
+    }
+  },
   //XDash
-    {
-      projectName: "XDash",
-      
-      projectID: 'XDash',
+  {
+    projectName: "XDash",
 
-      discipline: 'Vision',
+    projectID: 'XDash',
 
-      projectOverview: {
-          ourProblem: `
+    discipline: 'Vision',
+
+    interestTags: {
+      'networking': 'Networking',
+      'efficiency-booster': 'Efficiency Booster',
+      'uiux': 'UI/UX',
+    },
+
+    projectOverview: {
+      ourProblem: `
           <h3 class="project-content-item-title">Our Problem</h3>
           <p class="project-content-item-paragraph">
             In the 2024 season, the Vision Subteam was full of lofty ideas but unable to deliver code fast enough or reliably. With multiple subteams passing around the robot, time was extremely valuable. Our development speed was critically capped by how fast we could physically push code.
           </p>
           `,
-          ourSolution: `
+      ourSolution: `
           <h3 class="project-content-item-title">Our Solution</h3>
           <p class="project-content-item-paragraph">
             By centralizing our deployment interface and monitoring system, we can push code to all vision machines simultaneously in one click when it used to take hours. By creating a user-friendly user interface, <a href="#XDash">XDash</a> is more accessible to novice programmers.
           </p>`,
-          ourSolutionsImpact: `
+      ourSolutionsImpact: `
           <h3 class="project-content-item-title">Our Solution's Impact</h3>
           <p class="project-content-item-paragraph">
             <a href="#XDash">XDash</a> dramatically shifted our time allocation from deployment to actual testing. By entirely moving the time sink of deploying code, we can test and iterate on our systems at a speed magnitudes higher than in previous seasons. An added benefit of <a href="#XDash">XDash</a> is that it helps make quick and precise changes to the robot machines in the pit between matches and monitors all the robot diagnostics for faster problem identification.
 
           </p>`,
-      },
+    },
 
-      surfaceTechnicalOverview: {
-          onTheSurfaceCapture: ``,    
-          onTheSurfaceDetect: ``,    
-          onTheSurfaceAssignProbability: ``,
-          onTheSurfaceMap: ``,    
-      },
-      inDepthTechnicalOverview : {
-          inDepthCapture: ``,    
-          inDepthDetect: ``,    
-          inDepthAssignProbability: ``,
-          inDepthMap: ``,    
-      },
-      engineeringProcess: {
-          problemIdentification: `<h3 class="project-content-item-title">Our Problem</h3>
+    surfaceTechnicalOverview: {
+      onTheSurfaceNetworkManagement: `
+        <h3 class="project-content-item-title" id="network-management">Network Management</h3>
+          <p class="project-content-item-paragraph">
+            Through <a href="">XCast</a> (another <strong>XBOT</strong>-developed tool), <a href="#XDash">XDash</a> scans the local network for any connected machines. This allows the computer to find machines easily <strong>without having to look through manually</strong>.
+          </p>
+        `,
+      onTheSurfaceCodeDeployment: `
+         <h3 class="project-content-item-title">Code Deployment</h3>
+          <p class="project-content-item-paragraph">
+            <a href="#XDash">XDash</a> allows us to deploy code <strong>really fast</strong>. Through <a href="#network-management">Network Management</a>, <a href="#XDash">XDash</a> shows a list of machines to choose from to deploy code to or modify, allowing us to deploy code to multiple machines <strong>through a single click on the Dashboard</strong>. There are many parameters to choose from when deploying code to make it as quick as possible. There are preset actions that take <strong>to reduce the time </strong>it takes to do things like pushing code or performing route maintenance.
+          </p>
+        `,
+      onTheSurfaceStatistics: `
+        <h3 class="project-content-item-title">Statistics</h3>
+          <p class="project-content-item-paragraph">
+            <a href="#XDash">XDash</a> shows us the diagnostics of the network itself (<a href="#XTables">XTables</a>) and the diagnostics of each machine. This allows us to quickly find the cause of any issue we encounter in the field.
+          </p>
+        `,
+      onTheSurfaceDebugging: `
+         <h3 class="project-content-item-title">Debugging</h3>
+          <p class="project-content-item-paragraph">
+            <a href="#XDash">XDash</a> shows us previous and live logs of the robot code that runs on the RoboRIO, so<strong> we don’t have to dig through the RoboRIO itself to solve issues</strong>. Unlike tools like AdvantageScope, <a href="#XDash">XDash</a> gives these logos without relying on network tables.
+          </p>
+        `,
+      onTheSurfaceCamerMonitoring: `
+         <h3 class="project-content-item-title">Camera Monitoring</h3>
+          <p class="project-content-item-paragraph">
+            <a href="#XDash">XDash</a> supports live video feed from our onboard cameras, which helps us<strong> diagnose issues post-match</strong>. Additionally, we can see the logs of each camera, allowing us to <strong>monitor the health and efficacy </strong>of our AprilTag, ML, and Histogram detection systems.
+          </p>
+        `,
+    },
+    inDepthTechnicalOverview: {
+      inDepthNetworkManagement: ``,
+      inDepthCodeDeployment: ``,
+      inDepthStatistics: ``,
+      inDepthDebugging: ``,
+      inDepthCamerMonitoring: ``,
+    },
+    engineeringProcess: {
+      problemIdentification: `<h3 class="project-content-item-title">Our Problem</h3>
             <p class="project-content-item-paragraph">In the 2024 season, the Vision Subteam was full of ideas and lofty ambitions but wasn’t able to deliver code fast enough or reliably. At the end of the season, the team met and discussed reasons why this occurred, and one of the prominent ideas was that our workflow was incredibly hindered by our inability to deploy (and therefore test) our code changes. In the 2024 season,if the team wanted to push a single change, we would have to go into each of the six onboard vision machines and manually push changes. Time spent with the competition robot is a precious resource; the small amount of time was spent deploying code more than testing it. This massive hindrance made every step of the development process excruciatingly slow, and we needed to find a way to automate this process.
 
             </p>
@@ -695,7 +767,7 @@ const projects = [
             <div class="project-content-image-div">
               <img src="./styles/static/xdash-time-saved.png" alt="" class="project-content-image"/>
             </div>`,
-          projectIdeationAndPlanning: `
+      projectIdeationAndPlanning: `
             <h3 class="project-content-item-title">Project Planning and Ideation</h3>
             <p class="project-content-item-paragraph">After our goal was established, a developer from our team assigned themself to the project. The developer preferred the Progressive Refinement workflow and accordingly worked towards getting a suboptimal but fully functional model working. The developer identified key aspects that were imperative to be implemented.
             </p>
@@ -706,7 +778,7 @@ const projects = [
             </ul>
             <p class="project-content-item-paragraph">The developer then approached the project as a big task, in contrast to the sequential, step-by-step process other developers are familiar with. 
             </p>`,
-          projectTimeline: `
+      projectTimeline: `
             <h3 class="project-content-item-title">Project Timeline</h3>
             <p class="project-content-item-paragraph"><strong>RESEARCH</strong>
               </p>
@@ -730,49 +802,55 @@ const projects = [
             </p>
             <p class="project-content-item-paragraph">After the build process was complete, the developer moved on to the testing process. Because of the suboptimal (but safe) nature of the initial build, the model was slow and didn’t meet all of the requirements and goals of the project. The developer worked forwards from the systems created at the beginning of the build process and went back and forth making optimization changes to the system and testing the change’s effectiveness through testing. This second pass through the project was done in pursuit of piece-by-piece perfection, and when moving on from a revised process it was almost never returned to. As a result, after testing was complete it was shipped immediately.
             </p>`,
-      }
-    },
+    }
+  },
   //XTables
-    {
-      projectName: "XTables",
-      
-      projectID: 'XTables',
+  {
+    projectName: "XTables",
 
-      discipline: 'Vision',
+    projectID: 'XTables',
 
-      projectOverview: {
-          ourProblem: `
+    discipline: 'Vision',
+
+    interestTags: {
+      'networking': 'Networking',
+      'efficiency-booster': 'Efficiency Booster',
+      'unique-approach': 'Unique Approach',
+    },
+
+    projectOverview: {
+      ourProblem: `
           <h3 class="project-content-item-title">Our Problem</h3>
           <p class="project-content-item-paragraph">
             In the 2024 season, we cranked up our usage of AI models for the various systems we were trying to implement. A major problem that came with this was the <i>insane</i> amount of data that was being produced, constantly crashing our robot and even disabling it on the field. The default FRC Network Tables which we had been using for cross-machine communication had a throughput of 10,000 updates/second, which was far too slow for our needs.
           </p>
           `,
-          ourSolution: `
+      ourSolution: `
           <h3 class="project-content-item-title">Our Solution</h3>
           <p class="project-content-item-paragraph">
            Through iterations 1-3 of XTables, we optimized, rewrote, and reapproached FRC Network Tables techniques, and in iteration 4, we <strong>changed the language entirely</strong>.
           </p>`,
-          ourSolutionsImpact: `
+      ourSolutionsImpact: `
           <h3 class="project-content-item-title">Our Solution's Impact</h3>
           <p class="project-content-item-paragraph">
            By iterating over the original FRC Network Tables, we optimized it so much that it <strong>far</strong> exceeded our base throughput requirement. This allows us the resources to try new, innovative, and crazy things related to AI and computer vision in robotics that haven’t been done before. 
           </p>`,
-      },
+    },
 
-      surfaceTechnicalOverview: {
-          onTheSurfaceCapture: ``,    
-          onTheSurfaceDetect: ``,    
-          onTheSurfaceAssignProbability: ``,
-          onTheSurfaceMap: ``,    
-      },
-      inDepthTechnicalOverview : {
-          inDepthCapture: ``,    
-          inDepthDetect: ``,    
-          inDepthAssignProbability: ``,
-          inDepthMap: ``,    
-      },
-      engineeringProcess: {
-          problemIdentification: `<h3 class="project-content-item-title">Our Problem</h3>
+    surfaceTechnicalOverview: {
+      onTheSurfaceCapture: ``,
+      onTheSurfaceDetect: ``,
+      onTheSurfaceAssignProbability: ``,
+      onTheSurfaceMap: ``,
+    },
+    inDepthTechnicalOverview: {
+      inDepthCapture: ``,
+      inDepthDetect: ``,
+      inDepthAssignProbability: ``,
+      inDepthMap: ``,
+    },
+    engineeringProcess: {
+      problemIdentification: `<h3 class="project-content-item-title">Our Problem</h3>
             <p class="project-content-item-paragraph">
               In the 2024 season, the Vision team cranked up their usage of AI models for various things. A major problem with this spike in AI usage is that there was an insane amount of data that was being produced, constantly crashing our robot and even disabling it on the field. After the season, we took the time to scour our systems with a profiler, and it showed us immediately, on the top of the list, that the FRC Network Tables we’d relied on were the cause. The default FRC Network Tables, the Tables used by every team, output only 10,000 updates a second while we required an output of at least 200,000 updates a second. This was a major issue; without proper handling of large amounts of data, the idea of automating on-field tasks is nothing but a pipe dream. We needed a new version of Network Tables, one that could handle anything we threw at it.
             </p>
@@ -780,11 +858,11 @@ const projects = [
               <img src="./styles/static/frc-vs-req.png" alt="" class="project-content-image"/>
             </div>
             `,
-          projectIdeationAndPlanning: `<h3 class="project-content-item-title">Project Planning and Ideation</h3>
+      projectIdeationAndPlanning: `<h3 class="project-content-item-title">Project Planning and Ideation</h3>
             <p class="project-content-item-paragraph">
               The developer who scoured the code showed immense interest in improving it, so they were assigned to the project. The developer dissected the FRC Network Tables, figuring out how it approached the task and discerning where it became sluggish—where they could improve it.  
             </p>`,
-          projectTimeline: `<h3 class="project-content-item-title">Project Timeline</h3>
+      projectTimeline: `<h3 class="project-content-item-title">Project Timeline</h3>
             <div class="project-content-image-div">
               <img src="./styles/static/xtables-full-table.png" alt="" class="project-content-image"/>
             </div>
@@ -838,18 +916,26 @@ const projects = [
             <div class="project-content-image-div">
               <img src="./styles/static/it3-vs-it4.png" alt="" class="project-content-image"/>
             </div> `,
-      }
-    },
+    }
+  },
   //Reef Tracker
-    {
-      projectName: "Reef Tracker",
-      
-      projectID: 'reef-tracker',
+  {
+    projectName: "Reef Tracker",
 
-      discipline: 'Vision',
+    projectID: 'reef-tracker',
 
-      demo:{
-        demo1: `
+    discipline: 'Vision',
+
+    interestTags: {
+      'computer-vision': 'Computer Vision',
+      'autonomous': 'Autonomous',
+      'color-detection': 'Color Detection',
+      'unique-approach': 'Unique Approach',
+      'math': 'Math'
+    },
+
+    demo: {
+      demo1: `
         <p class="project-content-image-subtitle">
           Reef Tracker Demo from driver station
         </p>
@@ -860,43 +946,75 @@ const projects = [
           </video>
         </div>
         `
-      },
+    },
 
-      projectOverview: {
-          ourProblem: `
+    projectOverview: {
+      ourProblem: `
           <h3 class="project-content-item-title">Our Problem</h3>
           <p class="project-content-item-paragraph">
             At the beginning of the year, the team established multiple season goals to help automate various driver processes, one of them being <strong>Reef-related automation</strong>. During matches, it can be especially hard for the driver to see whether opposite-facing reef spaces are occupied. 
           </p>
           `,
-          ourSolution: `
+      ourSolution: `
           <h3 class="project-content-item-title">Our Solution</h3>
           <p class="project-content-item-paragraph">
             With a color-based histogram approach, we are able to determine when a reef space is open or closed. We can create a probability (similar to but less robust than our <a href="#probability-map">Probalistic Field Map</a>) that a reef space is open.
           </p>
           `,
-          ourSolutionsImpact: `
+      ourSolutionsImpact: `
           <h3 class="project-content-item-title">Our Solution's Impact</h3>
           <p class="project-content-item-paragraph">
             With our Reef Tracker in place, we are able to use the reef state information to make a queue of the ideal reef scoring orders, reduce our cycle time, and handle decision-making faster than a human can.
           </p>
           `,
-      },
+    },
 
-      surfaceTechnicalOverview: {
-          onTheSurfaceCapture: ``,    
-          onTheSurfaceDetect: ``,    
-          onTheSurfaceAssignProbability: ``,
-          onTheSurfaceMap: ``,    
-      },
-      inDepthTechnicalOverview : {
-          inDepthCapture: ``,    
-          inDepthDetect: ``,    
-          inDepthAssignProbability: ``,
-          inDepthMap: ``,    
-      },
-      engineeringProcess: {
-          problemIdentification: `
+    surfaceTechnicalOverview: {
+      onTheSurfaceRetrieveCameraCaptures: `
+        <h3 class="project-content-item-title">Retrieve Camera Captures</h3>
+          <p class="project-content-item-paragraph">
+            We capture frames through our robot’s onboard <strong>black and white</strong> and <strong>color cameras</strong> to send them for processing in the<a href="#reef-tracker"> Reef Tracker</a> pipeline. 
+          </p>
+        `,
+      onTheSurfaceGetRelativeReefPositions: `
+        <h3 class="project-content-item-title">Get Relative Reef Positions</h3>
+          <p class="project-content-item-paragraph">
+            We run <strong>April Tag detection</strong> on captures from our black and white cameras to <strong>find the position in space</strong> of the reef’s April Tag. We make sure to collect both the position in space of the April Tag and the position relative to the camera of the April Tag. When we have the global position of the April Tag, we can use known offsets between the Tag and reef spaces to find the physical positions of the reef spaces. With this information, we use trigonometry to <strong>find the positions of those reef spaces relative to our cameras</strong>. 
+          </p>
+        `,
+      onTheSurfaceVisualize: `
+        <h3 class="project-content-item-title">Visualize</h3>
+          <p class="project-content-item-paragraph">
+            We visualize these spaces by <strong>drawing 3D boxes</strong> around every branch in physical space (global, not relative to the camera), and through the camera, <strong>we pick the three faces we can see</strong> and focus on them. We then translate this physical box into <strong>a region in the camera capture</strong> and extract it for processing. 
+          </p>
+        `,
+      onTheSurfaceHistogramDetection: `
+        <h3 class="project-content-item-title">Histogram Detection</h3>
+          <p class="project-content-item-paragraph">
+            <strong>Taking a histogram-based approach rather than an ML-based one</strong>, we find the <strong>frequency of purple</strong> in the image. If there is an overwhelming amount of purple, we reason that the reef space is<strong> most likely open</strong>, and if there isn’t much purple, we reason that it’s<strong> most likely filled up with coral or algae</strong>. 
+          </p>
+        `,
+      onTheSurfaceMap: `<h3 class="project-content-item-title">Map</h3>
+          <p class="project-content-item-paragraph">
+            When we determine the state of every reef spot, <strong>we plot them on a map</strong> that is similar to but not as robust as our <a href="#probability-map">Probability Map</a>. If we see that a spot has been detected as ‘open’ sixty times in a row, its <strong>probability of being open is very high</strong>. However, if we misdetect it as ‘closed’ one time, it doesn’t significantly lower the probability that it is open. This probabilistic approach <strong>helps us compensate for false positives and false negatives</strong>. 
+          </p>`,
+      onTheSurfaceSendToDriverStation: `
+          <h3 class="project-content-item-title">Send to Driver Station</h3>
+          <p class="project-content-item-paragraph">
+            We send this map, which is updated constantly, to a<strong> GUI at the driver station</strong>. This helps inform the driver of the state of reef spots they can’t see. 
+          </p>
+          `,
+    },
+    inDepthTechnicalOverview: {
+      inDepthRetrieveCameraCaptures: ``,
+      inDepthGetRelativeReefPositions: ``,
+      inDepthVisualize: ``,
+      inDepthHistogramDetection: ``,
+      inDepthMap: ``,
+      inDepthSendToDriverStation: ``,
+    },
+    engineeringProcess: {
+      problemIdentification: `
             <h3 class="project-content-item-title">Our Problem</h3>
             <div class="project-content-image-div">
               <img src="./styles/static/reef-tracker-setup.png" alt="" class="project-content-image"/>
@@ -907,7 +1025,7 @@ const projects = [
             <p class="project-content-item-paragraph">
               In such a fast-paced game, there will inevitably be multiple occasions when the desired reef space becomes occupied as the robot is heading towards it, requiring a quick change of course impacted by human reaction time. For these reasons, we decided it was imperative to develop a system that allowed us to automatically score on the reef, both in and out of cases where our driver might have trouble.
             </p>`,
-          projectIdeationAndPlanning: `<h3 class="project-content-item-title">Project Planning and Ideation</h3>
+      projectIdeationAndPlanning: `<h3 class="project-content-item-title">Project Planning and Ideation</h3>
             <p class="project-content-item-paragraph">
               To achieve our goals, the developer broke up the problem into subproblems to be completed in subsequent order:
             </p>
@@ -917,7 +1035,7 @@ const projects = [
               <li><strong>State Tracking:</strong> <i>know which reef positions are open</i> </li>
               <li><strong>Queueing:</strong> <i>know the optimal order to target reef spaces in</i></li>
             </ul>`,
-          projectTimeline: `<h3 class="project-content-item-title">Project Timeline</h3>
+      projectTimeline: `<h3 class="project-content-item-title">Project Timeline</h3>
             <p class="project-content-item-paragraph">
               <strong>Architecture</strong>
             </p>
@@ -962,18 +1080,25 @@ const projects = [
             <p class="project-content-item-paragraph">
               With queueing implemented, every time the driver attempts to score the robot will score, whether it be on the initially desired branch or not, and with a reaction time in the tens of milliseconds. 
             </p>`,
-      }
-    },
+    }
+  },
   //Creeper
-    {
-      projectName: "Creeper",
-      
-      projectID: 'creeper',
+  {
+    projectName: "Creeper",
 
-      discipline: 'Vision',
+    projectID: 'creeper',
 
-      demo: {
-        demo1:`
+    discipline: 'Vision',
+
+    interestTags: {
+      'computer-vision': 'Computer Vision',
+      'unique-approach': 'Unique Approach',
+      'autonomous': 'Autonomous',
+      'math': 'Math'
+    },
+
+    demo: {
+      demo1: `
         <p class="project-content-image-subtitle">
           Edge-to-Edge Alignment Approach
         </p>
@@ -984,108 +1109,143 @@ const projects = [
           </video>
         </div>
         `
-      },
+    },
 
-      projectOverview: {
-          ourProblem: `
+    projectOverview: {
+      ourProblem: `
           <h3 class="project-content-item-title">Our Problem</h3>
           <p class="project-content-item-paragraph">
             When we get too close to the reef, the April Tag that we use to align our robot starts to become too big in our camera frame. To not lose alignment, we had to implement a way to creep up to the correct location, even if April Tag localization becomes inviable.
           </p>
           `,
-          ourSolution: `
+      ourSolution: `
           <h3 class="project-content-item-title">Our Solution</h3>
           <p class="project-content-item-paragraph">
             Without detecting the full April Tag, we use its edges to align ourselves in the middle, guaranteeing that we don’t go off course.
           </p>
           `,
-          ourSolutionsImpact: `
+      ourSolutionsImpact: `
           <h3 class="project-content-item-title">Our Solution's Impact</h3>
           <p class="project-content-item-paragraph">
             We can use Creeper in conjunction with Path Planning to make efficient movements that don’t require us to extend our cycle times by relying solely on April Tag localization.
           </p>
           `,
-      },
-
-      surfaceTechnicalOverview: {
-          onTheSurfaceCapture: ``,    
-          onTheSurfaceDetect: ``,    
-          onTheSurfaceAssignProbability: ``,
-          onTheSurfaceMap: ``,    
-      },
-      inDepthTechnicalOverview : {
-          inDepthCapture: ``,    
-          inDepthDetect: ``,    
-          inDepthAssignProbability: ``,
-          inDepthMap: ``,    
-      },
-      engineeringProcess: {
-          problemIdentification: ``,
-          projectIdeationAndPlanning: ``,
-          projectTimeline: ``,
-      }
     },
+
+    surfaceTechnicalOverview: {
+      onTheSurfaceRetrieveCameraCaptures: `
+         <h3 class="project-content-item-title">Retrieve Camera Captures</h3>
+          <p class="project-content-item-paragraph">
+            When the robot is so close to the reef that the full AprilTag doesn’t fit in the camera frame and therefore can’t be detected, <a href="#creeper">Creeper</a> is activated. We temporarily repurpose our AprilTag-detecting black and white cameras to Creeper cameras, fetching captures from them to<strong> process them in a different way</strong>.
+          </p>
+        `,
+      onTheSurfaceTranslateIntoRobotLanguage: `
+        <h3 class="project-content-item-title">Translate into Robot Language</h3>
+          <p class="project-content-item-paragraph">
+            When we see that the robot is not aligned, <strong>we’ll tell the robot the direction we expect it to move to align itself</strong>. This information is relayed through a drive vector that our robot can understand and use, moving itself to be more aligned to the reef. Through this process loop, we ensure that we are aligned <strong>all the way to the very end.</strong>
+          </p>
+        `,
+    },
+    inDepthTechnicalOverview: {
+      inDepthRetrieveCameraCaptures: ``,
+      inDepthTranslateIntoRobotLanguage: ``,
+    },
+    engineeringProcess: {
+      problemIdentification: ``,
+      projectIdeationAndPlanning: ``,
+      projectTimeline: ``,
+    }
+  },
 ]
 
 content.innerHTML = ''
 
 //Helper functions---------------------------------------------------------------------------------------
 
-function changeToAbbreviation(string){
-  if(Object.keys(abbreviations).includes(string)){
+function changeToAbbreviation(string) {
+  if (Object.keys(abbreviations).includes(string)) {
     console.log(string)
     console.log(abbreviations[string])
     return abbreviations[string];
   }
-  else{
+  else {
     return string;
   }
 }
-function changeFromAbbreviation(string){
-  if(Object.keys(abbreviations).includes(string)){
+function changeFromAbbreviation(string) {
+  if (Object.keys(abbreviations).includes(string)) {
     console.log(string)
     console.log(abbreviations[string])
     return abbreviations[string];
   }
-  else{
+  else {
     return string;
   }
 }
 
-function getProjectByID(id){
+function getProjectByID(id) {
   return projects.find(project => project.projectID === id);
 }
 
-function openProjectById(id){
+function openProjectById(id) {
   project = getProjectByID(id)
   projectTitle = document.querySelector(`#${id}`).querySelector('.project-title-inactive')
   displayProjectNav(projectTitle)
 }
 
-function findParentElementOfClass(buttonOrigin, Class){
+function findParentElementOfClass(buttonOrigin, Class) {
   buttonOrigin = buttonOrigin.parentNode
-  if(!buttonOrigin.classList.contains(Class)){
+  if (!buttonOrigin.classList.contains(Class)) {
     return findParentElementOfClass(buttonOrigin, Class)
   }
   return buttonOrigin;
 }
 
-function displayItems(section){
-  if(section == null){
-    console.log("Error: Section does not exist.")
-    projectContent.style.height = 0
-    projectContent.style.opacity = 0
-  }
-  else{
-    projectContent.style.height = 0
-    projectContent.style.opacity = 0
+function displayItems(section) {
+  console.log(section)
 
-    getTempDivHeight(section, function(height){
+  itemIsNull = false;
+
+  try{
+    Object.keys(section).forEach(function(item){
+      if(section[item] == null || section[item] == undefined || section[item] == ``){
+        itemIsNull = true;
+      }
+    })
+  }
+  catch{
+    itemIsNull = true;
+  }
+
+  if (section == null || itemIsNull) {
+    console.log("Error: Section does not exist.")
+
+    underConstructionSection = {
+      underConstruction: `
+    <div class="project-content-image-div">
+      <img src="./styles/static/under-construction.png" class="under-construction" alt="Section still in development.">
+    </div>
+    `
+    }
+
+    getTempDivHeight(underConstructionSection, function (height) {
       projectContent.style.height = height
     });
 
-    Object.keys(section).forEach(function(item){
-      projectContent.innerHTML+= section[item];
+    Object.keys(underConstructionSection).forEach(function (item) {
+      projectContent.innerHTML += underConstructionSection[item];
+    })
+  }
+  else {
+    projectContent.style.height = 0
+    projectContent.style.opacity = 0
+
+    getTempDivHeight(section, function (height) {
+      projectContent.style.height = height
+    });
+
+    Object.keys(section).forEach(function (item) {
+      projectContent.innerHTML += section[item];
     })
     projectContent.style.opacity = 1
   }
@@ -1136,7 +1296,7 @@ function getTempDivHeight(section, callback) {
   } else {
     videos.forEach((video) => {
       // If video is already ready (metadata loaded), we consider it loaded
-      if (video.readyState >= 3) { 
+      if (video.readyState >= 3) {
         loadedVideos++;
       } else {
         video.addEventListener('loadeddata', () => {
@@ -1157,32 +1317,32 @@ function getTempDivHeight(section, callback) {
 }
 
 
-function getTempNavbarHeight(){
+function getTempNavbarHeight() {
   hiddenProjectNav = document.querySelector('.hidden-project-navbar')
   height = hiddenProjectNav.clientHeight;
   return (height + 'px');
 }
 
-function replaceClassesWith(element, oldClasses, newClasses){
-  oldClasses.forEach(function(Class){
-    if(element.classList.contains(Class)){
+function replaceClassesWith(element, oldClasses, newClasses) {
+  oldClasses.forEach(function (Class) {
+    if (element.classList.contains(Class)) {
       element.classList.remove(Class)
     }
   });
-  newClasses.forEach(function(Class){
+  newClasses.forEach(function (Class) {
     element.classList.add(Class)
   });
 }
 
-function ifContainsReplaceClassesWith(elements, oldClasses, newClasses){
-  elements.forEach(function(element){
-    oldClasses.forEach(function(Class){
-      if(element.classList.contains(Class)){
+function ifContainsReplaceClassesWith(elements, oldClasses, newClasses) {
+  elements.forEach(function (element) {
+    oldClasses.forEach(function (Class) {
+      if (element.classList.contains(Class)) {
         replaceClassesWith(element, [Class], [])
       }
     });
     newClasses.forEach(() => {
-        replaceClassesWith(element, [], [newClasses])
+      replaceClassesWith(element, [], [newClasses])
     });
   });
 }
@@ -1190,15 +1350,15 @@ function ifContainsReplaceClassesWith(elements, oldClasses, newClasses){
 //Button functions---------------------------------------------------------------------------------------
 
 
-function displayProjectOverview(projectOverviewButton){
+function displayProjectOverview(projectOverviewButton) {
   //If the project isn't in focus, make it in focus and then continue
-  if(projectOverviewButton.classList.contains('project-nav-inactive')){
+  if (projectOverviewButton.classList.contains('project-nav-inactive')) {
     projectTitle = (findParentElementOfClass(projectOverviewButton, 'project-header').querySelector('.project-title-inactive'))
     displayProjectNav(projectTitle);
   }
 
   //If its already active, quit
-  if(projectOverviewButton.classList.contains('project-nav-active')){
+  if (projectOverviewButton.classList.contains('project-nav-active')) {
     return
   }
 
@@ -1206,15 +1366,15 @@ function displayProjectOverview(projectOverviewButton){
   id = projectDiv.id
   project = getProjectByID(id)
 
-  projectContent =  projectDiv.querySelector('.project-content')
+  projectContent = projectDiv.querySelector('.project-content')
   projectContent.innerHTML = ''
 
   engineeringProcessButton = projectOverviewButton.parentNode.querySelector('.engineering-process-btn')
 
   projectNavbarBottomRow = projectOverviewButton.parentNode.querySelector('.project-navbar-bottom-row')
   technicalOverviewWrapper = projectNavbarBottomRow.querySelector('.technical-overview-wrapper')
-  
-  technicalOverviewButton= projectNavbarBottomRow.querySelector('.technical-overview-btn')
+
+  technicalOverviewButton = projectNavbarBottomRow.querySelector('.technical-overview-btn')
 
 
   onTheSurface = technicalOverviewWrapper.querySelector('.on-the-surface, .on-the-surface-inactive, .on-the-surface-active')
@@ -1223,25 +1383,24 @@ function displayProjectOverview(projectOverviewButton){
   technicalButtons = [onTheSurface, inDepth]
 
   demoButton = projectDiv.querySelector('.demo-btn')
-  console.log(demoButton)
 
 
   //Make projectOverviewButton appear active
-  if(!projectOverviewButton.classList.contains('project-nav-active')){
+  if (!projectOverviewButton.classList.contains('project-nav-active')) {
     replaceClassesWith(projectOverviewButton, ['project-nav'], ['project-nav-active'])
   }
-  
+
   //Disable active styling on engineeringProcessButton and technicalOverviewButton
   ifContainsReplaceClassesWith([engineeringProcessButton, technicalOverviewButton, demoButton], ['project-nav-active'], ['project-nav'])
-  
-  
+
+
   //Disable active styling on subnavs
-  technicalButtons.forEach(function(button){    
-    if(button.classList.contains('on-the-surface-active')){
-      replaceClassesWith(button, ['on-the-surface-active'], ['on-the-surface'])    
+  technicalButtons.forEach(function (button) {
+    if (button.classList.contains('on-the-surface-active')) {
+      replaceClassesWith(button, ['on-the-surface-active'], ['on-the-surface'])
     }
-    if(button.classList.contains('in-depth-active')){
-      replaceClassesWith(button, ['in-depth-active'], ['in-depth'])    
+    if (button.classList.contains('in-depth-active')) {
+      replaceClassesWith(button, ['in-depth-active'], ['in-depth'])
     }
   });
 
@@ -1250,15 +1409,15 @@ function displayProjectOverview(projectOverviewButton){
   displayItems(project.projectOverview);
 }
 
-function displayTechnicalOverview(technicalOverviewButton, type){
+function displayTechnicalOverview(technicalOverviewButton, type) {
   //If the project isn't in focus, make it in focus and then continue
-  if(technicalOverviewButton.classList.contains('project-nav-inactive')){
+  if (technicalOverviewButton.classList.contains('project-nav-inactive')) {
     projectTitle = (findParentElementOfClass(technicalOverviewButton, 'project-header').querySelector('.project-title-inactive'))
     displayProjectNav(projectTitle);
   }
 
   //If its already active, quit
-  if(technicalOverviewButton.classList.contains('project-nav-active')){
+  if (technicalOverviewButton.classList.contains('project-nav-active')) {
     return
   }
 
@@ -1266,21 +1425,20 @@ function displayTechnicalOverview(technicalOverviewButton, type){
   id = projectDiv.id
   project = getProjectByID(id)
 
-  projectContent =  projectDiv.querySelector('.project-content')
+  projectContent = projectDiv.querySelector('.project-content')
   projectContent.innerHTML = ''
-  
+
   projectOverviewButton = technicalOverviewButton.parentNode.parentNode.parentNode.querySelector('.project-overview-btn')
   engineeringProcessButton = technicalOverviewButton.parentNode.parentNode.parentNode.querySelector('.engineering-process-btn')
-  
+
   onTheSurface = technicalOverviewButton.parentNode.querySelector('.on-the-surface')
   inDepth = technicalOverviewButton.parentNode.querySelector('.in-depth')
 
   demoButton = projectDiv.querySelector('.demo-btn')
-  console.log(demoButton)
 
 
   //If technicalOverviewButton isn't active, make it active
-  if(!technicalOverviewButton.classList.contains('project-nav-active')){
+  if (!technicalOverviewButton.classList.contains('project-nav-active')) {
     replaceClassesWith(technicalOverviewButton, ['project-nav'], ['project-nav-active'])
   }
 
@@ -1290,36 +1448,36 @@ function displayTechnicalOverview(technicalOverviewButton, type){
   //If one of the subnavs are inactive
     //If activating onTheSurface, revert inDepth and activate onTheSurface
     //Else if activating inDepth, revert onTheSurface and activate inDepth
-  if(!onTheSurface.classList.contains('on-the-surface-active') || !inDepth.classList.contains('in-depth-active')){
-    if(type == 'onTheSurface'){
+  if (!onTheSurface.classList.contains('on-the-surface-active') || !inDepth.classList.contains('in-depth-active')) {
+    if (type == 'onTheSurface') {
       ifContainsReplaceClassesWith([inDepth], ['in-depth-active'], ['in-depth'])
-      replaceClassesWith(onTheSurface, ['on-the-surface'], ['on-the-surface-active'])
+      onTheSurface.classList.add('on-the-surface-active')
     }
-    else if(type == 'inDepth'){
+    else if (type == 'inDepth') {
       ifContainsReplaceClassesWith([onTheSurface], ['on-the-surface-active'], ['on-the-surface'])
-      replaceClassesWith(inDepth, ['in-depth'], ['in-depth-active'])
+      inDepth.classList.add('in-depth-active')
     }
   }
   displayItems(project.surfaceTechnicalOverview)
 }
 
-function displayTechnicalOverviewFromSubnav(subnavButton, type){
+function displayTechnicalOverviewFromSubnav(subnavButton, type) {
   //If the project isn't in focus, then quit
-  if(subnavButton.classList.contains('on-the-surface-inactive') || subnavButton.classList.contains('in-depth-inactive')){
+  if (subnavButton.classList.contains('on-the-surface-inactive') || subnavButton.classList.contains('in-depth-inactive')) {
     return
   }
 
 
   //If its already active, quit
-  switch(type){
-    case 'onTheSurface':{
-      if(subnavButton.classList.contains('on-the-surface-active')){
+  switch (type) {
+    case 'onTheSurface': {
+      if (subnavButton.classList.contains('on-the-surface-active')) {
         return
       }
       break;
     }
-    case 'inDepth':{
-      if(subnavButton.classList.contains('in-depth-active')){
+    case 'inDepth': {
+      if (subnavButton.classList.contains('in-depth-active')) {
         return
       }
       break;
@@ -1330,9 +1488,9 @@ function displayTechnicalOverviewFromSubnav(subnavButton, type){
   id = projectDiv.id
   project = getProjectByID(id)
 
-  projectContent =  projectDiv.querySelector('.project-content')
+  projectContent = projectDiv.querySelector('.project-content')
   projectContent.innerHTML = ''
-  
+
   projectOverviewButton = subnavButton.parentNode.parentNode.parentNode.parentNode.querySelector('.project-overview-btn')
   engineeringProcessButton = subnavButton.parentNode.parentNode.parentNode.parentNode.querySelector('.engineering-process-btn')
   technicalOverviewButton = subnavButton.parentNode.parentNode.parentNode.querySelector('.technical-overview-btn')
@@ -1341,35 +1499,34 @@ function displayTechnicalOverviewFromSubnav(subnavButton, type){
   inDepth = subnavButton.parentNode.querySelector('.in-depth, .in-depth-active, .in-depth-inactive')
 
   demoButton = projectDiv.querySelector('.demo-btn')
-  console.log(demoButton)
 
 
   //If technicalOverviewButton is inactive make it active
-  if(!technicalOverviewButton.classList.contains('project-nav-active')){
+  if (!technicalOverviewButton.classList.contains('project-nav-active')) {
     replaceClassesWith(technicalOverviewButton, ['project-nav'], ['project-nav-active'])
   }
-  
+
   //If engineeringProcessButton and projectOverviewButton are active, then revert them
   ifContainsReplaceClassesWith([engineeringProcessButton, projectOverviewButton, demoButton], ['project-nav-active'], ['project-nav'])
 
   //If either onTheSurface and inDepth are active
-    //If you're activating onTheSurface, revert inDepth and activate onTheSurface
-    //Else if you're activating inDepth, revert onTheSurface and activate inDepth
-    
-  if(!onTheSurface.classList.contains('on-the-surface-active') || !inDepth.classList.contains('in-depth-active')){
-    if(type == 'onTheSurface'){
-      if(inDepth.classList.contains('in-depth-active')){
+  //If you're activating onTheSurface, revert inDepth and activate onTheSurface
+  //Else if you're activating inDepth, revert onTheSurface and activate inDepth
+
+  if (!onTheSurface.classList.contains('on-the-surface-active') || !inDepth.classList.contains('in-depth-active')) {
+    if (type == 'onTheSurface') {
+      if (inDepth.classList.contains('in-depth-active')) {
         replaceClassesWith(inDepth, ['in-depth-active'], ['in-depth'])
       }
       onTheSurface.classList.add('on-the-surface-active')
       displayItems(project.surfaceTechnicalOverview)
     }
-    else if(type == 'inDepth'){
-      if(onTheSurface.classList.contains('on-the-surface-active')){
+    else if (type == 'inDepth') {
+      if (onTheSurface.classList.contains('on-the-surface-active')) {
         replaceClassesWith(onTheSurface, ['on-the-surface-active'], ['on-the-surface'])
       }
       inDepth.classList.add('in-depth-active')
-      getTempDivHeight(project.inDepthTechnicalOverview, function(height){
+      getTempDivHeight(project.inDepthTechnicalOverview, function (height) {
         projectContent.style.height = height
       })
       displayItems(project.inDepthTechnicalOverview)
@@ -1377,9 +1534,9 @@ function displayTechnicalOverviewFromSubnav(subnavButton, type){
   }
 }
 
-function displayEngineeringProcess(engineeringProcessButton){
+function displayEngineeringProcess(engineeringProcessButton) {
   //If the engineeringProcessButton is inactive, activate everything and then move on
-  if(engineeringProcessButton.classList.contains('project-nav-inactive')){
+  if (engineeringProcessButton.classList.contains('project-nav-inactive')) {
     projectTitle = (findParentElementOfClass(engineeringProcessButton, 'project-header').querySelector('.project-title-inactive'))
     displayProjectNav(projectTitle);
   }
@@ -1388,14 +1545,13 @@ function displayEngineeringProcess(engineeringProcessButton){
   id = projectDiv.id
   project = getProjectByID(id)
 
-  projectContent =  projectDiv.querySelector('.project-content')
+  projectContent = projectDiv.querySelector('.project-content')
   projectContent.innerHTML = ''
-  
+
   projectOverviewButton = engineeringProcessButton.parentNode.querySelector('.project-overview-btn')
 
   projectNavbarBottomRow = engineeringProcessButton.parentNode.querySelector('.project-navbar-bottom-row')
   technicalOverviewWrapper = projectNavbarBottomRow.querySelector('.technical-overview-wrapper')
-  
   technicalOverviewButton = projectNavbarBottomRow.querySelector('.technical-overview-btn')
 
   onTheSurface = technicalOverviewWrapper.querySelector('.on-the-surface, .on-the-surface-active, .on-the-surface-inactve')
@@ -1404,10 +1560,9 @@ function displayEngineeringProcess(engineeringProcessButton){
   technicalButtons = [onTheSurface, inDepth]
 
   demoButton = projectDiv.querySelector('.demo-btn')
-  console.log(demoButton)
 
   //If engineeringProcessButton is not active, activate it
-  if(!engineeringProcessButton.classList.contains('project-nav-active')){
+  if (!engineeringProcessButton.classList.contains('project-nav-active')) {
     replaceClassesWith(engineeringProcessButton, ['project-nav'], ['project-nav-active'])
   }
 
@@ -1415,26 +1570,26 @@ function displayEngineeringProcess(engineeringProcessButton){
   ifContainsReplaceClassesWith([projectOverviewButton, technicalOverviewButton, demoButton], ['project-nav-active'], ['project-nav'])
 
   //Deactivate the subanvs
-  technicalButtons.forEach(function(button){
-    if(button.classList.contains('on-the-surface-active')){
+  technicalButtons.forEach(function (button) {
+    if (button.classList.contains('on-the-surface-active')) {
       button.classList.remove('on-the-surface-active')
     }
-    if(button.classList.contains('in-depth-active')){
+    if (button.classList.contains('in-depth-active')) {
       button.classList.remove('in-depth-active')
     }
   });
   displayItems(project.engineeringProcess)
 }
 
-function displayDemo(demoButton){
+function displayDemo(demoButton) {
   //If the project isn't in focus, make it in focus and then continue
-  if(demoButton.classList.contains('project-nav-inactive')){
+  if (demoButton.classList.contains('project-nav-inactive')) {
     projectTitle = (findParentElementOfClass(demoButton, 'project-header').querySelector('.project-title-inactive'))
     displayProjectNav(projectTitle);
   }
 
   //If its already active, quit
-  if(demoButton.classList.contains('project-nav-active')){
+  if (demoButton.classList.contains('project-nav-active')) {
     return
   }
 
@@ -1442,62 +1597,60 @@ function displayDemo(demoButton){
   id = projectDiv.id
   project = getProjectByID(id)
 
-  projectContent =  projectDiv.querySelector('.project-content')
+  projectContent = projectDiv.querySelector('.project-content')
   projectContent.innerHTML = ''
-  
+
   projectOverviewButton = demoButton.parentNode.parentNode.querySelector('.project-overview-btn')
   engineeringProcessButton = demoButton.parentNode.parentNode.querySelector('.engineering-process-btn')
-  
+
   technicalOverviewWrapper = demoButton.parentNode.querySelector('.technical-overview-wrapper')
   onTheSurface = technicalOverviewWrapper.querySelector('.on-the-surface, .on-the-surface-inactive, .on-the-surface-active')
   inDepth = technicalOverviewWrapper.querySelector('.in-depth, .in-depth-inactive, .in-depth-active')
 
   technicalButtons = [onTheSurface, inDepth]
 
-  technicalButtons.forEach((button) => console.log(button))
-
   //If demoButton isn't active, make it active
-  if(!demoButton.classList.contains('project-nav-active')){
+  if (!demoButton.classList.contains('project-nav-active')) {
     replaceClassesWith(demoButton, ['project-nav'], ['project-nav-active'])
   }
 
   //Revert engineeringProcessButton and projectOverviewButton 
   ifContainsReplaceClassesWith([engineeringProcessButton, projectOverviewButton, technicalOverviewButton], ['project-nav-active'], ['project-nav'])
 
-  technicalButtons.forEach(function(button){    
-    if(button.classList.contains('on-the-surface-active')){
-      replaceClassesWith(button, ['on-the-surface-active'], ['on-the-surface'])    
+  technicalButtons.forEach(function (button) {
+    if (button.classList.contains('on-the-surface-active')) {
+      replaceClassesWith(button, ['on-the-surface-active'], ['on-the-surface'])
     }
-    if(button.classList.contains('in-depth-active')){
-      replaceClassesWith(button, ['in-depth-active'], ['in-depth'])    
+    if (button.classList.contains('in-depth-active')) {
+      replaceClassesWith(button, ['in-depth-active'], ['in-depth'])
     }
   });
-  
+
   displayItems(project.demo)
 }
 
-function displayProjectNav(title){
+function displayProjectNav(title) {
   projectHeader = findParentElementOfClass(title, 'project-header')
   navbar = projectHeader.querySelector('.project-navbar')
   navs = navbar.querySelectorAll('.project-nav, .project-nav-inactive, .project-nav-active');
   tag = projectHeader.querySelector('.discipline-tag')
-  
+
   technicalOverviewWrapper = navbar.querySelector('.technical-overview-wrapper')
-  
+
   subNavs = technicalOverviewWrapper.querySelectorAll('.on-the-surface, .on-the-surface-inactive, .on-the-surface-active, p, .in-depth, .in-depth-inactive, .in-depth-active')
 
 
   //If the title is inactive
-    //make the project active
-  if(title.classList.contains('project-title-inactive')){
+  //make the project active
+  if (title.classList.contains('project-title-inactive')) {
     replaceClassesWith(title, ['project-title-inactive'], ['project-title'])
     inactive = false
   }
-  else{
+  else {
     inactive = true
   }
-  
-  if(inactive){
+
+  if (inactive) {
     //INACTIVE
 
     project = findParentElementOfClass(title, 'project')
@@ -1505,7 +1658,7 @@ function displayProjectNav(title){
     projectContent.style.opacity = 0
     projectContent.style.height = 0
     setTimeout(() => {
-    projectContent.innerHTML = ''
+      projectContent.innerHTML = ''
       //If a project nav is not inactive, make it inactive
       replaceClassesWith(title, ['project-title'], ['project-title-inactive'])
 
@@ -1513,18 +1666,18 @@ function displayProjectNav(title){
       navbar.style.opacity = 0
 
       setTimeout(() => {
-        navs.forEach(function(nav){
+        navs.forEach(function (nav) {
           ifContainsReplaceClassesWith([nav], ['project-nav-active', 'project-nav'], ['project-nav-inactive'])
         })
 
-        subNavs.forEach(function(subnav){
-          if(subnav.classList.contains('on-the-surface') || subnav.classList.contains('on-the-surface-active')){
+        subNavs.forEach(function (subnav) {
+          if (subnav.classList.contains('on-the-surface') || subnav.classList.contains('on-the-surface-active')) {
             ifContainsReplaceClassesWith([subnav], ['on-the-surface', 'on-the-surface-active'], ['on-the-surface-inactive'])
           }
-          else if(subnav.classList.contains('in-depth') || subnav.classList.contains('in-depth-active')){
+          else if (subnav.classList.contains('in-depth') || subnav.classList.contains('in-depth-active')) {
             ifContainsReplaceClassesWith([subnav], ['in-depth', 'in-depth-active'], ['in-depth-inactive'])
           }
-          else if(subnav.classList[0] == null){
+          else if (subnav.classList[0] == null) {
             subnav.classList.add('inactive');
           }
         })
@@ -1533,61 +1686,74 @@ function displayProjectNav(title){
       setTimeout(() => {
         tag.style.fontSize = ''
         tag.style.borderRadius = ''
+
+        interestTagDiv = projectHeader.querySelector('.interest-tag-div')
         
-        /*interestTagDiv = projectHeader.querySelector('.interest-tag-div')
-        
-        interestTagDiv.style.marginTop = ''*/
+        interestTagDiv.classList.toggle('active')
       }, 250);
     }, 500);
   }
-  else{
+  else {
     //ACTIVE
     project = findParentElementOfClass(title, 'project')
 
-    navbar.style.height = getTempNavbarHeight();
+    interestTagDiv = projectHeader.querySelector('.interest-tag-div')
+    
+    interestTagDiv.classList.toggle('active')
+
+    setTimeout(() => {
+      navbar.style.height = getTempNavbarHeight();
     navbar.style.opacity = 1
 
 
     technicalOverviewButton = navbar.querySelector('.technical-overview-wrapper').querySelector('.technical-overview-btn')
 
-    navs.forEach(function(nav){
-      if(nav.classList.contains('project-nav-inactive')){
+    navs.forEach(function (nav) {
+      if (nav.classList.contains('project-nav-inactive')) {
         replaceClassesWith(nav, ['project-nav-inactive'], ['project-nav'])
 
-        subNavs.forEach(function(subnav){
-          if(subnav.classList.contains('on-the-surface-inactive')){
+        subNavs.forEach(function (subnav) {
+          if (subnav.classList.contains('on-the-surface-inactive')) {
             subnav.classList.remove('on-the-surface-inactive')
             subnav.classList.add('on-the-surface')
           }
-          if(subnav.classList.contains('in-depth-inactive')){
+          if (subnav.classList.contains('in-depth-inactive')) {
             subnav.classList.remove('in-depth-inactive')
             subnav.classList.add('in-depth')
           }
-          if(subnav.classList.contains('inactive')){
+          if (subnav.classList.contains('inactive')) {
             subnav.classList.remove('inactive')
           }
-          });
-         
+        });
+
       }
     })
     tag.classList.remove('discipline-tag-inactive')
     tagFontSize = (getComputedStyle(tag).fontSize).replace("px", "")
     tag.style.fontSize = tagFontSize * 1.2 + 'px'
 
-    
-    /*interestTagDiv = projectHeader.querySelector('.interest-tag-div')
-    
-    interestTagDiv.style.marginTop = '3vh'*/
-
 
     displayProjectOverview(navbar.querySelector('.project-overview-btn'));
+    }, 600);
+    
   }
 }
 
-function setDefaultPageLayout(){
-    projects.forEach(function(project){
-        discipline = project.discipline;
-        content.innerHTML += `
+function displayProjectsByDiscipline(discipline) {
+  let sortedProjects = [];
+  projects.forEach(function (project) {
+    if (project.discipline.toLowerCase() == discipline.toLowerCase()) {
+      sortedProjects.push(project)
+    }
+  });
+  setDefaultPageLayout(sortedProjects);
+}
+
+function setDefaultPageLayout(projects) {
+  content.innerHTML = ''
+  projects.forEach(function (project) {
+    discipline = project.discipline;
+    content.innerHTML += `
         <section class="project" id='${project.projectID}'>
             <div class="project-header">
               <div class="project-title-div">
@@ -1596,7 +1762,7 @@ function setDefaultPageLayout(){
                 ${discipline in shortHand ? shortHand[discipline] : discipline.toUpperCase()}
                 </div>
               </div>
-              <div class="interest-tag-div">
+              <div class="interest-tag-div active">
 
               </div>
               <div class="project-navbar">
@@ -1618,13 +1784,13 @@ function setDefaultPageLayout(){
             <div class="project-content" id="${project.projectID}-content"><div/>
           </section>
         `
-        /*interestTagDiv = document.querySelector(`#${project.projectID}`).querySelector('.interest-tag-div')
+    interestTagDiv = document.querySelector(`#${project.projectID}`).querySelector('.interest-tag-div')
 
-        for(let key in project.interestTags){
-          interestTagDiv.innerHTML += `<div class="interest-tag interest-tag-inactive ${key}">${project.interestTags[key].toUpperCase( )}</</div>`
-        }*/
-    });
-     content.innerHTML += `
+    for(let key in project.interestTags){
+      interestTagDiv.innerHTML += `<div class="interest-tag interest-tag-inactive ${key}">${project.interestTags[key].toUpperCase( )}</</div>`
+    }
+  });
+  content.innerHTML += `
      <section class="project hidden-project">
             <div class="project-header">
               <div class="project-title-div">
@@ -1649,90 +1815,102 @@ function setDefaultPageLayout(){
             <div class="project-content hidden-project-content"><div/>
           </section>
         `
-    document.querySelectorAll('.project-content').forEach(function(projectContent){
-      if(!projectContent.classList.contains('hidden-project-content')){
-        projectContent.style.height = 0
-        projectContent.style.opacity = 0  
-      }
+  document.querySelectorAll('.project-content').forEach(function (projectContent) {
+    if (!projectContent.classList.contains('hidden-project-content')) {
+      projectContent.style.height = 0
+      projectContent.style.opacity = 0
+    }
   });
-    document.querySelectorAll('.project-navbar').forEach(function(navbar){
-      if(!navbar.classList.contains('hidden-project-navbar')){
-        navbar.style.height = 0
-        navbar.style.opacity = 0  
-      }
-  });
-
-    document.querySelectorAll('.project-overview-btn').forEach(function(button){
-      button.addEventListener('click', function() {
-          displayProjectOverview(this);
-      });
-  });
-    document.querySelectorAll('.technical-overview-btn').forEach(function(button){
-      button.addEventListener('click', function() {
-          displayTechnicalOverview(this, 'onTheSurface');
-      });
-  });
-    document.querySelectorAll('.engineering-process-btn').forEach(function(button){
-      button.addEventListener('click', function() {
-          displayEngineeringProcess(this);
-      });
-  });
-    document.querySelectorAll('.demo-btn').forEach(function(button){
-      button.addEventListener('click', function() {
-          displayDemo(this);
-      });
-  });
-    document.querySelectorAll('.on-the-surface-inactive').forEach(function(button){
-      button.addEventListener('click', function() {
-        displayTechnicalOverviewFromSubnav(this, 'onTheSurface');
-      });
-  });
-    document.querySelectorAll('.in-depth-inactive').forEach(function(button){
-      button.addEventListener('click', function() {
-        displayTechnicalOverviewFromSubnav(this, 'inDepth');
-      });
+  document.querySelectorAll('.project-navbar').forEach(function (navbar) {
+    if (!navbar.classList.contains('hidden-project-navbar')) {
+      navbar.style.height = 0
+      navbar.style.opacity = 0
+    }
   });
 
-    document.querySelectorAll('.project-title-inactive').forEach(button => {
-      button.addEventListener('click', function() {
-        displayProjectNav(this);
-      });
+  document.querySelectorAll('.project-overview-btn').forEach(function (button) {
+    button.addEventListener('click', function () {
+      displayProjectOverview(this);
+    });
   });
-    document.querySelectorAll('.discipline-tag-inactive').forEach(button => {
-      button.addEventListener('click', function() {
-        displayProjectNav(this.parentNode.querySelector('.project-title-inactive'));
-      });
+  document.querySelectorAll('.technical-overview-btn').forEach(function (button) {
+    button.addEventListener('click', function () {
+      displayTechnicalOverview(this, 'onTheSurface');
+    });
+  });
+  document.querySelectorAll('.engineering-process-btn').forEach(function (button) {
+    button.addEventListener('click', function () {
+      displayEngineeringProcess(this);
+    });
+  });
+  document.querySelectorAll('.demo-btn').forEach(function (button) {
+    button.addEventListener('click', function () {
+      displayDemo(this);
+    });
+  });
+  document.querySelectorAll('.on-the-surface-inactive').forEach(function (button) {
+    button.addEventListener('click', function () {
+      displayTechnicalOverviewFromSubnav(this, 'onTheSurface');
+    });
+  });
+  document.querySelectorAll('.in-depth-inactive').forEach(function (button) {
+    button.addEventListener('click', function () {
+      displayTechnicalOverviewFromSubnav(this, 'inDepth');
+    });
+  });
+
+  document.querySelectorAll('.project-title-inactive').forEach(button => {
+    button.addEventListener('click', function () {
+      displayProjectNav(this);
+    });
+  });
+  document.querySelectorAll('.discipline-tag-inactive').forEach(button => {
+    button.addEventListener('click', function () {
+      displayProjectNav(this.parentNode.querySelector('.project-title-inactive'));
+    });
+  });
+  document.querySelectorAll('.button-enabled, .button-disabled').forEach(button => {
+    button.addEventListener('click', function () {
+      document.querySelectorAll('.button-enabled').forEach(button => {
+        replaceClassesWith(button, ['button-enabled'], ['button-disabled'])
+      })
+      if (button.classList.contains('button-disabled')) {
+        replaceClassesWith(button, ['button-disabled'], ['button-enabled'])
+      }
+      displayProjectsByDiscipline(button.textContent)
+    })
   });
 }
 
 window.onload = function () {
-
+  document.documentElement.style.overflowX = 'hidden';
   function updateImage() {
-      if (window.innerWidth >= 2500) {
+    if (window.innerWidth >= 2500) {
 
-      } 
-      else if (window.innerWidth >= 2000) {
+    }
+    else if (window.innerWidth >= 2000) {
 
-      } 
-      else if (window.innerWidth >= 1600) {
+    }
+    else if (window.innerWidth >= 1600) {
 
-      } 
-      else if (window.innerWidth >= 1023) {
+    }
+    else if (window.innerWidth >= 1023) {
 
-      } 
-      else if (window.innerWidth >= 768) {
+    }
+    else if (window.innerWidth >= 768) {
 
-      } 
-      else if (window.innerWidth >= 553) {
+    }
+    else if (window.innerWidth >= 553) {
 
-      } 
-      else{
+    }
+    else {
 
-      } 
+    }
   }
 
   updateImage();
   window.addEventListener('resize', updateImage);
 };
 
-setDefaultPageLayout();
+
+setDefaultPageLayout(projects);
