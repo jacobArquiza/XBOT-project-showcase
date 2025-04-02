@@ -1349,7 +1349,6 @@ function ifContainsReplaceClassesWith(elements, oldClasses, newClasses) {
 
 //Button functions---------------------------------------------------------------------------------------
 
-
 function displayProjectOverview(projectOverviewButton) {
   //If the project isn't in focus, make it in focus and then continue
   if (projectOverviewButton.classList.contains('project-nav-inactive')) {

@@ -178,6 +178,14 @@ footer{
 	animation: waterText 4s ease-in-out infinite;
 }
 
+.wave-wrapper-wrapper{
+    position: absolute;
+    overflow-x: hidden;
+    width: 100vw;
+    height: fit-content;
+    height: 75vh;
+}
+
 .wave-wrapper{
     height: fit-content;
     width: 100vw;
@@ -724,7 +732,6 @@ video{
     .wave-wrapper {
         width: 300vw;
     }
-    
     .fg-wave-1, .fg-wave-2, .mfg-wave-1, .mfg-wave-2, .mbg-wave-1, .mbg-wave-2, .bg-wave-1, .bg-wave-2, .algae {
         width: 300vw; 
         animation: slideRight420-553 10s linear infinite; 
