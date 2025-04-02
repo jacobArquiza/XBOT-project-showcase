@@ -134,47 +134,65 @@ footer{
     overflow-x: hidden;
 }
 
-.team488-wrapper {
+#stroke, #fill{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.team488-real-wrapper {
 	position: relative;
-    left: 50%;
-    width: 100%;
-    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
 }
 
 #middle-text{
-    position: absolute;
-    top: 30%;
-    left: 0%;
-    transform: translateX(-50%);
     font-size: 2vw;
     color: #1c4587;
     font-family: "Poppins", sans-serif;
+    margin: 0 0;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.team488-wrapper #reefscape{
-    position: relative;
-    width: 50vw;
-    top: 15vw;
-    left: 0%;
-    transform: translateX(-50%);
-    filter: brightness(1.5);
+.team488-wrapper{
+    margin: auto auto;
+}
+
+#reefscape{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team488-real-wrapper{
+
+}
+
+.team488-wrapper {
+    #reefscape{
+        position: relative;
+        width: 50vw;
+        left: 0%;
+        filter: brightness(1.5);
+    }
 }
 
 .team488-wrapper h2 {
-	color: #ffffff;
 	font-size: 8vw;
 	position: absolute;
-	transform: translate(-50%, -4vw);
 	font-family: "Poppins", sans-serif;
 }
 
 #stroke {
 	color: transparent;
 	-webkit-text-stroke: 4px #1c4587;
+    position: absolute;
 }
 
 #fill {
 	color: #1c4587;
+    position:static;
 	animation: waterText 4s ease-in-out infinite;
 }
 
@@ -280,6 +298,8 @@ th{
 
 .links{
     position: sticky;
+    top: 0;
+    z-index: 1;
     width: 100vw;
     display: flex;
     flex-direction: row;
@@ -596,7 +616,11 @@ video{
     .project-title, .project-title-inactive{
         font-size: 7.9vw;
     }
-    
+
+    .discipline-tag{
+        font-size: ;
+    }
+
     .vision-discipline-tag, .programming-discipline-tag, .electrical-discipline-tag, .mechanical-discipline-tag, .cad-discipline-tag{
         border-radius: 5px;
         margin: 2vh 0 0 2vw;
@@ -673,17 +697,15 @@ video{
         position: absolute;
     }   
     #middle-text{
-        top: 50vw;
         font-size: 5vw;
     }
     
     .team488-wrapper #reefscape{
-        top: 65vw;
         width: 90vw;
+        margin: 0 0;
     }
     
     .team488-wrapper h2 {
-        transform: translate(-50%, 20vw);
         font-size: 16vw;
         border-width: 2px;
     }
@@ -888,17 +910,14 @@ video{
 
     }
     #middle-text{
-        top: 42.5vw;
         font-size: 5vw;
     }
     
     .team488-wrapper #reefscape{
-        top: 55vw;
         width: 78vw;
     }
     
     .team488-wrapper h2 {
-        transform: translate(-50%, 17vw);
         font-size: 15vw;
         border-width: 2px;
     }
@@ -1078,17 +1097,14 @@ video{
     }
     
     #middle-text{
-        top: 30vw;
         font-size: 5vw;
     }
     
     .team488-wrapper #reefscape{
-        top: 42vw;
         width: 70vw;
     }
     
     .team488-wrapper h2 {
-        transform: translate(-50%, 4vw);
         font-size: 16vw;
         border-width: 2px;
     }
@@ -1265,15 +1281,12 @@ video{
     }   
     
     #middle-text{
-        top: 22vw;
     }
     
     .team488-wrapper #reefscape{
-        top: 28vw;
     }
     
     .team488-wrapper h2 {
-        transform: translate(-50%, 6vw);
     }
 }
 
@@ -1381,19 +1394,19 @@ video{
         position: absolute;
     }   
     #middle-text{
-        top: 13vw;
     }
     
     .team488-wrapper #reefscape{
-        top: 18vw;
         width: 42vw;
     }
     
     .team488-wrapper h2 {
-        transform: translate(-50%, -1vw);
         font-size: 8vw;
     }
     #hero{
+        height: 80vh;
+    }
+    .wave-wrapper-wrapper{
         height: 80vh;
     }
 }
@@ -1501,19 +1514,19 @@ video{
         position: absolute;
     }   
     #middle-text{
-        top: 10vw;
     }
     
     .team488-wrapper #reefscape{
-        top: 15vw;
         width: 42vw;
     }
     
     .team488-wrapper h2 {
-        transform: translate(-50%, -4vw);
         font-size: 8vw;
     }
     #hero{
+        height: 80vh;
+    }
+    .wave-wrapper-wrapper{
         height: 80vh;
     }
 }
@@ -1627,16 +1640,13 @@ video{
         position: absolute;
     }   
     #middle-text{
-        top: 12vw;
     }
     
     .team488-wrapper #reefscape{
-        top: 17vw;
         width: 38vw;
     }
     
     .team488-wrapper h2 {
-        transform: translate(-50%, -2vw);
         font-size: 8vw;
     }
 }

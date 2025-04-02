@@ -1729,7 +1729,7 @@ function displayProjectNav(title) {
     })
     tag.classList.remove('discipline-tag-inactive')
     tagFontSize = (getComputedStyle(tag).fontSize).replace("px", "")
-    tag.style.fontSize = tagFontSize * 1.2 + 'px'
+    tag.style.fontSize = tagFontSize * 1.14 + 'px'
 
 
     displayProjectOverview(navbar.querySelector('.project-overview-btn'));
