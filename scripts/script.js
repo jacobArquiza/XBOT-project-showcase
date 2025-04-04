@@ -23,6 +23,20 @@ const projects = [
       'math': 'Math'
     },
 
+    demo: {
+      demo1: `
+      <p class="project-content-image-subtitle">
+          Probability Mapping of an Object in Space Over Time
+        </p>
+        <div class="project-content-image-div" style="margin: 2vh;">
+          <video controls>
+            <source src="https://youtu.be/GnieESBN85c" type="video/mp4">
+            Your browser does not support the demo
+          </video>
+        </div>
+      `
+    },
+
     projectOverview: {
       ourProblem: `
             <h3 class="project-content-item-title">Our Problem</h3>
@@ -681,6 +695,63 @@ const projects = [
             </div>`,
     }
   },
+  //Auto-Scouter
+  {
+    projectName: "Auto Scouting",
+
+    projectID: 'auto-scouting',
+
+    discipline: 'Vision',
+
+    interestTags: {
+      'ml': 'Machine Learning',
+      'ai': 'Artificial Intelligence',
+      'efficiency-booster': 'Efficiency Booster',
+      'math': 'Math',
+      'scouting': 'Scouting',
+    },
+
+    projectOverview: {
+      ourProblem: `<h3 class="project-content-item-title">Our Problem</h3>
+            <p class="project-content-item-paragraph">
+              With the most students on the team that we’ve ever had, when training them to scout, we <strong>noticed a crucial flaw in our process</strong>. We were teaching them to count points, fouls, and collisions; new to the FRC environment, these students <strong>won’t be looking at anything else but the quantitative physical actions done by their target robot</strong>. In reality, <strong>the information we need to make informed alliance decisions is qualitative</strong>. We need to know things like “<i>Does this team have an offense or defense bot?</i>”, “<i>How good is this team at what they do?</i>”, “<i>Is this robot prone to fouling?</i>”, “<i>Do their scoring tendencies interfere with ours?</i>”, etc. Being able to eliminate human error and track the rote actions of robots autonomously will <strong>help us efficiently get more valuable scouting data</strong>.
+            </p>`,
+      ourSolution: `<h3 class="project-content-item-title">Our Solution</h3>
+            <p class="project-content-item-paragraph">
+              <strong>Similar to <a href="https://www.firstinspires.org/robotics/frc/blog/2023-zebra-motionworks-for-first-robotics-competition-at-the-first-championship">Zebra Tags</a></strong> in years prior, we automate our scouting and gather information autonomously, <strong>taking a vision-assisted approach</strong>. Given a video input, we track each robot through a feature extraction model derived from our robust <a href="#auto-labeler">ML model</a>. Assigning a robot’s “look” to their team number, we track them across a game and <strong>create a heatmap on the field</strong>. We also <strong>log things like collisions </strong>with other robots,<strong> auto starting positions</strong>—all the typical scouting data. 
+            </p>`,
+      ourSolutionsImpact: `<h3 class="project-content-item-title">Our Solution's Impact</h3>
+            <p class="project-content-item-paragraph">
+              The Auto-Labeler allows us to dramatically<strong>
+                increase</strong
+              >
+              our labelers’ <strong>quality of life</strong>,
+              <strong>data output</strong>, and
+              <strong>model training speed</strong>. The resultant robust model
+              is the prerequisite to our advanced
+              <a href="#probability-map">Probabilistic Object Detection Map</a>,
+              which lies at the heart of all our vision systems.
+            </p>`,
+    },
+
+    surfaceTechnicalOverview: {
+      onTheSurfaceSlice: ``,
+      onTheSurfaceSegment: ``,
+      onTheSurfaceExtract: ``,
+      onTheSurfaceCheck: ``,
+    },
+    inDepthTechnicalOverview: {
+      inDepthSlice: ``,
+      inDepthSegment: ``,
+      inDepthExtract: ``,
+      inDepthCheck: ``,
+    },
+    engineeringProcess: {
+      problemIdentification: ``,
+      projectIdeationAndPlanning: ``,
+      projectTimeline: ``,
+    }
+  },
   //XDash
   {
     projectName: "XDash",
@@ -1269,6 +1340,7 @@ function getTempDivHeight(section, callback) {
     const height = hiddenProjectContent.clientHeight;
     hiddenProjectContent.innerHTML = ''; // Clear the content
     hiddenProjectContent.classList.add('hidden-project-content');
+    console.log(height)
     callback(height + 'px');
   }
 
@@ -1842,11 +1914,11 @@ function setDefaultPageLayout(projects) {
       displayEngineeringProcess(this);
     });
   });
-  document.querySelectorAll('.demo-btn').forEach(function (button) {
-    button.addEventListener('click', function () {
-      displayDemo(this);
-    });
-  });
+  // document.querySelectorAll('.demo-btn').forEach(function (button) {
+  //   button.addEventListener('click', function () {
+  //     displayDemo(this);
+  //   });
+  // });
   document.querySelectorAll('.on-the-surface-inactive').forEach(function (button) {
     button.addEventListener('click', function () {
       displayTechnicalOverviewFromSubnav(this, 'onTheSurface');

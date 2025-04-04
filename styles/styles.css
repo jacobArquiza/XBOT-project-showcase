@@ -425,6 +425,11 @@ a{
     
 }
 
+.demo-btn{
+    color: #a7a7a7 !important;
+    cursor: default !important;
+}
+
 .project-navbar{
     display: flex;
     flex-wrap: wrap;
@@ -435,7 +440,7 @@ a{
 }
 
 .project-content{  
-    transition: opacity 1s ease, height 0.5s ease-in-out;
+    transition: opacity 1s ease, height 0.5s ease-in-out, max-height 0.5s ease-in-out;
     overflow: hidden;
     opacity: 1;
     border-bottom: 2px solid rgb(191 191 191 /37%)
@@ -444,6 +449,11 @@ a{
 .project-nav{
     color:black;
 }
+
+.project-nav:hover{
+    cursor: pointer;
+}
+
 .interest-tag-div{
     display: flex;
     align-items: flex-start;
@@ -531,6 +541,10 @@ video{
 }
 
 @media (min-width: 0px) and (max-width: 420px){
+    .links{
+        height: 4vh;
+    }
+    
     .interest-tag{
         border-radius: 9px;
         font-size: 0.5rem;
@@ -617,10 +631,6 @@ video{
         font-size: 7.9vw;
     }
 
-    .discipline-tag{
-        font-size: ;
-    }
-
     .vision-discipline-tag, .programming-discipline-tag, .electrical-discipline-tag, .mechanical-discipline-tag, .cad-discipline-tag{
         border-radius: 5px;
         margin: 2vh 0 0 2vw;
@@ -664,6 +674,10 @@ video{
         padding: 0.1vw 0.1vw;
     }
     
+    .on-the-surface, .in-depth{
+        cursor: pointer;
+    }
+
     .on-the-surface-active{
         color: #55ACFE;
     }
@@ -744,6 +758,9 @@ video{
 }
 
 @media (min-width: 420px) and (max-width: 553px){
+    .links{
+        height: 5vh;
+    }
     .interest-tag{
         border-radius: 9px;
         font-size: 0.6rem;
@@ -933,7 +950,9 @@ video{
     }
 }
 @media (min-width: 553px) and (max-width:769px){
-
+    .links{
+        height: 5vh;
+    }
     .button-enabled,.button-disabled{
         font-size: 3vw;
     }
@@ -1110,6 +1129,12 @@ video{
     }
     #stroke{
         -webkit-text-stroke: 3px #1c4587;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1440){
+    .links{
+        height: 6vh;
     }
 }
 
